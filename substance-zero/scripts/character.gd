@@ -7,6 +7,7 @@ enum Weapons {
 	CHARGE_GUN
 }
 
+# modified from exercise 1
 enum Facing { 
 	LEFT,
 	RIGHT,
@@ -22,7 +23,7 @@ const _DEFAULT_SPEED = 300.0
 var weapon:int = Weapons.MELEE
 var powerups:Array[int]
 
-# commands
+# commands from exercise 1 along with some new commands
 var move_up_left:Command
 var move_up_right:Command
 var move_down_left:Command

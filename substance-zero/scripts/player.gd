@@ -1,6 +1,8 @@
 class_name Player
 extends Character
 
+# bind_player_input_commands(), unbind_player_input_commands(), and execute() commands are from exercise 1
+
 
 func bind_player_input_commands() -> void:
 	move_up_left = MoveUpLeftCommand.new()
