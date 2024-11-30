@@ -1,21 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=5 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="1_rsd14"]
 [ext_resource type="PackedScene" uid="uid://bs77ldrtjm7f0" path="res://scenes/cutscene_trigger.tscn" id="3_umxqw"]
+[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
 
 [node name="Player" parent="." instance=ExtResource("1_rsd14")]
-position = Vector2(123, 209)
+position = Vector2(217, 297)
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
+position = Vector2(217, 297)
 
 [node name="EnemySpawn" type="Node2D" parent="."]
+position = Vector2(217, 297)
 
 [node name="CutsceneTrigger" parent="." instance=ExtResource("3_umxqw")]
-position = Vector2(487, 271)
+position = Vector2(1034, 300)
 
 [node name="CutsceneManager" type="Node" parent="."]
 script = ExtResource("1_gw17q")
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("4_5p6fg")

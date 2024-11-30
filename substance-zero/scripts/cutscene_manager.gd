@@ -3,7 +3,7 @@ class_name CutSceneManager
 extends Node
 
 
-var player_cmd_list : Array[Command]
+var player_cmd_list:Array[Command]
 
 var command_status:Command.Status
 var _cutscene_played:bool = false

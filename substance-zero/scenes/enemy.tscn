@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://62yle7rudjmu"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1fc0o"]
+[ext_resource type="Texture2D" uid="uid://cmkf7by3u3svm" path="res://icon.svg" id="1_h2ykf"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="3_5soux"]
+[ext_resource type="PackedScene" uid="uid://bm5hln0tn5ulp" path="res://scenes/weapons/melee.tscn" id="4_hfjpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5msa0"]
+size = Vector2(136.5, 137.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opmpf"]
+size = Vector2(136.375, 139.25)
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(378, 118)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_1fc0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -2)
+shape = SubResource("RectangleShape2D_5msa0")
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("3_5soux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(3.8125, -3.625)
+shape = SubResource("RectangleShape2D_opmpf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -1)
+texture = ExtResource("1_h2ykf")
+
+[node name="Melee" parent="." instance=ExtResource("4_hfjpy")]
+position = Vector2(-120, -1)
+rotation = -3.14159

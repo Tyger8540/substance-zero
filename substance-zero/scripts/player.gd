@@ -1,9 +1,8 @@
 class_name Player
 extends Character
 
-# bind_player_input_commands(), unbind_player_input_commands(), and execute() commands are from exercise 1
 
-
+# from exercise 1
 func bind_player_input_commands() -> void:
 	move_up_left = MoveUpLeftCommand.new()
 	move_up_right = MoveUpRightCommand.new()
@@ -16,7 +15,7 @@ func bind_player_input_commands() -> void:
 	attack = AttackCommand.new()
 	idle = IdleCommand.new()
 
-
+# from exercise 1
 func unbind_player_input_commands() -> void:
 	move_up_left = Command.new()
 	move_up_right = Command.new()
@@ -32,13 +31,24 @@ func unbind_player_input_commands() -> void:
 
 func _ready():
 	bind_player_input_commands()
+	#equip_melee()
 
 
+# modified from exercise 1
+# execute() commands are from exercise 1
 func _physics_process(delta):
 	
-	# handle attack
-	if Input.is_action_pressed("attack"):
+	# handle equipping weapons
+	if Input.is_action_just_pressed("melee"):
+		print("equipping melee")
+		#equip_melee()
+	elif Input.is_action_just_pressed("primary"):
+		equip_primary()
+		
+	if Input.is_action_just_pressed("attack"):
 		attack.execute(self)
+	elif Input.is_action_just_released("attack"):
+		attacking = false
 		
 	# handle movement
 	if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):

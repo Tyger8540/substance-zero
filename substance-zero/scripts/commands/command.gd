@@ -7,5 +7,6 @@ enum Status {
 	ERROR
 }
 
+
 func execute(_character: Character) -> Status:
 	return Status.ERROR
