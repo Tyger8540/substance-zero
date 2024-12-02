@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs77ldrtjm7f0"]
+
+[ext_resource type="Script" path="res://scripts/cutscene_trigger.gd" id="1_ucqmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miqav"]
+size = Vector2(112, 91)
+
+[node name="CutsceneTrigger" type="Area2D"]
+position = Vector2(148, 118)
+script = ExtResource("1_ucqmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(46, 35.5)
+shape = SubResource("RectangleShape2D_miqav")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
