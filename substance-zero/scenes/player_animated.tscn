@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://dxb8g0cbxxokj"]
 
-[ext_resource type="Script" path="res://script/player.gd" id="1_dw4j5"]
+[ext_resource type="Script" path="res://script/player_animated.gd" id="1_dw4j5"]
 [ext_resource type="Texture2D" uid="uid://dvjfn2qksicd0" path="res://sprites/characters/player/Warrior_sprite_sheet.png" id="2_b8ccy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lah3s"]
