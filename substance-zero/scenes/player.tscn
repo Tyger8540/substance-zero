@@ -50,7 +50,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("Sprite2D:frame_coords")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -59,6 +59,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(48, 0), Vector2i(49, 0), Vector2i(50, 0), Vector2i(51, 0), Vector2i(52, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53, 54]
 }
 
 [sub_resource type="Animation" id="Animation_iwxtc"]
@@ -298,13 +310,13 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nfq1m"]
 states/Attack/node = SubResource("AnimationNodeAnimation_vvdn5")
-states/Attack/position = Vector2(358.102, 45.5017)
+states/Attack/position = Vector2(360.388, 45.5017)
 states/End/position = Vector2(689.714, 139.213)
 states/Idle/node = SubResource("AnimationNodeAnimation_mbwr1")
 states/Idle/position = Vector2(260.388, 177.147)
 states/Move/node = SubResource("AnimationNodeAnimation_bnbxg")
 states/Move/position = Vector2(492.388, 176.653)
-states/Start/position = Vector2(136.572, 177.758)
+states/Start/position = Vector2(136.572, 178.388)
 transitions = ["Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_v0exg"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_uqukf"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_43k7b"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_hv3k1"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_mejyf"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_uu4xt"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5s8us")]
 graph_offset = Vector2(88.9595, 0)
 

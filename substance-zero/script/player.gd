@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 var attacking:bool = false
-#var _damaged:bool = false
+var _damaged:bool = false
 
 
 func _ready():
@@ -12,7 +12,9 @@ func _ready():
 
 
 func get_input():
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if (Input.is_action_just_pressed("attack")):
+		attacking = true;
 	velocity = input_dir * speed
 
 
@@ -24,18 +26,18 @@ func _physics_process(delta: float) -> void:
 
 
 func _manage_animation_tree_state() -> void:
-	if !is_zero_approx(velocity.x):
+	if !is_zero_approx(velocity.x) || !is_zero_approx(velocity.y):
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/moving"] = true
 	else:
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/moving"] = false
 	#toggles
-	#if attacking:
-		#animation_tree["parameters/conditions/attacking"] = true
-		#attacking = false
-	#else:
-		#animation_tree["parameters/conditions/attacking"] = false
+	if attacking:
+		animation_tree["parameters/conditions/attacking"] = true
+		attacking = false
+	else:
+		animation_tree["parameters/conditions/attacking"] = false
 		
 	#if _damaged:
 		#animation_tree["parameters/conditions/damaged"] = true
