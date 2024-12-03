@@ -33,7 +33,7 @@ func spawn_enemies() -> void:
 	_enemies.append(new_enemy)
 	
 	# equip a weapon for the enemy
-	new_enemy.equip_melee()
+	#new_enemy.equip_melee()
 	
 	# set enemy's position relative to the player
 	new_enemy.global_position.x = _player.global_position.x + _enemy_offset_x
@@ -42,10 +42,11 @@ func spawn_enemies() -> void:
 	# make sure enemy does not overlap with another enemy
 	_enemy_offset_x += _offset_x
 	_enemy_offset_y += _offset_y
+	
 		
 
 func move_enemies() -> void:
-	print('moving enemies')
+	pass
 	
 
 func _physics_process(_delta):

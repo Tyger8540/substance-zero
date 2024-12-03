@@ -9,18 +9,14 @@ enum Facing {
 	DOWN
 }
 
+# from exercise 1
 var facing:Facing = Facing.RIGHT
 
-# commmands
+# modified commmands from exercise 1
 var move_right:HurtBoxCommand
 var move_left:HurtBoxCommand
 var move_up:HurtBoxCommand
 var move_down:HurtBoxCommand
-
-# stats
-var length:float
-var damage:float
-var speed:float = 50.0
 
 
 func _init() -> void:

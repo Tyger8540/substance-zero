@@ -9,4 +9,6 @@ func execute(character: Character) -> Status:
 	character.velocity.x = input
 	#character.sprite.flip_h = false
 	#character.change_facing(Character.Facing.RIGHT)
+	character.facing = character.Facing.RIGHT
+	character.rotation = character.RIGHT_IN_RADIANS
 	return Status.DONE

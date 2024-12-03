@@ -15,6 +15,7 @@ func bind_player_input_commands() -> void:
 	attack = AttackCommand.new()
 	idle = IdleCommand.new()
 
+
 # from exercise 1
 func unbind_player_input_commands() -> void:
 	move_up_left = Command.new()
@@ -28,11 +29,10 @@ func unbind_player_input_commands() -> void:
 	attack = Command.new()
 	idle = Command.new()
 
-
+# from exercise 1
 func _ready():
 	bind_player_input_commands()
-	#equip_melee()
-
+	
 
 # modified from exercise 1
 # execute() commands are from exercise 1
@@ -40,15 +40,14 @@ func _physics_process(delta):
 	
 	# handle equipping weapons
 	if Input.is_action_just_pressed("melee"):
-		print("equipping melee")
-		#equip_melee()
+		current_weapon = Weapons.MELEE
+		print("equipped melee")
 	elif Input.is_action_just_pressed("primary"):
-		equip_primary()
+		current_weapon = primary_weapon
+		print("equipped primary weapon")
 		
 	if Input.is_action_just_pressed("attack"):
 		attack.execute(self)
-	elif Input.is_action_just_released("attack"):
-		attacking = false
 		
 	# handle movement
 	if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):

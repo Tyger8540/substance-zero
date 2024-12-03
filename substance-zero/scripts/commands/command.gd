@@ -8,5 +8,5 @@ enum Status {
 }
 
 
-func execute(_character: Character) -> Status:
+func execute(_character:Character) -> Status:
 	return Status.ERROR

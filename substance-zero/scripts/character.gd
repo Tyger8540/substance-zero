@@ -15,21 +15,47 @@ enum Facing {
 	DOWN
 }
 
-# stats
+# constants
+const LEFT_IN_RADIANS = 180.0 * 3.14 / 180.0
+const RIGHT_IN_RADIANS = 0.0 * 3.14 / 180.0
+const UP_IN_RADIANS = 90 * 3.14 / 180.0
+const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
+
 const _DEFAULT_HEALTH:float = 100.0
 const _DEFAULT_SPEED:float = 300.0
-const _DEFAULT_LENGTH:float = 10.0
-const _DEFAULT_DAMAGE:float = 10.0
+
+const _DEFAULT_MELEE_LENGTH = 10.0
+const _DEFAULT_MELEE_DAMAGE = 10.0
+const _DEFAULT_MELEE_OFFSET = 120.0
+const _DEFAULT_MELEE_DURATION = 0.1
+
+const _DEFAULT_PROJECTILE_LENGTH = 10.0
+const _DEFAULT_PROJECTILE_DAMAGE = 10.0
+const _DEFAULT_PROJECTILE_SPEED = 50.0
+const _DEFAULT_PROJECTILE_OFFSET = 120.0
+const _DEFAULT_PROJECTILE_DURATION = 0.2
+
+# stats
 @export var health:float = _DEFAULT_HEALTH
 @export var speed:float = _DEFAULT_SPEED
 @export var level:int = 0
 
-@export var projectile_offset_x:float = 100.0
+# melee
+@export var default_melee_length:float = _DEFAULT_MELEE_LENGTH
+@export var default_melee_damage:float = _DEFAULT_MELEE_DAMAGE
+@export var default_melee_offset:float = _DEFAULT_MELEE_OFFSET
+@export var default_melee_duration:float = _DEFAULT_MELEE_DURATION
+
+# projectiles
+@export var default_projectile_length:float = _DEFAULT_PROJECTILE_LENGTH
+@export var default_projectile_damage:float = _DEFAULT_PROJECTILE_DAMAGE
+@export var default_projectile_speed:float = _DEFAULT_PROJECTILE_SPEED
+@export var default_projectile_offset:float = _DEFAULT_PROJECTILE_OFFSET
+@export var default_projectile_duration:float = _DEFAULT_PROJECTILE_DURATION
 
 # inventory
-var melee_weapon:Melee
-var primary_weapon:int
-var weapons:Array[Weapons]
+var current_weapon:Weapons = Weapons.MELEE
+var primary_weapon:Weapons = Weapons.LASER_GUN
 var powerups:Array[int]
 
 # commands from exercise 1 along with some new commands
@@ -45,49 +71,111 @@ var attack:Command
 var idle:Command
 
 # from exercise 1
-var attacking:bool = false
 var facing:Facing = Facing.RIGHT
 
 # from exercise 3
+@onready var melee = load("res://scenes/weapons/melee.tscn")
 @onready var projectile = load("res://scenes/weapons/projectile.tscn")
 @onready var projectile_spawn = $"../ProjectileSpawn"
 
 # from exercise 1
 func take_damage(damage:float) -> void:
 	health -= damage
-	if health < 0.0:
+	if health <= 0.0:
 		health = 0.0
+		queue_free()
+		print("character died")
+		
+		
+func handle_position(hurtbox:HurtBox, offset:float) -> void:
+	hurtbox.global_position = global_position
+	if facing == Facing.LEFT:
+		hurtbox.global_position.x -= offset
+	elif facing == Facing.RIGHT:
+		hurtbox.global_position.x += offset
+	elif facing == Facing.UP:
+		hurtbox.global_position.y -= offset
+	elif facing == Facing.DOWN:
+		hurtbox.global_position.y += offset
+		
+		
+func set_facing_of_hurtbox(hurtbox:HurtBox) -> void:
+	if facing == Facing.LEFT:
+		hurtbox.rotation = LEFT_IN_RADIANS
+		hurtbox.facing = hurtbox.Facing.LEFT
+	elif facing == Facing.RIGHT:
+		hurtbox.rotation = RIGHT_IN_RADIANS
+		hurtbox.facing = hurtbox.Facing.RIGHT
+	elif facing == Facing.UP:
+		hurtbox.rotation = UP_IN_RADIANS
+		hurtbox.facing = hurtbox.Facing.UP
+	elif facing == Facing.DOWN:
+		hurtbox.rotation = DOWN_IN_RADIANS
+		hurtbox.facing = hurtbox.Facing.DOWN
 
 
-func clear_weapons() -> void:
-	#for weapon in weapons:
-		# disable collision
-		# make invisible
+func attack_with_melee(length:float=default_melee_length, damage:float=default_melee_damage, offset:float=default_melee_offset, duration:float=default_melee_duration) -> void:
+	
+	# check if player already has melee equipped
 	for child in get_children():
 		if child.name == "Melee":
-			child.collision_layer = 0
-			child.collision_mask = 0
-	pass
-
-
-func equip_melee(length:float=_DEFAULT_LENGTH, damage:float=_DEFAULT_DAMAGE) -> void:
-	# clear other weapons
-	for child in get_children():
-		if child.name == "Melee":
-			child.length = length
-			child.damage = damage
-			child.collision_layer = 8
-			child.collision_mask = 0
-
-
-func equip_primary(_length:float=_DEFAULT_LENGTH, _damage:float=_DEFAULT_DAMAGE) -> void:
-	clear_weapons()
-	primary_weapon = Weapons.LASER_GUN
+			return
+	
+	# modified from exercise 3
+	
+	# make a melee spec
+	var melee_spec:MeleeSpec = MeleeSpec.new()
+	melee_spec.length = length
+	melee_spec.damage = damage
+	# duration makes the melee disappear so it does not block projectiles
+	melee_spec.duration = duration
+	melee_spec.offset = offset
+	
+	# make a melee factory to build the melee
+	var melee_factory:MeleeFactory = MeleeFactory.new()
+	
+	# make a melee
+	var new_melee:Melee = melee_factory.build(melee_spec, self)
+	
+	# equip melee to character
+	add_child(new_melee)
+	
+	# set position of melee
+	handle_position(new_melee, offset)
+	
+	
+func fire_laser_gun(length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
+	
+	# modified from exercise 3
+	
+	# make a projectile spec
+	var projectile_spec:ProjectileSpec = ProjectileSpec.new()
+	projectile_spec.length = length
+	projectile_spec.damage = damage
+	projectile_spec.speed = speed
+	projectile_spec.offset = offset
+	projectile_spec.duration = duration
+	
+	# make a projectile factory to build the projectile
+	var projectile_factory:ProjectileFactory = ProjectileFactory.new()
+	
+	# make a projectile
+	var new_projectile:Projectile = projectile_factory.build(projectile_spec, self)
+	
+	# add projectile to projectile spawn
+	projectile_spawn.add_child(new_projectile)
+	
+	# set position of projectile
+	handle_position(new_projectile, offset)
+	
+	# handle direction
+	# since projectiles are children of the projectile spawn, set facing of the hurtbox
+	set_facing_of_hurtbox(new_projectile)
 
 
 func _ready():
 	pass
-	
+
 
 func _physics_process(_delta):
 	move_and_slide()

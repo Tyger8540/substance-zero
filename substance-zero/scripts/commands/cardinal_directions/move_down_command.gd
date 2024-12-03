@@ -8,5 +8,6 @@ func execute(character: Character) -> Status:
 	var input = character.speed
 	character.velocity.y = input
 	#character.sprite.flip_h = false
-	#character.change_facing(Character.Facing.DOWN)
+	character.facing = character.Facing.DOWN
+	character.rotation = character.DOWN_IN_RADIANS
 	return Status.DONE

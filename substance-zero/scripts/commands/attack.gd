@@ -4,18 +4,10 @@ extends Command
 
 
 func execute(character:Character) -> Status:
-	character.attacking = true
-	if character.primary_weapon == character.Weapons.LASER_GUN:
-		# modified from exercise 3
-		var new_projectile:Projectile = character.projectile.instantiate() as Projectile
-		character.projectile_spawn.add_child(new_projectile)
+	if character.current_weapon == character.Weapons.MELEE:
+		character.attack_with_melee()
+	elif character.current_weapon == character.Weapons.LASER_GUN:
+		character.fire_laser_gun()
 		
-		# set position of projectile
-		new_projectile.global_position = character.global_position
-		new_projectile.global_position.x += character.projectile_offset_x
-		
-		# handle direction
-		if character.facing == character.Facing.RIGHT:
-			new_projectile.facing = HurtBox.Facing.RIGHT
-			
 	return Status.DONE
+	
