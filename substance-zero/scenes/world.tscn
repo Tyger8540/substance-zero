@@ -1,11 +1,20 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://b05vmja2pmstv"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://b05vmja2pmstv"]
+>>>>>>> af1eae4f690a155ab22493f4ad6cac526930ef31
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
 [ext_resource type="PackedScene" uid="uid://bs77ldrtjm7f0" path="res://scenes/cutscene_trigger.tscn" id="3_umxqw"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
 [ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
+<<<<<<< HEAD
 [ext_resource type="FontFile" uid="uid://c8qyd1t77fca8" path="res://sprites/Interface/GravityBold8.ttf" id="6_f6tc3"]
+=======
+[ext_resource type="Script" path="res://scenes/powerup_label.gd" id="6_7161i"]
+[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="6_u3q6a"]
+>>>>>>> af1eae4f690a155ab22493f4ad6cac526930ef31
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
@@ -30,8 +39,39 @@ script = ExtResource("4_5p6fg")
 [node name="HazardManager" type="Node" parent="."]
 script = ExtResource("5_dlf44")
 
+<<<<<<< HEAD
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("6_f6tc3")
 text = "Space Game"
+=======
+[node name="PowerupLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 563.0
+offset_top = 612.0
+offset_right = 811.0
+offset_bottom = 635.0
+horizontal_alignment = 1
+script = ExtResource("6_7161i")
+
+[node name="Timer" type="Timer" parent="PowerupLabel"]
+wait_time = 4.0
+one_shot = true
+
+[node name="PowerUp" parent="." instance=ExtResource("6_u3q6a")]
+position = Vector2(693, 462)
+
+[node name="PowerUp2" parent="." instance=ExtResource("6_u3q6a")]
+position = Vector2(234, 457)
+
+[node name="PowerUp3" parent="." instance=ExtResource("6_u3q6a")]
+position = Vector2(559, 279)
+type = 1
+
+[node name="PowerUp4" parent="." instance=ExtResource("6_u3q6a")]
+position = Vector2(858, 111)
+type = 1
+
+[connection signal="timeout" from="PowerupLabel/Timer" to="PowerupLabel" method="_on_timer_timeout"]
+>>>>>>> af1eae4f690a155ab22493f4ad6cac526930ef31
