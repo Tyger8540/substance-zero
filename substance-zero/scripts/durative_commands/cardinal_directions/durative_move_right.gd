@@ -12,7 +12,9 @@ func _init(duration:float):
 func execute(character:Character) -> Status:
 	character.velocity.x = character.character_speed
 	character.facing = character.Facing.RIGHT
-	character.rotation = character.RIGHT_IN_RADIANS
+	for child in character.get_children():
+		if child.name == "Sprite2D":
+			child.flip_h = false
 	var status:Command.Status = _manage_durative_animation_command(character, "move", _duration)
 	if status == Status.DONE:
 		character.velocity.x = 0

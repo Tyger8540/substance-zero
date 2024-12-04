@@ -10,5 +10,7 @@ func execute(character: Character) -> Status:
 	#character.sprite.flip_h = true
 	#character.change_facing(Character.Facing.LEFT)
 	character.facing = character.Facing.LEFT
-	character.rotation = character.LEFT_IN_RADIANS
+	for child in character.get_children():
+		if child.name == "Sprite2D":
+			child.flip_h = true
 	return Status.DONE
