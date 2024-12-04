@@ -4,6 +4,10 @@ extends Enemy
 
 func _ready():
 	scientist_animation_tree.active = true
+	
+func _physics_process(delta: float) -> void:
+	_manage_animation_tree_state()
+	super(delta)
 
 func _manage_animation_tree_state() -> void:
 	if !is_zero_approx(velocity.x) || !is_zero_approx(velocity.y):
@@ -19,8 +23,8 @@ func _manage_animation_tree_state() -> void:
 	else:
 		scientist_animation_tree["parameters/conditions/attacking"] = false
 		
-	if damaged:
-		scientist_animation_tree["parameters/conditions/damaged"] = true
-		damaged = false
-	else:
-		scientist_animation_tree["parameters/conditions/damaged"] = false
+	#if damaged:
+		#scientist_animation_tree["parameters/conditions/damaged"] = true
+		#damaged = false
+	#else:
+		#scientist_animation_tree["parameters/conditions/damaged"] = false
