@@ -2,7 +2,7 @@
 class_name EnemyManager
 extends Node
 
-@export var max_enemies:int = 3
+@export var max_enemies:int = 8
 
 # offset relative to the player
 @export var _enemy_offset_x = 250.0
