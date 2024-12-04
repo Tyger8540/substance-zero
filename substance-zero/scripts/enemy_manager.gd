@@ -12,7 +12,7 @@ extends Node
 @export var _offset_x = 150.0
 @export var _offset_y = 150.0
 
-var _enemies:Array[Enemy]
+var command_status:Command.Status
 
 # from exercise 1
 @onready var _player = $"../Player"
@@ -22,18 +22,18 @@ var _enemies:Array[Enemy]
 @onready var _enemy:PackedScene = load("res://scenes/enemy.tscn")
 
 
-func spawn_enemies() -> void:
+func spawn_enemy() -> void:
 	# modified from exercise 3
 	
 	# initialize new enemy
 	var new_enemy:Enemy = _enemy.instantiate() as Enemy
 	
-	# add to enemy to enemy spawn node and enemy array
+	# add to enemy to enemy spawn
 	_enemy_spawn.add_child(new_enemy)
-	_enemies.append(new_enemy)
 	
-	# equip a weapon for the enemy
-	#new_enemy.equip_melee()
+	# set enemy weapon
+	# by default it is the melee
+	new_enemy.current_weapon = new_enemy.Weapons.LASER_GUN
 	
 	# set enemy's position relative to the player
 	new_enemy.global_position.x = _player.global_position.x + _enemy_offset_x
@@ -45,13 +45,29 @@ func spawn_enemies() -> void:
 	
 		
 
-func move_enemies() -> void:
-	pass
+func _give_enemies_commands(enemy:Enemy) -> void:
+	enemy.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(AttackCommand.new())
 	
-
+	
+func _execute_commands(enemy:Enemy) -> void:
+	for command in enemy.enemy_cmd_list:
+		command_status = enemy.enemy_cmd_list.front().execute(enemy)
+		if command_status == Command.Status.DONE:
+			enemy.enemy_cmd_list.pop_front()
+	
+	
 func _physics_process(_delta):
-	if _player.health > 0.0 and len(_enemies) < max_enemies:
-		spawn_enemies()
+	if _player.health > 0.0 and len(_enemy_spawn.get_children()) < max_enemies:
+		spawn_enemy()
 	
-	#if len(_enemy_spawn.get_children()) > 0:
-		#move_enemies()
+	for enemy in _enemy_spawn.get_children():
+		if len(enemy.enemy_cmd_list) == 0:
+			_give_enemies_commands(enemy)
+			
+		_execute_commands(enemy)
+		
+	
