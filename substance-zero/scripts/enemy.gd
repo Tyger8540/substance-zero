@@ -3,7 +3,7 @@ extends Character
 
 var enemy_cmd_list:Array[Command]
 @onready var projectile_spawn = $"../../ProjectileSpawn"
-
+var attacking:bool
 
 func _ready():
 	pass

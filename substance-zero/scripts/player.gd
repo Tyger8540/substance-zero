@@ -2,6 +2,10 @@ class_name Player
 extends Character
 
 @onready var projectile_spawn = $"../ProjectileSpawn"
+@onready var animation_tree: AnimationTree = $AnimationTree
+
+var attacking:bool = false
+#var _damaged:bool = false
 
 
 # from exercise 1
@@ -34,8 +38,9 @@ func unbind_player_input_commands() -> void:
 
 # from exercise 1
 func _ready():
+	animation_tree.active = true
 	bind_player_input_commands()
-	
+
 
 # modified from exercise 1
 # execute() commands are from exercise 1
@@ -73,3 +78,26 @@ func _physics_process(delta):
 		idle.execute(self)
 		
 	super(delta)
+	
+	_manage_animation_tree_state()
+
+
+func _manage_animation_tree_state() -> void:
+	if !is_zero_approx(velocity.x) || !is_zero_approx(velocity.y):
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/moving"] = true
+	else:
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/moving"] = false
+	#toggles
+	if attacking:
+		animation_tree["parameters/conditions/attacking"] = true
+		attacking = false
+	else:
+		animation_tree["parameters/conditions/attacking"] = false
+		
+	#if _damaged:
+		#animation_tree["parameters/conditions/damaged"] = true
+		#_damaged = false
+	#else:
+		#animation_tree["parameters/conditions/damaged"] = false

@@ -6,6 +6,7 @@ extends Command
 
 
 func execute(character:Character) -> Status:
+	character.attacking = true
 	if character.current_weapon == character.Weapons.MELEE:
 		character.attack_with_melee()
 	elif character.current_weapon == character.Weapons.LASER_GUN:
