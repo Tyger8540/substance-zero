@@ -70,6 +70,10 @@ var move_down:Command
 var attack:Command
 var idle:Command
 
+var attacking:= false
+var damaged := false
+var dead := false
+
 # from exercise 1
 var facing:Facing = Facing.RIGHT
 
@@ -80,7 +84,9 @@ var facing:Facing = Facing.RIGHT
 # from exercise 1
 func take_damage(damage:float) -> void:
 	health -= damage
+	damaged = true
 	if health <= 0.0:
+		dead = true
 		health = 0.0
 		queue_free()
 		print("character died")

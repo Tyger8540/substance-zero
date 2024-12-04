@@ -4,9 +4,6 @@ extends Character
 @onready var projectile_spawn = $"../ProjectileSpawn"
 @onready var animation_tree: AnimationTree = $AnimationTree
 
-var attacking:bool = false
-#var _damaged:bool = false
-
 
 # from exercise 1
 func bind_player_input_commands() -> void:
@@ -96,8 +93,8 @@ func _manage_animation_tree_state() -> void:
 	else:
 		animation_tree["parameters/conditions/attacking"] = false
 		
-	#if _damaged:
-		#animation_tree["parameters/conditions/damaged"] = true
-		#_damaged = false
-	#else:
-		#animation_tree["parameters/conditions/damaged"] = false
+	if damaged:
+		animation_tree["parameters/conditions/damaged"] = true
+		damaged = false
+	else:
+		animation_tree["parameters/conditions/damaged"] = false

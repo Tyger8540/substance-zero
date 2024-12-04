@@ -13,7 +13,6 @@ func _on_area_entered(hurtbox:HurtBox) -> void:
 	
 	if hurtbox.name_of_hurtbox == "Melee":
 		owner.take_damage(hurtbox.damage)
-		
 		print("melee hit")
 		print(owner.name)
 		print("took damage")
