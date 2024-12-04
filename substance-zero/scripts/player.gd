@@ -1,6 +1,7 @@
 class_name Player
 extends Character
 
+# from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
 
 
