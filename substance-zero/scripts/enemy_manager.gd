@@ -53,6 +53,7 @@ func _give_enemies_commands(enemy:Enemy) -> void:
 	enemy.enemy_cmd_list.push_back(AttackCommand.new())
 	
 	
+# from exercise 1
 func _execute_commands(enemy:Enemy) -> void:
 	for command in enemy.enemy_cmd_list:
 		command_status = enemy.enemy_cmd_list.front().execute(enemy)
@@ -70,4 +71,4 @@ func _physics_process(_delta):
 			
 		_execute_commands(enemy)
 		
-	
+		

@@ -1,8 +1,9 @@
 class_name Player
 extends Character
 
-@onready var projectile_spawn = $"../ProjectileSpawn"
 @onready var animation_tree: AnimationTree = $AnimationTree
+# from exercise 3
+@onready var projectile_spawn = $"../ProjectileSpawn"
 
 
 # from exercise 1

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://behkgsg0tge21"]
+
+[ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="1_cysll"]
+[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_y2ic7"]
+
+[node name="PowerUpTestWorld" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cysll")]
+
+[node name="PowerUp" parent="." instance=ExtResource("2_y2ic7")]
+position = Vector2(196, 217)
+scale = Vector2(0.5, 0.5)
+
+[node name="PowerUp2" parent="." instance=ExtResource("2_y2ic7")]
+position = Vector2(339, 115)
+scale = Vector2(0.5, 0.5)
+
+[node name="PowerUp3" parent="." instance=ExtResource("2_y2ic7")]
+position = Vector2(394, 259)
+scale = Vector2(0.5, 0.5)
+
+[node name="PowerUp4" parent="." instance=ExtResource("2_y2ic7")]
+position = Vector2(552, 168)
+scale = Vector2(0.5, 0.5)

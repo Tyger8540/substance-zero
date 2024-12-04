@@ -149,6 +149,9 @@ func attack_with_melee(starting_position_x:float=global_position.x, starting_pos
 	# set position of melee
 	handle_position(new_melee, starting_position_x, starting_position_y, offset)
 	
+	# handle direction
+	set_facing_of_hurtbox(new_melee)
+	
 	
 func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_position.x, starting_position_y:float=global_position.y, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
 	
@@ -174,8 +177,7 @@ func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_posi
 	# set position of projectile
 	handle_position(new_projectile, starting_position_x, starting_position_y, offset)
 	
-	# handle direction
-	# since projectiles are children of the projectile spawn, set facing of the hurtbox
+	# handle facing
 	set_facing_of_hurtbox(new_projectile)
 
 
