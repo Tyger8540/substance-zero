@@ -19,7 +19,7 @@ var command_status:Command.Status
 
 # from exercise 3
 @onready var _enemy_spawn = $"../EnemySpawn"
-@onready var _enemy:PackedScene = load("res://scenes/scientists.tscn")
+@onready var _enemy:PackedScene = load("res://scenes/alien.tscn")
 
 
 func spawn_enemy() -> void:
