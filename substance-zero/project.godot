@@ -15,6 +15,12 @@ run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Enums="*res://scripts/autoload/enums.gd"
+PlayerVariables="*res://scripts/autoload/player_variables.gd"
+PowerUpInventory="*res://scripts/autoload/power_up_inventory.gd"
+
 [input]
 
 move_left={
