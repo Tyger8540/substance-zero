@@ -22,7 +22,7 @@ const UP_IN_RADIANS = 90 * 3.14 / 180.0
 const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
 
 const _DEFAULT_HEALTH:float = 100.0
-const _DEFAULT_SPEED:float = 300.0
+const _DEFAULT_CHARACTER_SPEED:float = 300.0
 
 const _DEFAULT_MELEE_LENGTH = 10.0
 const _DEFAULT_MELEE_DAMAGE = 10.0
@@ -37,7 +37,7 @@ const _DEFAULT_PROJECTILE_DURATION = 0.2
 
 # stats
 @export var health:float = _DEFAULT_HEALTH
-@export var speed:float = _DEFAULT_SPEED
+@export var character_speed:float = _DEFAULT_CHARACTER_SPEED
 @export var level:int = 0
 
 # melee
@@ -76,7 +76,6 @@ var facing:Facing = Facing.RIGHT
 # from exercise 3
 @onready var melee = load("res://scenes/weapons/melee.tscn")
 @onready var projectile = load("res://scenes/weapons/projectile.tscn")
-@onready var projectile_spawn = $"../ProjectileSpawn"
 
 # from exercise 1
 func take_damage(damage:float) -> void:
@@ -87,8 +86,9 @@ func take_damage(damage:float) -> void:
 		print("character died")
 		
 		
-func handle_position(hurtbox:HurtBox, offset:float) -> void:
-	hurtbox.global_position = global_position
+func handle_position(hurtbox:HurtBox, starting_position_x:float, starting_position_y:float, offset:float) -> void:
+	hurtbox.global_position.x = starting_position_x
+	hurtbox.global_position.y = starting_position_y
 	if facing == Facing.LEFT:
 		hurtbox.global_position.x -= offset
 	elif facing == Facing.RIGHT:
@@ -114,7 +114,7 @@ func set_facing_of_hurtbox(hurtbox:HurtBox) -> void:
 		hurtbox.facing = hurtbox.Facing.DOWN
 
 
-func attack_with_melee(length:float=default_melee_length, damage:float=default_melee_damage, offset:float=default_melee_offset, duration:float=default_melee_duration) -> void:
+func attack_with_melee(starting_position_x:float=global_position.x, starting_position_y:float=global_position.y, length:float=default_melee_length, damage:float=default_melee_damage, offset:float=default_melee_offset, duration:float=default_melee_duration) -> void:
 	
 	# check if player already has melee equipped
 	for child in get_children():
@@ -141,10 +141,10 @@ func attack_with_melee(length:float=default_melee_length, damage:float=default_m
 	add_child(new_melee)
 	
 	# set position of melee
-	handle_position(new_melee, offset)
+	handle_position(new_melee, starting_position_x, starting_position_y, offset)
 	
 	
-func fire_laser_gun(length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
+func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_position.x, starting_position_y:float=global_position.y, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
 	
 	# modified from exercise 3
 	
@@ -166,7 +166,7 @@ func fire_laser_gun(length:float=default_projectile_length, damage:float=default
 	projectile_spawn.add_child(new_projectile)
 	
 	# set position of projectile
-	handle_position(new_projectile, offset)
+	handle_position(new_projectile, starting_position_x, starting_position_y, offset)
 	
 	# handle direction
 	# since projectiles are children of the projectile spawn, set facing of the hurtbox

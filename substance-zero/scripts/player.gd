@@ -1,6 +1,8 @@
 class_name Player
 extends Character
 
+@onready var projectile_spawn = $"../ProjectileSpawn"
+
 
 # from exercise 1
 func bind_player_input_commands() -> void:
@@ -28,6 +30,7 @@ func unbind_player_input_commands() -> void:
 	move_down = Command.new()
 	attack = Command.new()
 	idle = Command.new()
+
 
 # from exercise 1
 func _ready():

@@ -10,8 +10,8 @@ func _init(duration:float):
 	
 	
 func execute(character:Character) -> Status:
-	character.velocity.x = character.speed
-	character.velocity.y = character.speed
+	character.velocity.x = character.character_speed
+	character.velocity.y = character.character_speed
 	var status:Command.Status = _manage_durative_animation_command(character, "move", _duration)
 	if status == Status.DONE:
 		character.velocity.x = 0

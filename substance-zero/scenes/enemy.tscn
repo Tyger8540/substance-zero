@@ -29,5 +29,4 @@ shape = SubResource("RectangleShape2D_opmpf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, -1)
-rotation = -3.28471
 texture = ExtResource("1_h2ykf")

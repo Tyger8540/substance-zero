@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=6 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
 [ext_resource type="PackedScene" path="res://scenes/cutscene_trigger.tscn" id="3_umxqw"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
+[ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
@@ -24,3 +25,6 @@ script = ExtResource("1_gw17q")
 
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource("4_5p6fg")
+
+[node name="HazardManager" type="Node" parent="."]
+script = ExtResource("5_dlf44")
