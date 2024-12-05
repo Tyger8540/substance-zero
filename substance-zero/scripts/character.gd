@@ -23,6 +23,7 @@ const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
 
 const _DEFAULT_HEALTH:float = 100.0
 const _DEFAULT_CHARACTER_SPEED:float = 300.0
+const _DEFAULT_ROTATE_SPEED:float = 0.03
 
 const _DEFAULT_MELEE_LENGTH = 10.0
 const _DEFAULT_MELEE_DAMAGE = 10.0
@@ -39,6 +40,7 @@ const _DEFAULT_PROJECTILE_DURATION = 0.2
 @export var health:float = _DEFAULT_HEALTH
 @export var character_speed:float = _DEFAULT_CHARACTER_SPEED
 @export var level:int = 0
+@export var ship_rotate_speed:float = _DEFAULT_ROTATE_SPEED
 
 # melee
 @export var default_melee_length:float = _DEFAULT_MELEE_LENGTH
@@ -69,6 +71,8 @@ var move_up:Command
 var move_down:Command
 var attack:Command
 var idle:Command
+var rotate_left_command:Command
+var rotate_right_command:Command
 
 var attacking:= false
 var damaged := false
