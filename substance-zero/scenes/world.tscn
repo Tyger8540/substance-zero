@@ -13,9 +13,6 @@
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_iu8m4")]
-visible = false
-
 [node name="Player" parent="." instance=ExtResource("2_gqb7m")]
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
@@ -68,5 +65,9 @@ type = 1
 [node name="PowerUp4" parent="." instance=ExtResource("6_u3q6a")]
 position = Vector2(858, 111)
 type = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_iu8m4")]
+process_mode = 3
+visible = false
 
 [connection signal="timeout" from="PowerupLabel/Timer" to="PowerupLabel" method="_on_timer_timeout"]
