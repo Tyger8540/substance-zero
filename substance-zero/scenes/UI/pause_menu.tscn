@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://87qnwk55ciam"]
 
-[ext_resource type="Script" path="res://scripts/UI/menu_manager.gd" id="1_n1wo6"]
+[ext_resource type="Script" path="res://scripts/UI/pause_menu.gd" id="1_6udk1"]
 [ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_ffgc6"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_m7rfu"]
 
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n1wo6")
+script = ExtResource("1_6udk1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

@@ -43,7 +43,7 @@ func _ready():
 # modified from exercise 1
 # execute() commands are from exercise 1
 func _physics_process(delta):
-	
+		
 	# handle equipping weapons
 	if Input.is_action_just_pressed("melee"):
 		current_weapon = Weapons.MELEE
