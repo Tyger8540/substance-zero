@@ -1,5 +1,5 @@
 # modified from exercise 1
-class_name Projectile_With_Speed
+class_name Projectile
 extends HurtBox
 
 const name_of_hurtbox:String = "Projectile"

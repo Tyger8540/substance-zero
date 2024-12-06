@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
 [ext_resource type="Script" path="res://scenes/powerup_label.gd" id="6_7161i"]
 [ext_resource type="FontFile" uid="uid://c8qyd1t77fca8" path="res://sprites/Interface/GravityBold8.ttf" id="6_f6tc3"]
-[ext_resource type="PackedScene" path="res://scenes/power_up.tscn" id="6_u3q6a"]
+[ext_resource type="PackedScene" uid="uid://cu7x8h15wdwlt" path="res://scenes/power_up.tscn" id="6_u3q6a"]
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 
@@ -15,6 +15,7 @@
 script = ExtResource("1_gw17q")
 
 [node name="Player" parent="." instance=ExtResource("2_gqb7m")]
+position = Vector2(186, 188)
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
 position = Vector2(217, 297)
@@ -71,7 +72,8 @@ position = Vector2(858, 111)
 type = 1
 
 [node name="Boss1" parent="." instance=ExtResource("9_d3cjy")]
-position = Vector2(405, 358)
+position = Vector2(64, 581)
 scale = Vector2(2, 2)
+collision_mask = 2
 
 [connection signal="timeout" from="PowerupLabel/Timer" to="PowerupLabel" method="_on_timer_timeout"]

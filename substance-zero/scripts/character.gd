@@ -154,7 +154,6 @@ func attack_with_melee(starting_position_x:float=global_position.x, starting_pos
 	
 	
 func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_position.x, starting_position_y:float=global_position.y, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
-	
 	# modified from exercise 3
 	
 	# make a projectile spec
