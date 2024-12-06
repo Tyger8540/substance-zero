@@ -23,7 +23,9 @@ const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
 
 const _DEFAULT_HEALTH:float = 100.0
 const _DEFAULT_CHARACTER_SPEED:float = 300.0
-const _DEFAULT_ROTATE_SPEED:float = 0.03
+const _DEFAULT_SHIP_ACCELERATION:float = 6.0
+const _DEFAULT_SHIP_DECCELERATION:float = 2.0
+const _DEFAULT_ROTATE_SPEED:float = 0.04
 
 const _DEFAULT_MELEE_LENGTH = 10.0
 const _DEFAULT_MELEE_DAMAGE = 10.0
@@ -39,6 +41,8 @@ const _DEFAULT_PROJECTILE_DURATION = 0.2
 # stats
 @export var health:float = _DEFAULT_HEALTH
 @export var character_speed:float = _DEFAULT_CHARACTER_SPEED
+@export var ship_acceleration:float = _DEFAULT_SHIP_ACCELERATION
+@export var ship_decceleration:float = _DEFAULT_SHIP_DECCELERATION
 @export var level:int = 0
 @export var ship_rotate_speed:float = _DEFAULT_ROTATE_SPEED
 
@@ -73,6 +77,8 @@ var attack:Command
 var idle:Command
 var rotate_left_command:Command
 var rotate_right_command:Command
+var ship_accelerate_command:Command
+var ship_deccelerate_command:Command
 
 var attacking:= false
 var damaged := false
