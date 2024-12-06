@@ -1,5 +1,5 @@
 # modified from exercise 1
-class_name Projectile_With_Speed
+class_name Projectile
 extends HurtBox
 
 const name_of_hurtbox:String = "Projectile"
@@ -33,13 +33,13 @@ func _ready():
 func _physics_process(_delta):
 	# fire projectile in the direction that the character is facing
 	if facing == Facing.LEFT:
-		move_left.execute(self)
+		move_left.execute(self, speed)
 	elif facing == Facing.RIGHT:
-		move_right.execute(self)
+		move_right.execute(self, speed)
 	elif facing == Facing.UP:
-		move_up.execute(self)
+		move_up.execute(self, speed)
 	elif facing == Facing.DOWN:
-		move_down.execute(self)
+		move_down.execute(self, speed)
 	
 	# from exercise 3
 	if _timer != null and _timer.is_stopped():

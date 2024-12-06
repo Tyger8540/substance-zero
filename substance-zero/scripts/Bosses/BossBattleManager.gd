@@ -20,32 +20,22 @@ func _physics_process(delta: float) -> void:
 		if not _player.dead and not _boss.dead:
 			_boss.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(1.25))
 			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
+			_burst_attack()
 			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(2.25))
 			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
+			_burst_attack()
 			_boss.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(1.25))
 			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
+			_burst_attack()
 			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(2.25))
 			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
-			_boss.enemy_cmd_list.push_back(AttackCommand.new())
+			_burst_attack()
 
 
-func _handle_facing() -> void:
-	if _player.Facing.LEFT:
-		_boss.Facing.LEFT
-	elif _player.Facing.RIGHT:
-		_boss.Facing.RIGHT
-	#elif hazard.facing == hazard.Facing.UP:
-		#hazard.global_position.y += _offset
-	#elif hazard.facing == hazard.Facing.DOWN:
-		#hazard.global_position.y -= _offset
+func _burst_attack() -> void:
+	_boss.enemy_cmd_list.push_back(AttackCommand.new())
+	_boss.enemy_cmd_list.push_back(DurativeIdleCommand.new(0.1))
+	_boss.enemy_cmd_list.push_back(AttackCommand.new())
+	_boss.enemy_cmd_list.push_back(DurativeIdleCommand.new(0.1))
+	_boss.enemy_cmd_list.push_back(AttackCommand.new())
+	_boss.enemy_cmd_list.push_back(DurativeIdleCommand.new(1))
