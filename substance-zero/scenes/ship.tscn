@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bw1n"]
 
 [node name="Ship" type="CharacterBody2D"]
-position = Vector2(152, 126)
+position = Vector2(587, 543)
 script = ExtResource("1_dri1c")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
