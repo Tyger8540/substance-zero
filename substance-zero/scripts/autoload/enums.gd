@@ -8,5 +8,9 @@ enum Power_Up_Lifespan {
 
 enum Power_Up_Type {
 	MELEE_DAMAGE,
-	GUN_DAMAGE,
+	RANGE_DAMAGE,
+	HEALTH_BOOST,
+	#possible idea: SHIELD_BOOST, 
+	BUBBLE_SHIELD, #SINGLE_USE only
+	GRENADE, #possible idea (SINGLE_USE only)
 }

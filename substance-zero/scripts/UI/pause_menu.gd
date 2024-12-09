@@ -1,9 +1,8 @@
 extends Control
 
 
-func _ready() -> void:
-	set_process(true)
-		
+@onready var player: Player = get_node("../Player")
+
 		
 func _process(delta) -> void:
 	# check for pause input (esc)
@@ -13,6 +12,8 @@ func _process(delta) -> void:
 
 func _on_exit_button_pressed() -> void:
 	# navigate to main menu
+	get_tree().paused = false
+	PlayerVariables.save_player_state(player)
 	get_tree().change_scene_to_file("res://scenes/UI/start_menu.tscn")
 
 

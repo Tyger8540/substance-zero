@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://icex1rosse4b"]
+[gd_scene load_steps=7 format=3 uid="uid://icex1rosse4b"]
 
 [ext_resource type="Script" path="res://scripts/UI/menu_manager.gd" id="1_t68ln"]
 [ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_w033s"]
@@ -7,6 +7,8 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vagxe"]
 texture = ExtResource("2_w033s")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xpjht"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -57,7 +59,7 @@ text = "Options"
 [node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_n1t7p")
-text = "Level Select"
+text = "   Level Select   "
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -72,6 +74,7 @@ offset_bottom = 50.0
 scale = Vector2(3, 3)
 theme = ExtResource("3_n1t7p")
 text = "Substance Zero"
+label_settings = SubResource("LabelSettings_xpjht")
 horizontal_alignment = 1
 vertical_alignment = 1
 

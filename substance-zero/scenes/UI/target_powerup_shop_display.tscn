@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://doy0ralb0fyy1"]
+
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_xrndv"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_i0g0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r38j"]
+atlas = ExtResource("2_i0g0g")
+region = Rect2(132, 227, 9, 9)
+
+[node name="TargetPowerupShopDisplay" type="HBoxContainer"]
+theme_override_constants/separation = 15
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_xrndv")
+text = "   Buy (100)   "
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1r38j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Ranged Damage Boost"
