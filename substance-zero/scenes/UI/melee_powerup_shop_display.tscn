@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://e3cn7s5xqkis"]
+
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_m1pqd"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_xvuj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg0st"]
+atlas = ExtResource("2_xvuj6")
+region = Rect2(84, 227, 9, 9)
+
+[node name="MeleePowerupShopDisplay" type="HBoxContainer"]
+theme_override_constants/separation = 15
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_m1pqd")
+text = "   Buy (100)   "
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_hg0st")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Melee Damage Boost"

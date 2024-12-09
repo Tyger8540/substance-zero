@@ -62,7 +62,7 @@ const _DEFAULT_PROJECTILE_DURATION = 0.2
 # inventory
 var current_weapon:Weapons = Weapons.MELEE
 var primary_weapon:Weapons = Weapons.LASER_GUN
-var powerups:Array[int]
+var power_ups:Array[PowerUp]
 
 # commands from exercise 1 along with some new commands
 var move_up_left:Command
