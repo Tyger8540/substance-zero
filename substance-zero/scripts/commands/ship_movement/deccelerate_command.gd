@@ -7,5 +7,4 @@ func execute(character:Character) -> Status:
 		character.velocity /= character.ship_decceleration
 	if character.velocity.length() < 12:
 		character.velocity = Vector2(0.0, 0.0)
-	
 	return Status.DONE
