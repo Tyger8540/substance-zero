@@ -11,10 +11,11 @@ position = Vector2(92, 60)
 script = ExtResource("1_esasu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 1)
-scale = Vector2(1, 0.203125)
+position = Vector2(-74, 14)
+scale = Vector2(0.445313, 0.125)
 texture = ExtResource("1_mpplt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 1)
+position = Vector2(-74, 13)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_phv83")
