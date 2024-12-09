@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=9 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
 [ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
 [ext_resource type="Script" path="res://scenes/powerup_label.gd" id="6_7161i"]
+[ext_resource type="FontFile" uid="uid://c8qyd1t77fca8" path="res://sprites/Interface/GravityBold8.ttf" id="6_f6tc3"]
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="6_u3q6a"]
 
 [node name="World" type="Node"]
@@ -30,6 +31,12 @@ script = ExtResource("4_5p6fg")
 
 [node name="HazardManager" type="Node" parent="."]
 script = ExtResource("5_dlf44")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_f6tc3")
+text = "Space Game"
 
 [node name="PowerupLabel" type="Label" parent="."]
 unique_name_in_owner = true

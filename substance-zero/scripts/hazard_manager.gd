@@ -74,7 +74,7 @@ func _execute_commands(hazard:Enemy) -> void:
 		command_status = hazard.enemy_cmd_list.front().execute(hazard)
 		if command_status == Command.Status.DONE:
 			hazard.enemy_cmd_list.pop_front()
-			
+			SoundManager.playSound("laser")
 			
 func _physics_process(_delta):
 	if _player.health > 0.0 and len(_hazards) < _MAX_HAZARDS:

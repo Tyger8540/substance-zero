@@ -191,7 +191,7 @@ states/Run/node = SubResource("AnimationNodeAnimation_p58ql")
 states/Run/position = Vector2(514.286, 100.157)
 states/Start/position = Vector2(166.857, 100.443)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3i0m7"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_n4t58"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_j8hwl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_6yor0"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_ewlgt"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_1hy61"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_svq2p"), "Idle", "Damaged", SubResource("AnimationNodeStateMachineTransition_ns33a"), "Attack", "Damaged", SubResource("AnimationNodeStateMachineTransition_5f30h"), "Run", "Damaged", SubResource("AnimationNodeStateMachineTransition_jriji"), "Damaged", "Idle", SubResource("AnimationNodeStateMachineTransition_m05uc")]
-graph_offset = Vector2(109.872, 5.13758)
+graph_offset = Vector2(8.872, -23.8624)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(132, 113)
