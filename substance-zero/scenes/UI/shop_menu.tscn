@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://p00mw2spqc5c"]
+
+[ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
+[ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_aatp2"]
+[ext_resource type="PackedScene" uid="uid://e3cn7s5xqkis" path="res://scenes/UI/melee_powerup_shop_display.tscn" id="3_7ylh0"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_nkout"]
+[ext_resource type="PackedScene" uid="uid://rnj384ncknfn" path="res://scenes/UI/shield_powerup_shop_display.tscn" id="4_fvv7n"]
+[ext_resource type="PackedScene" uid="uid://doy0ralb0fyy1" path="res://scenes/UI/target_powerup_shop_display.tscn" id="5_ouqi4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vagxe"]
+texture = ExtResource("2_aatp2")
+
+[node name="ShopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yebpy")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.5
+offset_top = -174.5
+offset_right = 204.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_nkout")
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vagxe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -107.0
+offset_right = 159.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nkout")
+text = "Powerup Terminal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EmptyHBoxTop" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+alignment = 1
+
+[node name="MeleePowerupShopDisplay" parent="VBoxContainer" instance=ExtResource("3_7ylh0")]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TargetPowerupShopDisplay" parent="VBoxContainer" instance=ExtResource("5_ouqi4")]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShieldPowerupShopDisplay" parent="VBoxContainer" instance=ExtResource("4_fvv7n")]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EmptyHBoxBottom" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+alignment = 1
+
+[node name="ExitHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/ExitHBox"]
+layout_mode = 2
+theme = ExtResource("3_nkout")
+text = "        Exit        "
