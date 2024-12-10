@@ -111,8 +111,9 @@ layout_mode = 2
 alignment = 1
 
 [node name="ExitButton" type="Button" parent="VBoxContainer/ExitHBox"]
+custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme = ExtResource("3_nkout")
-text = "        Exit        "
+text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/ExitHBox/ExitButton" to="." method="_on_exit_button_pressed"]

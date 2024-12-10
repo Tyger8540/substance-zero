@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://doexeixm3waui"]
+
+[ext_resource type="Script" path="res://scripts/UI/hud.gd" id="1_rpgbr"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_1qjnc"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="2_st2vd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnelv"]
+texture = ExtResource("2_1qjnc")
+region_rect = Rect2(50, 21, 44, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4dln"]
+atlas = ExtResource("2_1qjnc")
+region = Rect2(84, 227, 9, 9)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rpgbr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HealthShieldVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="ShieldBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthShieldVBox"]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+theme = ExtResource("2_st2vd")
+theme_override_styles/fill = SubResource("StyleBoxTexture_dnelv")
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthShieldVBox"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+theme = ExtResource("2_st2vd")
+show_percentage = false
+
+[node name="PowerupContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PowerupContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PowerupContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_t4dln")
+expand_mode = 2
+
+[node name="CounterVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/HBoxContainer/CounterVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_st2vd")
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="MarginContainer/HBoxContainer/CounterVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_st2vd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/HBoxContainer/LabelVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_st2vd")
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="MarginContainer/HBoxContainer/LabelVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_st2vd")
+theme_override_font_sizes/font_size = 20
+text = "Deaths"
+horizontal_alignment = 2
+vertical_alignment = 1

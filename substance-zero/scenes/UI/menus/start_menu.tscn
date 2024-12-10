@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://icex1rosse4b"]
 
-[ext_resource type="Script" path="res://scripts/UI/menu_manager.gd" id="1_t68ln"]
-[ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_w033s"]
-[ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="3_bs5il"]
-[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_n1t7p"]
+[ext_resource type="Script" path="res://scripts/UI/menu_manager.gd" id="1_f336u"]
+[ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_f5ucv"]
+[ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="3_86bsx"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="4_vciak"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vagxe"]
-texture = ExtResource("2_w033s")
+texture = ExtResource("2_f5ucv")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xpjht"]
 
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t68ln")
+script = ExtResource("1_f336u")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -29,7 +29,7 @@ grow_vertical = 2
 scale = Vector2(1.00137, 1)
 theme_override_styles/panel = SubResource("StyleBoxTexture_vagxe")
 
-[node name="Player" parent="." instance=ExtResource("3_bs5il")]
+[node name="Player" parent="." instance=ExtResource("3_86bsx")]
 position = Vector2(179, 553)
 scale = Vector2(4.08257, 4.08257)
 
@@ -45,25 +45,26 @@ offset_bottom = -100.0
 grow_vertical = 2
 scale = Vector2(1.98228, 1.98228)
 size_flags_horizontal = 4
+theme_override_constants/separation = 7
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_n1t7p")
+theme = ExtResource("4_vciak")
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_n1t7p")
+theme = ExtResource("4_vciak")
 text = "Options"
 
 [node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_n1t7p")
+theme = ExtResource("4_vciak")
 text = "   Level Select   "
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_n1t7p")
+theme = ExtResource("4_vciak")
 text = "Quit"
 
 [node name="Label" type="Label" parent="."]
@@ -72,7 +73,7 @@ offset_top = 34.0
 offset_right = 231.0
 offset_bottom = 50.0
 scale = Vector2(3, 3)
-theme = ExtResource("3_n1t7p")
+theme = ExtResource("4_vciak")
 text = "Substance Zero"
 label_settings = SubResource("LabelSettings_xpjht")
 horizontal_alignment = 1
