@@ -23,6 +23,7 @@ const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
 
 const _DEFAULT_HEALTH:float = 100.0
 const _DEFAULT_CHARACTER_SPEED:float = 300.0
+const _DEFAULT_CHARACTER_DASH:float = 1000.0
 const _DEFAULT_SHIP_ACCELERATION:float = 6.0
 const _DEFAULT_SHIP_DECCELERATION:float = 1.011
 const _DEFAULT_ROTATE_SPEED:float = 0.04
@@ -41,6 +42,7 @@ const _DEFAULT_PROJECTILE_DURATION = 0.2
 # stats
 @export var health:float = _DEFAULT_HEALTH
 @export var character_speed:float = _DEFAULT_CHARACTER_SPEED
+@export var character_dash:float = _DEFAULT_CHARACTER_DASH
 @export var ship_acceleration:float = _DEFAULT_SHIP_ACCELERATION
 @export var ship_decceleration:float = _DEFAULT_SHIP_DECCELERATION
 @export var level:int = 0
@@ -73,6 +75,16 @@ var move_left:Command
 var move_right:Command
 var move_up:Command
 var move_down:Command
+# dash commands:
+var dash_up_left:Command
+var dash_up_right:Command
+var dash_down_left:Command
+var dash_down_right:Command
+var dash_left:Command
+var dash_right:Command
+var dash_up:Command
+var dash_down:Command
+
 var attack:Command
 var idle:Command
 var rotate_left_command:Command
@@ -164,7 +176,6 @@ func attack_with_melee(starting_position_x:float=global_position.x, starting_pos
 	
 	
 func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_position.x, starting_position_y:float=global_position.y, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
-	
 	# modified from exercise 3
 	
 	# make a projectile spec
@@ -197,3 +208,4 @@ func _ready():
 
 func _physics_process(_delta):
 	move_and_slide()
+	
