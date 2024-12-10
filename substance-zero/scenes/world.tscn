@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="6_u3q6a"]
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
-[ext_resource type="PackedScene" uid="uid://04tqwm87ko21" path="res://scenes/UI/shop_menu.tscn" id="10_mbwwj"]
+[ext_resource type="PackedScene" uid="uid://daw3pt5rv3l1j" path="res://scenes/UI/shop_menu.tscn" id="10_mbwwj"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")

@@ -1,5 +1,5 @@
 class_name PowerUp
-extends Node
+extends Node2D
 
 @export var lifespan: Enums.Power_Up_Lifespan
 @export var type: Enums.Power_Up_Type
