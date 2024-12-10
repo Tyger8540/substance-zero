@@ -1,4 +1,4 @@
-class_name HUD
+class_name Hud
 extends Control
 
 
