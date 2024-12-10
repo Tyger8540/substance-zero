@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4y818mq7dfed"]
+
+[ext_resource type="PackedScene" uid="uid://qwmcsixftmoc" path="res://scenes/ship.tscn" id="1_c8rnc"]
+[ext_resource type="PackedScene" uid="uid://2d0cqji7v8x" path="res://scenes/space_autoscroll_camera.tscn" id="2_ofl6w"]
+[ext_resource type="Texture2D" uid="uid://d2b4hjmg6b0tp" path="res://sprites/environment/Space_Backgrounds/Starfields/Starfield_03-512x512.png" id="3_fs5ke"]
+
+[node name="SpaceCameraTest" type="Node2D"]
+
+[node name="Ship" parent="." instance=ExtResource("1_c8rnc")]
+position = Vector2(576, 324)
+
+[node name="SpaceAutoscrollCamera" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("2_ofl6w")]
+position = Vector2(576, 324)
+scroll_speed = 0.5
+max_lead = 400.0
+subject = NodePath("../Ship")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 10000.0
+offset_bottom = 648.0
+texture = ExtResource("3_fs5ke")
+stretch_mode = 1

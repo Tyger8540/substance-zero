@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2d0cqji7v8x"]
+
+[ext_resource type="Script" path="res://scripts/cameras/space_autoscroll_camera.gd" id="1_x15aj"]
+
+[node name="SpaceAutoscrollCamera" type="Camera2D"]
+script = ExtResource("1_x15aj")
