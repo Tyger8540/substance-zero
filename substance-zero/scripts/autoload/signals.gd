@@ -1,5 +1,4 @@
-class_name Signals
 extends Node
 
 
-signal gain_powerup(powerup: PowerUp)
+signal gain_power_up(power_up: PowerUp)

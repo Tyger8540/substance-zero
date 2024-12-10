@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjy3pj63t0y7h"]
+[gd_scene load_steps=5 format=3 uid="uid://bjy3pj63t0y7h"]
 
+[ext_resource type="Script" path="res://scripts/UI/power_up_shop/blue_bottle_powerup_shop_display.gd" id="1_51c3d"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_hfgfc"]
 [ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_phrak"]
 
@@ -9,6 +10,7 @@ region = Rect2(100, 244, 8, 9)
 
 [node name="BlueBottlePowerupShopDisplay" type="HBoxContainer"]
 theme_override_constants/separation = 15
+script = ExtResource("1_51c3d")
 
 [node name="BuyButton" type="Button" parent="."]
 layout_mode = 2
@@ -23,3 +25,5 @@ expand_mode = 2
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "Shield Boost"
+
+[connection signal="pressed" from="BuyButton" to="." method="_send_power_up_signal"]

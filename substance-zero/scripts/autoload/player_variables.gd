@@ -20,5 +20,5 @@ func load_player_state(player: Player) -> void:
 	player.health = health
 	player.character_speed = character_speed
 	player.level = level
-	credits = player.credits
-	power_ups = player.power_ups
+	player.credits = credits
+	player.power_ups = power_ups

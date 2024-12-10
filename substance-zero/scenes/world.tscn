@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=11 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/powerup_label.gd" id="6_7161i"]
 [ext_resource type="FontFile" uid="uid://c8qyd1t77fca8" path="res://sprites/Interface/GravityBold8.ttf" id="6_f6tc3"]
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="6_u3q6a"]
+[ext_resource type="PackedScene" uid="uid://p00mw2spqc5c" path="res://scenes/UI/shop_menu.tscn" id="10_mbwwj"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
@@ -65,6 +66,9 @@ type = 1
 [node name="PowerUp4" parent="." instance=ExtResource("6_u3q6a")]
 position = Vector2(858, 111)
 type = 1
+
+[node name="ShopMenu" parent="." instance=ExtResource("10_mbwwj")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_iu8m4")]
 process_mode = 3

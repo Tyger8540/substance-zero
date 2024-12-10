@@ -5,6 +5,13 @@ extends Character
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
 
+<<<<<<< Updated upstream
+=======
+var credits:int
+
+var _dash_timer:Timer
+var _dash_cooldown:Timer
+>>>>>>> Stashed changes
 
 # from exercise 1
 func bind_player_input_commands() -> void:
