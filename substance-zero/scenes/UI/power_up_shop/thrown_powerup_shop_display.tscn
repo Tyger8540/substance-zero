@@ -13,9 +13,10 @@ theme_override_constants/separation = 15
 script = ExtResource("1_0atub")
 
 [node name="BuyButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme = ExtResource("1_tgxog")
-text = "   Buy (100)   "
+text = "Buy (100)"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -26,4 +27,4 @@ expand_mode = 2
 layout_mode = 2
 text = "Grenade Powerup"
 
-[connection signal="pressed" from="BuyButton" to="." method="_send_power_up_signal"]
+[connection signal="pressed" from="BuyButton" to="." method="_send_buying_signal"]

@@ -5,11 +5,10 @@ extends Control
 var shopping: bool = false
 
 @onready var player: Player = get_node("../Player")
-@onready var shop_menu: ShopMenu = get_node("../ShopMenu")
 
 
 func _ready() -> void:
-	shop_menu.connect("shopping", Callable(self, "_on_shop_menu_toggled"))
+	Signals.shopping.connect(_on_shop_menu_toggled)
 	
 
 func _process(delta) -> void:
@@ -36,5 +35,4 @@ func _toggle_pause() -> void:
 	
 	
 func _on_shop_menu_toggled(is_shopping: bool) -> void:
-	print(is_shopping)
 	shopping = is_shopping
