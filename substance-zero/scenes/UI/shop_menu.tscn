@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p00mw2spqc5c"]
+[gd_scene load_steps=11 format=3 uid="uid://04tqwm87ko21"]
 
 [ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_1w3fk"]
@@ -83,13 +83,16 @@ theme_override_constants/separation = 10
 [node name="MeleePowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("3_7ylh0")]
 layout_mode = 2
 theme_override_constants/separation = 10
+theme_override_constants/separation = 10
 
 [node name="TargetPowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("5_ouqi4")]
 layout_mode = 2
 theme_override_constants/separation = 10
+theme_override_constants/separation = 10
 
 [node name="ShieldPowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("4_fvv7n")]
 layout_mode = 2
+theme_override_constants/separation = 10
 theme_override_constants/separation = 10
 
 [node name="EmptyHBoxBottom" type="HBoxContainer" parent="VBoxContainer"]
