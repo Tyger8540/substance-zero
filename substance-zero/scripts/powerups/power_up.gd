@@ -4,6 +4,7 @@ extends Node
 @export var lifespan: Enums.Power_Up_Lifespan
 @export var type: Enums.Power_Up_Type
 @export var price: int
+@export var shop_name: String
 
 
 func initialize(_lifespan: Enums.Power_Up_Lifespan, _type: Enums.Power_Up_Type) -> void:

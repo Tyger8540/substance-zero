@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://doy0ralb0fyy1"]
+[gd_scene load_steps=5 format=3 uid="uid://doy0ralb0fyy1"]
 
+[ext_resource type="Script" path="res://scripts/UI/power_up_shop/target_powerup_shop_display.gd" id="1_lcwjf"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_xrndv"]
 [ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_i0g0g"]
 
@@ -9,6 +10,7 @@ region = Rect2(132, 227, 9, 9)
 
 [node name="TargetPowerupShopDisplay" type="HBoxContainer"]
 theme_override_constants/separation = 15
+script = ExtResource("1_lcwjf")
 
 [node name="BuyButton" type="Button" parent="."]
 layout_mode = 2
@@ -23,3 +25,5 @@ expand_mode = 2
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "Ranged Damage Boost"
+
+[connection signal="pressed" from="BuyButton" to="." method="_send_power_up_signal"]

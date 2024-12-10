@@ -5,6 +5,8 @@ extends Character
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
 
+var credits:int
+
 var _dash_timer:Timer
 var _dash_cooldown:Timer
 

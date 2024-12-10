@@ -1,11 +1,33 @@
+class_name ShopMenu
 extends Control
 
 
 @export var power_up:PackedScene
+@export var melee_display:PackedScene
+@export var target_display:PackedScene
+@export var shield_display:PackedScene
+@export var red_bottle_display:PackedScene
+@export var blue_bottle_display:PackedScene
 @export var shop_capacity: int
 
 var power_ups_to_buy: Array[PowerUp]
 var power_up_types: Array[Enums.Power_Up_Type]
+var shopping: bool = false
+
+@onready var powerup_container = $VBoxContainer/PowerupContainer
+
+
+func _ready() -> void:
+	_fill_shop()
+	_update_displays()
+
+
+func _process(delta) -> void:
+	# check for pause input (esc)
+	if Input.is_action_just_pressed("open_powerup_shop"):
+		_fill_shop()
+		_update_displays()
+		_toggle_shopping()
 
 
 func _fill_shop() -> void:
@@ -41,18 +63,35 @@ func _update_displays() -> void:
 	for power_up in power_ups_to_buy:
 		match power_up.type:	
 			Enums.Power_Up_Type.MELEE_DAMAGE:
-				pass
-				# create display
-			Enums.Power_Up_Type.RANGE_DAMAGE:
-				pass
+				var new_melee = melee_display.instantiate()
+				powerup_container.add_child(new_melee)
+			Enums.Power_Up_Type.RANGED_DAMAGE:
+				var new_ranged = target_display.instantiate()
+				powerup_container.add_child(new_ranged)
 			Enums.Power_Up_Type.HEALTH_BOOST:
-				pass
+				var new_health_boost = red_bottle_display.instantiate()
+				powerup_container.add_child(new_health_boost)
+			Enums.Power_Up_Type.SHIELD_BOOST:
+				var new_shield_boost = blue_bottle_display.instantiate()
+				powerup_container.add_child(new_shield_boost)
 			Enums.Power_Up_Type.BUBBLE_SHIELD:
-				pass
+				var new_bubble_shield = shield_display.instantiate()
+				powerup_container.add_child(new_bubble_shield)
+			Enums.Power_Up_Type.GRENADE:
+				var new_grenade = shield_display.instantiate()
+				powerup_container.add_child(new_grenade)
 	
-func _ready() -> void:
-	_fill_shop()
+
+func _on_exit_button_pressed() -> void:
+	# exit shop menu
+	_toggle_shopping()
 
 
-func _process(delta: float) -> void:
-	pass
+func _toggle_shopping() -> void:
+	print("toggle shopping")
+	if shopping:
+		self.hide()
+		get_tree().paused = false
+	else:
+		self.show()
+		get_tree().paused = true

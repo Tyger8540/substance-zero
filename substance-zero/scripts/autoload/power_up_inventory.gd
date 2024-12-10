@@ -7,15 +7,15 @@ var power_ups: Array[PowerUp]
 var power_up_level = {
 	Enums.Power_Up_Lifespan.PERMANENT: {
 		Enums.Power_Up_Type.MELEE_DAMAGE: 0,
-		Enums.Power_Up_Type.RANGE_DAMAGE: 0,
+		Enums.Power_Up_Type.RANGED_DAMAGE: 0,
 	},
 	Enums.Power_Up_Lifespan.ROOM_LIMITED: {
 		Enums.Power_Up_Type.MELEE_DAMAGE: 0,
-		Enums.Power_Up_Type.RANGE_DAMAGE: 0,
+		Enums.Power_Up_Type.RANGED_DAMAGE: 0,
 	},
 	Enums.Power_Up_Lifespan.SINGLE_USE: {
 		Enums.Power_Up_Type.MELEE_DAMAGE: 0,
-		Enums.Power_Up_Type.RANGE_DAMAGE: 0,
+		Enums.Power_Up_Type.RANGED_DAMAGE: 0,
 	},
 }
 
