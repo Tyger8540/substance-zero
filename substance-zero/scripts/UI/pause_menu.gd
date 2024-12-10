@@ -4,7 +4,7 @@ extends Control
 
 var shopping: bool = false
 
-@onready var player: Player = get_node("../Player")
+@onready var player: Player = get_node("../../Player")
 
 
 func _ready() -> void:

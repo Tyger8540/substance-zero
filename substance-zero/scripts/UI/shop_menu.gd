@@ -16,7 +16,7 @@ var shopping: bool = false
 
 @onready var power_up_container = $VBoxContainer/PowerupContainer
 @onready var credits_label = $PanelContainer/MarginContainer/CreditsLabel
-@onready var player: Player = get_node("../Player")
+@onready var player: Player = get_node("../../Player")
 
 
 func _ready() -> void:
@@ -131,7 +131,7 @@ func _on_buying_power_up(power_up: PowerUp) -> void:
 			Enums.Power_Up_Type.GRENADE:
 				Signals.gain_thrown_power_up.emit()
 	
-	
+
 func _toggle_shopping() -> void:
 	if shopping:
 		shopping = false
