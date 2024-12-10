@@ -1,19 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://04tqwm87ko21"]
+[gd_scene load_steps=12 format=3 uid="uid://p00mw2spqc5c"]
 
 [ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
-[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_1w3fk"]
+[ext_resource type="PackedScene" uid="uid://cu7x8h15wdwlt" path="res://scenes/power_up.tscn" id="2_1w3fk"]
 [ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_aatp2"]
 [ext_resource type="PackedScene" uid="uid://e3cn7s5xqkis" path="res://scenes/UI/power_up_shop/melee_powerup_shop_display.tscn" id="3_7ylh0"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_nkout"]
 [ext_resource type="PackedScene" uid="uid://rnj384ncknfn" path="res://scenes/UI/power_up_shop/shield_powerup_shop_display.tscn" id="4_fvv7n"]
 [ext_resource type="PackedScene" uid="uid://doy0ralb0fyy1" path="res://scenes/UI/power_up_shop/target_powerup_shop_display.tscn" id="5_ouqi4"]
 [ext_resource type="PackedScene" uid="uid://d3miqrrmetkon" path="res://scenes/UI/power_up_shop/red_bottle_powerup_shop_display.tscn" id="6_irffq"]
+[ext_resource type="PackedScene" uid="uid://4f8r5u5u6r3h" path="res://scenes/UI/power_up_shop/thrown_powerup_shop_display.tscn" id="6_pn8xn"]
 [ext_resource type="PackedScene" uid="uid://bjy3pj63t0y7h" path="res://scenes/UI/power_up_shop/blue_bottle_powerup_shop_display.tscn" id="7_5d47l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vagxe"]
 texture = ExtResource("2_aatp2")
 
 [node name="ShopMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,12 +23,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yebpy")
-power_up = ExtResource("2_1w3fk")
+power_up_scene = ExtResource("2_1w3fk")
 melee_display = ExtResource("3_7ylh0")
 target_display = ExtResource("5_ouqi4")
 shield_display = ExtResource("4_fvv7n")
+thrown_display = ExtResource("6_pn8xn")
 red_bottle_display = ExtResource("6_irffq")
 blue_bottle_display = ExtResource("7_5d47l")
+shop_capacity = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -46,6 +50,23 @@ theme = ExtResource("3_nkout")
 [node name="Panel" type="Panel" parent="PanelContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vagxe")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="CreditsLabel" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("3_nkout")
+theme_override_font_sizes/font_size = 12
+text = "Credits"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -78,21 +99,6 @@ alignment = 1
 
 [node name="PowerupContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="MeleePowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("3_7ylh0")]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_constants/separation = 10
-
-[node name="TargetPowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("5_ouqi4")]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_constants/separation = 10
-
-[node name="ShieldPowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("4_fvv7n")]
-layout_mode = 2
-theme_override_constants/separation = 10
 theme_override_constants/separation = 10
 
 [node name="EmptyHBoxBottom" type="HBoxContainer" parent="VBoxContainer"]

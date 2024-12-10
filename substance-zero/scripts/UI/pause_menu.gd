@@ -1,9 +1,16 @@
+class_name PauseMenu
 extends Control
 
 
-@onready var player: Player = get_node("../Player")
+var shopping: bool = false
 
-		
+@onready var player: Player = get_node("../../Player")
+
+
+func _ready() -> void:
+	Signals.shopping.connect(_on_shop_menu_toggled)
+	
+
 func _process(delta) -> void:
 	# check for pause input (esc)
 	if Input.is_action_just_pressed("pause"):
@@ -18,10 +25,14 @@ func _on_exit_button_pressed() -> void:
 
 
 func _toggle_pause() -> void:
-	if get_tree().paused:
-		self.hide()
-		get_tree().paused = false
-	else:
-		self.show()
-		get_tree().paused = true
+	if !shopping:	
+		if get_tree().paused:
+			self.hide()
+			get_tree().paused = false
+		else:
+			self.show()
+			get_tree().paused = true
 	
+	
+func _on_shop_menu_toggled(is_shopping: bool) -> void:
+	shopping = is_shopping
