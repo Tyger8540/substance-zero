@@ -3,5 +3,5 @@ class_name MoveHurtBoxDownCommand
 extends HurtBoxCommand
 
 
-func execute(hurtbox:HurtBox) -> void:
-	hurtbox.global_position.y += hurtbox.speed
+func execute(hurtbox:HurtBox, speed:float) -> void:
+	hurtbox.global_position.y += speed

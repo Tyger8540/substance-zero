@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8owv3fto6htu"
-path="res://.godot/imported/Gunner_Blue_Jump.png-ea71c13994184ce47007f046624b2af2.ctex"
+uid="uid://csifm8v3u05up"
+path="res://.godot/imported/Gun.png-291c8fe735b64764e83860d52d547a9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/Blue/Gunner_Blue_Jump.png"
-dest_files=["res://.godot/imported/Gunner_Blue_Jump.png-ea71c13994184ce47007f046624b2af2.ctex"]
+source_file="res://sprites/characters/player/Gun.png"
+dest_files=["res://.godot/imported/Gun.png-291c8fe735b64764e83860d52d547a9d.ctex"]
 
 [params]
 

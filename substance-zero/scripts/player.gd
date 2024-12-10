@@ -138,10 +138,17 @@ func _manage_animation_tree_state() -> void:
 		animation_tree["parameters/conditions/moving"] = false
 	#toggles
 	if attacking:
-		animation_tree["parameters/conditions/attacking"] = true
-		attacking = false
+		if current_weapon == Weapons.MELEE:
+			animation_tree["parameters/conditions/attacking"] = true
+			animation_tree["parameters/conditions/gun_attacking"] = false
+			attacking = false
+		elif current_weapon == Weapons.LASER_GUN:
+			animation_tree["parameters/conditions/gun_attacking"] = true
+			animation_tree["parameters/conditions/attacking"] = false
+			attacking = false
 	else:
 		animation_tree["parameters/conditions/attacking"] = false
+		animation_tree["parameters/conditions/gun_attacking"] = false
 		
 	if damaged:
 		animation_tree["parameters/conditions/damaged"] = true
