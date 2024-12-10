@@ -16,6 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#print(velocity.length())
 	if Input.is_action_pressed("move_left"):
 		rotate_left_command.execute(self)
 	if Input.is_action_pressed("move_right"):
