@@ -24,9 +24,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# check if player is dead
-	if not player:
-		return
+	if player.dead:
+		set_process(false)
 		
 	_update_shield_health_displays()
 	_update_power_up_displays()
@@ -72,8 +71,10 @@ func _update_shield_health_displays() -> void:
 	shield_label.text = "%d/%d" % [player.shield, player.total_shield]
 	health_label.text = "%d/%d" % [player.health, player.total_health]
 	
-	shield_bar.value = player.shield / player.total_shield * 100
-	health_bar.value = player.health / player.total_health * 100
+	shield_bar.max_value = player.total_shield
+	health_bar.max_value = player.total_health
+	shield_bar.value = player.shield
+	health_bar.value = player.health
 	
 
 # Update credits and deaths labels

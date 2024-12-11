@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p00mw2spqc5c"]
+[gd_scene load_steps=14 format=3 uid="uid://p00mw2spqc5c"]
 
 [ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_1w3fk"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://d3miqrrmetkon" path="res://scenes/UI/power_up_shop/red_bottle_powerup_shop_display.tscn" id="6_irffq"]
 [ext_resource type="PackedScene" uid="uid://4f8r5u5u6r3h" path="res://scenes/UI/power_up_shop/thrown_powerup_shop_display.tscn" id="6_pn8xn"]
 [ext_resource type="PackedScene" uid="uid://bjy3pj63t0y7h" path="res://scenes/UI/power_up_shop/blue_bottle_powerup_shop_display.tscn" id="7_5d47l"]
+[ext_resource type="Shader" path="res://Assets/shop_menu.gdshader" id="9_n5jx7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yiakl"]
+shader = ExtResource("9_n5jx7")
+shader_parameter/amount = 3.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vagxe"]
 texture = ExtResource("2_aatp2")
@@ -31,6 +36,15 @@ thrown_display = ExtResource("6_pn8xn")
 red_bottle_display = ExtResource("6_irffq")
 blue_bottle_display = ExtResource("7_5d47l")
 shop_capacity = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yiakl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
