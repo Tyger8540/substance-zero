@@ -77,6 +77,10 @@ func _execute_commands(hazard:Enemy) -> void:
 			
 			
 func _physics_process(_delta):
+	# check if player is dead
+	if not _player:
+		return
+		
 	if _player.health > 0.0 and len(_hazards) < _MAX_HAZARDS:
 		_spawn_hazard()
 		

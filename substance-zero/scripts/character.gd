@@ -116,6 +116,8 @@ func take_damage(damage:float) -> void:
 		health = 0.0
 		queue_free()
 		print("character died")
+		if name == "Player":
+			print("Game Over")
 		
 		
 func handle_position(hurtbox:HurtBox, starting_position_x:float, starting_position_y:float, offset:float) -> void:
