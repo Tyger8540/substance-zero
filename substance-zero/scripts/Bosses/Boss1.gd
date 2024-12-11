@@ -13,6 +13,7 @@ func _ready() -> void:
 	target = $"../Player"
 	character_speed = 400
 	projectile_spawn = $"../ProjectileSpawn"
+	animation_tree.active = true
 
 
 func _process(_delta):

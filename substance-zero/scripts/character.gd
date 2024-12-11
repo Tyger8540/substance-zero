@@ -107,6 +107,8 @@ var facing:Facing = Facing.RIGHT
 @onready var melee = load("res://scenes/weapons/melee.tscn")
 @onready var projectile = load("res://scenes/weapons/projectile.tscn")
 
+@onready var dialogue_box: DialogueBox = %DialogueBox
+
 # from exercise 1
 func take_damage(damage:float) -> void:
 	health -= damage

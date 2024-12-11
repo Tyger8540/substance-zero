@@ -1,0 +1,347 @@
+[gd_scene load_steps=43 format=3 uid="uid://cutx0jqrqxem1"]
+
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="1_es3sj"]
+[ext_resource type="Texture2D" uid="uid://qeccwax7crn3" path="res://sprites/characters/Weapons/Grenade/96x96 - LargeBombStaticFrame1.png" id="2_kp5rv"]
+[ext_resource type="Texture2D" uid="uid://crh8krhmswmqd" path="res://sprites/characters/Weapons/Grenade/96x96 - LargeBombStaticFrame2.png" id="3_3x72i"]
+[ext_resource type="Texture2D" uid="uid://dga4ydshpl82" path="res://sprites/characters/Weapons/Grenade/Explosion/1_0.png" id="3_815yr"]
+[ext_resource type="Texture2D" uid="uid://cailmdbp6m4ss" path="res://sprites/characters/Weapons/Grenade/Explosion/1_1.png" id="4_owvsh"]
+[ext_resource type="Texture2D" uid="uid://ckkspb0114glb" path="res://sprites/characters/Weapons/Grenade/96x96 - LargeBombStaticFrame3.png" id="4_yufjx"]
+[ext_resource type="Texture2D" uid="uid://dw02msmq0wvw0" path="res://sprites/characters/Weapons/Grenade/Explosion/1_2.png" id="5_acenw"]
+[ext_resource type="Texture2D" uid="uid://d4mkdpdvuavjm" path="res://sprites/characters/Weapons/Grenade/Explosion/1_3.png" id="6_4vr82"]
+[ext_resource type="Texture2D" uid="uid://bf31ipauh0dob" path="res://sprites/characters/Weapons/Grenade/Explosion/1_4.png" id="7_70kqq"]
+[ext_resource type="Texture2D" uid="uid://bikn5bnj71faj" path="res://sprites/characters/Weapons/Grenade/Explosion/1_5.png" id="8_p0f3l"]
+[ext_resource type="Texture2D" uid="uid://bd3yyo5yqc0xj" path="res://sprites/characters/Weapons/Grenade/Explosion/1_6.png" id="9_35dtd"]
+[ext_resource type="Texture2D" uid="uid://cvu37qwb13pw2" path="res://sprites/characters/Weapons/Grenade/Explosion/1_7.png" id="10_f33m6"]
+[ext_resource type="Texture2D" uid="uid://cyp1i8k1i2sio" path="res://sprites/characters/Weapons/Grenade/Explosion/1_8.png" id="11_250fj"]
+[ext_resource type="Texture2D" uid="uid://i3vvhl1jtu8d" path="res://sprites/characters/Weapons/Grenade/Explosion/1_9.png" id="12_k5tyq"]
+[ext_resource type="Texture2D" uid="uid://hgo4dksdb05w" path="res://sprites/characters/Weapons/Grenade/Explosion/1_10.png" id="13_mbl03"]
+[ext_resource type="Texture2D" uid="uid://2qpqh2f030sv" path="res://sprites/characters/Weapons/Grenade/Explosion/1_11.png" id="14_41y66"]
+[ext_resource type="Texture2D" uid="uid://cyub8koltmr7w" path="res://sprites/characters/Weapons/Grenade/Explosion/1_12.png" id="15_caiqq"]
+[ext_resource type="Texture2D" uid="uid://hfsc4q6q12xr" path="res://sprites/characters/Weapons/Grenade/Explosion/1_13.png" id="16_6pfwi"]
+[ext_resource type="Texture2D" uid="uid://bjmc0qx4j42fo" path="res://sprites/characters/Weapons/Grenade/Explosion/1_14.png" id="17_rf3g5"]
+[ext_resource type="Texture2D" uid="uid://cigtpdry0blo" path="res://sprites/characters/Weapons/Grenade/Explosion/1_15.png" id="18_3i3ce"]
+[ext_resource type="Texture2D" uid="uid://cld3fkg7r34io" path="res://sprites/characters/Weapons/Grenade/Explosion/1_16.png" id="19_brmll"]
+[ext_resource type="Texture2D" uid="uid://wwyyuepbspfq" path="res://sprites/characters/Weapons/Grenade/Explosion/1_17.png" id="20_yvkwo"]
+[ext_resource type="Texture2D" uid="uid://bey8wavudpfkw" path="res://sprites/characters/Weapons/Grenade/Explosion/1_18.png" id="21_biwmq"]
+[ext_resource type="Texture2D" uid="uid://dgf5a1ln0epjf" path="res://sprites/characters/Weapons/Grenade/Explosion/1_19.png" id="22_cpvji"]
+[ext_resource type="Texture2D" uid="uid://dw2add2s6n21m" path="res://sprites/characters/Weapons/Grenade/Explosion/1_20.png" id="23_uxfpc"]
+[ext_resource type="Texture2D" uid="uid://de0hqln4luxpi" path="res://sprites/characters/Weapons/Grenade/Explosion/1_21.png" id="24_3gaq3"]
+[ext_resource type="Texture2D" uid="uid://cn8gmf1xd2p4y" path="res://sprites/characters/Weapons/Grenade/Explosion/1_22.png" id="25_p110r"]
+[ext_resource type="Texture2D" uid="uid://b7dbu15omtcpn" path="res://sprites/characters/Weapons/Grenade/Explosion/1_23.png" id="26_1lf88"]
+[ext_resource type="Texture2D" uid="uid://kmu1txm7uwka" path="res://sprites/characters/Weapons/Grenade/Explosion/1_24.png" id="27_dlh20"]
+[ext_resource type="Texture2D" uid="uid://bs1cklmtntbxv" path="res://sprites/characters/Weapons/Grenade/Explosion/1_25.png" id="28_ojmuu"]
+[ext_resource type="Texture2D" uid="uid://c686fmespv4t7" path="res://sprites/characters/Weapons/Grenade/Explosion/1_26.png" id="29_gatht"]
+[ext_resource type="Texture2D" uid="uid://uobn1ok3jkms" path="res://sprites/characters/Weapons/Grenade/Explosion/1_27.png" id="30_mbqtp"]
+[ext_resource type="Texture2D" uid="uid://cycqs330hf6ms" path="res://sprites/characters/Weapons/Grenade/Explosion/1_28.png" id="31_vs16i"]
+[ext_resource type="Texture2D" uid="uid://c72mqx7snvle7" path="res://sprites/characters/Weapons/Grenade/Explosion/1_29.png" id="32_la6oe"]
+[ext_resource type="Texture2D" uid="uid://c2cf4harv1kwl" path="res://sprites/characters/Weapons/Grenade/Explosion/1_30.png" id="33_a54qg"]
+[ext_resource type="Texture2D" uid="uid://c7moo5fppedyl" path="res://sprites/characters/Weapons/Grenade/Explosion/1_31.png" id="34_fnyvr"]
+[ext_resource type="Texture2D" uid="uid://6a3cb0jj6uvx" path="res://sprites/characters/Weapons/Grenade/Explosion/1_32.png" id="35_v1p3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52nwy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aorf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kp5rv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_815yr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_owvsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_acenw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4vr82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_70kqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p0f3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_35dtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f33m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_250fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k5tyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mbl03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_41y66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_caiqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6pfwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rf3g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3i3ce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_brmll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yvkwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_biwmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_cpvji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_uxfpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_3gaq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_p110r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_1lf88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_dlh20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ojmuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gatht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_mbqtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vs16i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_la6oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_a54qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_fnyvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_v1p3e")
+}],
+"loop": true,
+"name": &"explosion ",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kp5rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3x72i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yufjx")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_p7qv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"moving"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../HurtBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7qba7"]
+resource_name = "Thrown"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(80, -60), Vector2(110, 0), Vector2(110, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3), Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"moving", &"explosion "]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../HurtBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4w4a"]
+_data = {
+"RESET": SubResource("Animation_p7qv8"),
+"Thrown": SubResource("Animation_7qba7")
+}
+
+[node name="Grenade" type="Node2D"]
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("1_es3sj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(111, 0)
+shape = SubResource("RectangleShape2D_52nwy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aorf6")
+animation = &"moving"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_i4w4a")
+}

@@ -3,6 +3,7 @@ extends Node
 
 @onready var _player = $"../Player"
 @onready var _boss = $"../Boss1"
+var boss_fight := false
 
 # modified from excise 1
 # Boss 1 attack pattern:
@@ -20,19 +21,20 @@ func _physics_process(delta: float) -> void:
 	if not _player or not _boss:
 		return
 	# if is still fighting boss
-	if not _player.dead and not _boss.dead:
-		_boss.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(1.25))
-		_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
-		_burst_attack()
-		_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(2.25))
-		_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
-		_burst_attack()
-		_boss.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(1.25))
-		_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
-		_burst_attack()
-		_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(2.25))
-		_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
-		_burst_attack()
+	if boss_fight:
+		if not _player.dead and not _boss.dead:
+			_boss.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(1.25))
+			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
+			_burst_attack()
+			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(2.25))
+			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
+			_burst_attack()
+			_boss.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(1.25))
+			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
+			_burst_attack()
+			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(2.25))
+			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
+			_burst_attack()
 
 
 func _burst_attack() -> void:

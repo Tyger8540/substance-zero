@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=13 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
 [ext_resource type="PackedScene" uid="uid://bs77ldrtjm7f0" path="res://scenes/cutscene_trigger.tscn" id="3_umxqw"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
+[ext_resource type="Script" path="res://scripts/cutscene_boss1_enter.gd" id="4_254kf"]
 [ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
 [ext_resource type="Script" path="res://scenes/powerup_label.gd" id="6_7161i"]
 [ext_resource type="FontFile" uid="uid://c8qyd1t77fca8" path="res://sprites/Interface/GravityBold8.ttf" id="6_f6tc3"]
@@ -11,8 +12,6 @@
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
-[ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
-[ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="13_sa6fc"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
@@ -30,7 +29,7 @@ position = Vector2(217, 297)
 position = Vector2(1034, 300)
 
 [node name="CutsceneManager" type="Node" parent="."]
-script = ExtResource("1_gw17q")
+script = ExtResource("4_254kf")
 
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource("4_5p6fg")
@@ -78,12 +77,6 @@ type = 1
 position = Vector2(64, 581)
 scale = Vector2(2, 2)
 collision_mask = 2
-
-[node name="Xxyla" parent="." instance=ExtResource("12_oa8fy")]
-
-[node name="DialogueBox" parent="." instance=ExtResource("13_sa6fc")]
-unique_name_in_owner = true
-visible = false
 
 [node name="UI" parent="." instance=ExtResource("11_r3488")]
 

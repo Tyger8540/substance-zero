@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://hwhfkhirbpb1"]
+[gd_scene load_steps=6 format=3 uid="uid://hwhfkhirbpb1"]
 
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_3e7tt"]
+[ext_resource type="Script" path="res://scenes/UI/dialogue_box.gd" id="1_ayddn"]
 [ext_resource type="Texture2D" uid="uid://dbygumd3svltr" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_01-512x512.png" id="2_uoiv2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwu30"]
 texture = ExtResource("2_uoiv2")
 
 [sub_resource type="SystemFont" id="SystemFont_h0307"]
+subpixel_positioning = 0
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
@@ -15,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ayddn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(600, 150)
