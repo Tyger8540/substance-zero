@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://behkgsg0tge21"]
 
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="1_cysll"]
-[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_y2ic7"]
+[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_ups/power_up.tscn" id="2_y2ic7"]
 
 [node name="PowerUpTestWorld" type="Node2D"]
 
