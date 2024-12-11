@@ -31,6 +31,10 @@ func _process(_delta):
 
 
 func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_position.x, starting_position_y:float=global_position.y, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
+	# check if the target is dead
+	if not target:
+		return
+		
 	# modified from exercise 3
 	
 	# make a projectile spec

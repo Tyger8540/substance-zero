@@ -16,20 +16,23 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	# check if player or boss is dead
+	if not _player or not _boss:
+		return
 	# if is still fighting boss
-		if not _player.dead and not _boss.dead:
-			_boss.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(1.25))
-			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
-			_burst_attack()
-			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(2.25))
-			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
-			_burst_attack()
-			_boss.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(1.25))
-			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
-			_burst_attack()
-			_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(2.25))
-			_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
-			_burst_attack()
+	if not _player.dead and not _boss.dead:
+		_boss.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(1.25))
+		_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
+		_burst_attack()
+		_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(2.25))
+		_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
+		_burst_attack()
+		_boss.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(1.25))
+		_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.01))
+		_burst_attack()
+		_boss.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(2.25))
+		_boss.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.01))
+		_burst_attack()
 
 
 func _burst_attack() -> void:

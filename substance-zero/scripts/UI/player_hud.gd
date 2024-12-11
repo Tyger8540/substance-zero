@@ -24,6 +24,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# check if player is dead
+	if not player:
+		return
+		
 	_update_shield_health_displays()
 	_update_power_up_displays()
 	_update_credits_deaths_labels()
