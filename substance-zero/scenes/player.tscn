@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_e0wdy"]
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="2_ka8on"]
 [ext_resource type="Texture2D" uid="uid://10kvfd66iiiw" path="res://sprites/characters/player/Warrior_Gun_Sprite.png" id="3_w0mce"]
-[ext_resource type="PackedScene" uid="uid://drj5ig1l5ey6b" path="res://scenes/UI/health_shield_bars.tscn" id="4_608mn"]
+[ext_resource type="PackedScene" path="res://scenes/UI/health_shield_bars.tscn" id="4_608mn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gn0l2"]
 
