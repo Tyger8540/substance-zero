@@ -16,16 +16,16 @@ func _on_area_entered(hurtbox:HurtBox) -> void:
 		print("melee hit")
 		print(owner.name)
 		print("took damage")
-		print(owner.health)
+		#print(owner.health)
 		print()
 		
 	elif hurtbox.name_of_hurtbox == "Projectile":
 		owner.take_damage(hurtbox.damage + 10.0 * PowerUpInventory.power_up_level[Enums.Power_Up_Lifespan.PERMANENT][Enums.Power_Up_Type.RANGED_DAMAGE])
 		hurtbox.queue_free()
 		
-		print("projectile hit")
-		print(owner.name)
-		print("took damage")
-		print(owner.health)
-		print()
+		#print("projectile hit")
+		#print(owner.name)
+		#print("took damage")
+		##print(owner.health)
+		#print()
 		
