@@ -13,6 +13,10 @@ func execute(character:Character) -> Status:
 		character.attack_with_melee()
 	elif character.current_weapon == character.Weapons.LASER_GUN:
 		character.fire_laser_gun(character.projectile_spawn)
+	elif character.current_weapon == character.Weapons.PIERCING_GUN:
+		character.fire_piercing_gun(character.projectile_spawn)
+	elif character.current_weapon == character.Weapons.ALL_DIRECTIONS_GUN:
+		character.fire_all_directions_gun(character.projectile_spawn)
 		
 	return Status.DONE
 	
