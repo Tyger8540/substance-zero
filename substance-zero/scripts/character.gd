@@ -22,6 +22,7 @@ const UP_IN_RADIANS = 90 * 3.14 / 180.0
 const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
 
 const _DEFAULT_HEALTH:float = 100.0
+const _DEFAULT_SHIELD:float = 100.0
 const _DEFAULT_CHARACTER_SPEED:float = 300.0
 const _DEFAULT_CHARACTER_DASH:float = 1000.0
 const _DEFAULT_SHIP_ACCELERATION:float = 6.0
@@ -41,6 +42,9 @@ const _DEFAULT_PROJECTILE_DURATION = 0.2
 
 # stats
 @export var health:float = _DEFAULT_HEALTH
+@export var shield:float = _DEFAULT_SHIELD
+@export var total_health:float = _DEFAULT_HEALTH
+@export var total_shield:float = _DEFAULT_SHIELD
 @export var character_speed:float = _DEFAULT_CHARACTER_SPEED
 @export var character_dash:float = _DEFAULT_CHARACTER_DASH
 @export var ship_acceleration:float = _DEFAULT_SHIP_ACCELERATION

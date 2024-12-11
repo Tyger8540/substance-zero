@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://sq25hv2lluf2"]
+
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_j1lo4"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_mykuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plt8w"]
+atlas = ExtResource("2_mykuo")
+region = Rect2(100, 244, 8, 9)
+
+[node name="BlueBottlePowerupHUD" type="VBoxContainer"]
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_j1lo4")
+theme_override_font_sizes/font_size = 17
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = SubResource("AtlasTexture_plt8w")
+expand_mode = 2

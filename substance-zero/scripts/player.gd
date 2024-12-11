@@ -6,6 +6,7 @@ extends Character
 @onready var projectile_spawn = $"../ProjectileSpawn"
 
 var credits:int = 200
+var deaths:int = 0
 
 var _dash_timer:Timer
 var _dash_cooldown:Timer
