@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=11 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
-[ext_resource type="PackedScene" uid="uid://ctsmcaxk43mup" path="res://scenes/power_ups/bubble_shield_power_up.tscn" id="3_351jm"]
 [ext_resource type="PackedScene" uid="uid://bs77ldrtjm7f0" path="res://scenes/cutscene_trigger.tscn" id="3_umxqw"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
 [ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
@@ -17,8 +16,6 @@ script = ExtResource("1_gw17q")
 
 [node name="Player" parent="." instance=ExtResource("2_gqb7m")]
 position = Vector2(186, 188)
-
-[node name="BubbleShieldPowerUp" parent="Player" instance=ExtResource("3_351jm")]
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
 position = Vector2(217, 297)
