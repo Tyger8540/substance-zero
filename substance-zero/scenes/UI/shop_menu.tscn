@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://daw3pt5rv3l1j"]
+[gd_scene load_steps=11 format=3 uid="uid://bkv0dg5wq51fk"]
 
 [ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
-[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_1w3fk"]
+[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_ups/power_up.tscn" id="2_1w3fk"]
 [ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_aatp2"]
 [ext_resource type="PackedScene" uid="uid://e3cn7s5xqkis" path="res://scenes/UI/power_up_shop/melee_powerup_shop_display.tscn" id="3_7ylh0"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_nkout"]
@@ -83,16 +83,13 @@ theme_override_constants/separation = 10
 [node name="MeleePowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("3_7ylh0")]
 layout_mode = 2
 theme_override_constants/separation = 10
-theme_override_constants/separation = 10
 
 [node name="TargetPowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("5_ouqi4")]
 layout_mode = 2
 theme_override_constants/separation = 10
-theme_override_constants/separation = 10
 
 [node name="ShieldPowerupShopDisplay" parent="VBoxContainer/PowerupContainer" instance=ExtResource("4_fvv7n")]
 layout_mode = 2
-theme_override_constants/separation = 10
 theme_override_constants/separation = 10
 
 [node name="EmptyHBoxBottom" type="HBoxContainer" parent="VBoxContainer"]
