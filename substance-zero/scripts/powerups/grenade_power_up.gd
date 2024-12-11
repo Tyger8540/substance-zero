@@ -21,7 +21,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_power_up") and not is_throwing and uses > 0:
 		use_power_up()
-	
 	if is_throwing:
 		if global_position == initial_position + direction * throw_distance:
 			is_throwing = false

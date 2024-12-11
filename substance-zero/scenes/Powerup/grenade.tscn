@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://cutx0jqrqxem1"]
+[gd_scene load_steps=44 format=3 uid="uid://cutx0jqrqxem1"]
 
+[ext_resource type="Script" path="res://scripts/powerups/grenade_power_up.gd" id="1_agqh7"]
 [ext_resource type="Script" path="res://scripts/hurt_box.gd" id="1_es3sj"]
 [ext_resource type="Texture2D" uid="uid://qeccwax7crn3" path="res://sprites/characters/Weapons/Grenade/96x96 - LargeBombStaticFrame1.png" id="2_kp5rv"]
 [ext_resource type="Texture2D" uid="uid://crh8krhmswmqd" path="res://sprites/characters/Weapons/Grenade/96x96 - LargeBombStaticFrame2.png" id="3_3x72i"]
@@ -328,6 +329,7 @@ _data = {
 }
 
 [node name="Grenade" type="Node2D"]
+script = ExtResource("1_agqh7")
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource("1_es3sj")
