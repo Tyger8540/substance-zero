@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
+[ext_resource type="PackedScene" uid="uid://ctsmcaxk43mup" path="res://scenes/power_ups/bubble_shield_power_up.tscn" id="3_stgni"]
 [ext_resource type="PackedScene" uid="uid://bs77ldrtjm7f0" path="res://scenes/cutscene_trigger.tscn" id="3_umxqw"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="4_5p6fg"]
+[ext_resource type="PackedScene" uid="uid://do18o0fwamip0" path="res://scenes/power_ups/grenade_power_up.tscn" id="4_sowk3"]
 [ext_resource type="Script" path="res://scripts/hazard_manager.gd" id="5_dlf44"]
 [ext_resource type="Script" path="res://scenes/powerup_label.gd" id="6_7161i"]
 [ext_resource type="FontFile" uid="uid://c8qyd1t77fca8" path="res://sprites/Interface/GravityBold8.ttf" id="6_f6tc3"]
-[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="6_u3q6a"]
+[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_ups/power_up.tscn" id="6_u3q6a"]
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
@@ -19,6 +21,10 @@ script = ExtResource("1_gw17q")
 
 [node name="Player" parent="." instance=ExtResource("2_gqb7m")]
 position = Vector2(186, 188)
+
+[node name="BubbleShieldPowerUp" parent="Player" instance=ExtResource("3_stgni")]
+
+[node name="GrenadePowerUp" parent="Player" instance=ExtResource("4_sowk3")]
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
 position = Vector2(217, 297)
