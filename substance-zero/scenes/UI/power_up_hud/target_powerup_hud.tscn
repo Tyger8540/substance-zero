@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqopauq1uhvls"]
+
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_jy1pi"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_ng8bf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_senwq"]
+atlas = ExtResource("2_ng8bf")
+region = Rect2(132, 227, 9, 9)
+
+[node name="TargetPowerupHUD" type="VBoxContainer"]
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_jy1pi")
+theme_override_font_sizes/font_size = 17
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = SubResource("AtlasTexture_senwq")
+expand_mode = 2

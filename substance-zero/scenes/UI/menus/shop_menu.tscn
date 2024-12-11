@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://p00mw2spqc5c"]
 
 [ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
-[ext_resource type="PackedScene" uid="uid://cu7x8h15wdwlt" path="res://scenes/power_up.tscn" id="2_1w3fk"]
+[ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_up.tscn" id="2_1w3fk"]
 [ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_aatp2"]
 [ext_resource type="PackedScene" uid="uid://e3cn7s5xqkis" path="res://scenes/UI/power_up_shop/melee_powerup_shop_display.tscn" id="3_7ylh0"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_nkout"]
