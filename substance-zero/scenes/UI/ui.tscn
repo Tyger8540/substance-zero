@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dry0loufbfy7y"]
+[gd_scene load_steps=5 format=3 uid="uid://dry0loufbfy7y"]
 
 [ext_resource type="PackedScene" uid="uid://p00mw2spqc5c" path="res://scenes/UI/menus/shop_menu.tscn" id="1_4e1xa"]
 [ext_resource type="PackedScene" uid="uid://doexeixm3waui" path="res://scenes/UI/player_hud.tscn" id="1_dxx7d"]
 [ext_resource type="PackedScene" uid="uid://87qnwk55ciam" path="res://scenes/UI/menus/pause_menu.tscn" id="2_0l1ax"]
+[ext_resource type="PackedScene" uid="uid://e2lg7q431ufd" path="res://scenes/UI/menus/you_died_menu.tscn" id="4_efnpt"]
 
 [node name="UI" type="Node"]
 
@@ -12,5 +13,8 @@
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_0l1ax")]
+visible = false
+
+[node name="YouDiedMenu" parent="." instance=ExtResource("4_efnpt")]
 process_mode = 3
 visible = false

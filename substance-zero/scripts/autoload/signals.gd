@@ -1,5 +1,7 @@
 extends Node
 
+signal player_death
+
 # gain_power_up sent to power up manager from shop
 signal gain_power_up(power_up: PowerUp)
 

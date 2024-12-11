@@ -1,6 +1,7 @@
 class_name Player
 extends Character
 
+
 @onready var animation_tree: AnimationTree = $AnimationTree
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
@@ -10,6 +11,7 @@ var deaths:int = 0
 
 var _dash_timer:Timer
 var _dash_cooldown:Timer
+
 
 # from exercise 1
 func bind_player_input_commands() -> void:
@@ -50,6 +52,7 @@ func unbind_player_input_commands() -> void:
 
 # from exercise 1
 func _ready():
+	dead = false
 	animation_tree.active = true
 	bind_player_input_commands()
 
