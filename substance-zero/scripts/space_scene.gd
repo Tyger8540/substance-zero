@@ -16,8 +16,8 @@ func _ready() -> void:
 		ast.global_position.y = ship.global_position.y + randf_range(50, 500)
 		asteroids.push_back(ast)
 		add_child(ast)
-	$SpaceDemoTimer.start()
 
 
-func _on_space_demo_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("skip_room"):
+		get_tree().change_scene_to_file("res://scenes/world.tscn")
