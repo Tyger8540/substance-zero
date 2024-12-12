@@ -17,7 +17,6 @@ var is_exploding: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	parent = %Player
 	visible = false
 
 
@@ -40,7 +39,7 @@ func _process(delta: float) -> void:
 		is_exploding = false
 
 func use_power_up() -> void:
-	throw_grenade(parent.facing)
+	throw_grenade(get_parent().facing)
 	
 	super()
 
