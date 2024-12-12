@@ -241,13 +241,15 @@ graph_offset = Vector2(109.872, -49.0985)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(132, 113)
-collision_layer = 129
+collision_layer = 128
 script = ExtResource("1_e0wdy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gn0l2")
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 10
 script = ExtResource("2_ka8on")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

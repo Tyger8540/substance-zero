@@ -97,6 +97,15 @@ use_power_up={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Projectiles"
+2d_physics/layer_3="Melee"
+2d_physics/layer_4="Boss Projectiles"
+2d_physics/layer_7="Enemies"
+2d_physics/layer_8="Player"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

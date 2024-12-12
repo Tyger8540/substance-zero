@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4y818mq7dfed"]
+[gd_scene load_steps=6 format=3 uid="uid://dr4goiskdo3jc"]
 
 [ext_resource type="Script" path="res://scripts/space_scene.gd" id="1_uibie"]
-[ext_resource type="PackedScene" uid="uid://ltdiixcp5w6h" path="res://scenes/ship.tscn" id="2_326y7"]
-[ext_resource type="PackedScene" uid="uid://dtb5id8w88mfj" path="res://scenes/asteroid.tscn" id="2_lu0m7"]
+[ext_resource type="PackedScene" uid="uid://qwmcsixftmoc" path="res://scenes/ship.tscn" id="2_326y7"]
+[ext_resource type="PackedScene" path="res://scenes/asteroid.tscn" id="2_lu0m7"]
 [ext_resource type="PackedScene" uid="uid://2d0cqji7v8x" path="res://scenes/space_autoscroll_camera.tscn" id="3_tvx3a"]
 [ext_resource type="Texture2D" uid="uid://d2b4hjmg6b0tp" path="res://sprites/environment/Space_Backgrounds/Starfields/Starfield_03-512x512.png" id="4_2whhs"]
 

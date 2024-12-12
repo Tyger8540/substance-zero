@@ -8,6 +8,8 @@ size = Vector2(117, 109)
 
 [node name="Melee" type="Area2D"]
 position = Vector2(92, 60)
+collision_layer = 4
+collision_mask = 65
 script = ExtResource("1_esasu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
