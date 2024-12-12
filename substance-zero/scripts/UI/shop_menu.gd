@@ -5,10 +5,11 @@ extends Control
 @export var power_up_scene:PackedScene
 @export var melee_display:PackedScene
 @export var target_display:PackedScene
-@export var shield_display:PackedScene
-@export var thrown_display:PackedScene
 @export var red_bottle_display:PackedScene
 @export var blue_bottle_display:PackedScene
+@export var shield_display:PackedScene
+@export var thrown_display:PackedScene
+@export var boots_display:PackedScene
 @export var shop_capacity: int
 
 var power_ups_to_buy: Array[PowerUp]
@@ -99,6 +100,10 @@ func _update_power_up_displays() -> void:
 				var new_grenade = thrown_display.instantiate() as ThrownPowerUpShopDisplay
 				new_grenade.power_up = power_up
 				power_up_container.add_child(new_grenade)
+			Enums.Power_Up_Type.EXPLODING_DASH:
+				var new_exploding_dash = boots_display.instantiate() as BootsPowerUpShopDisplay
+				new_exploding_dash.power_up = power_up
+				power_up_container.add_child(new_exploding_dash)
 	
 
 # Update player credits and shop credits display	
@@ -131,6 +136,8 @@ func _on_buying_power_up(power_up: PowerUp) -> void:
 				Signals.gain_shield_power_up.emit()
 			Enums.Power_Up_Type.GRENADE:
 				Signals.gain_thrown_power_up.emit()
+			Enums.Power_Up_Type.EXPLODING_DASH:
+				Signals.gain_boots_power_up.emit()
 	
 
 func _toggle_shopping() -> void:

@@ -4,7 +4,6 @@
 
 [node name="ExplodingDashPowerUp" type="Node2D"]
 script = ExtResource("1_23psh")
-room_count = 1
 lifespan = 1
 type = 6
 
