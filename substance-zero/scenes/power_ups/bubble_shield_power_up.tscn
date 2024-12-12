@@ -45,7 +45,7 @@ _data = {
 "Shield": SubResource("Animation_2eyil")
 }
 
-[node name="BubbleShield" type="Node2D"]
+[node name="BubbleShieldPowerUp" type="Node2D"]
 script = ExtResource("1_ewb6x")
 
 [node name="HitBox" type="Area2D" parent="."]

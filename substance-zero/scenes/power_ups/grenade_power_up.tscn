@@ -437,10 +437,10 @@ _data = {
 "ThrowingAnimation": SubResource("Animation_7qba7")
 }
 
-[node name="Grenade" type="Node2D"]
+[node name="GrenadePowerUp" type="Node2D"]
 script = ExtResource("1_agqh7")
-uses = 10
 type = 5
+uses = 10
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource("2_4j5v7")
