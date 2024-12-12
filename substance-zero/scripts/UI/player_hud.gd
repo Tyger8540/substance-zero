@@ -11,10 +11,12 @@ extends Control
 var player_power_ups: Array[PowerUp] = []
 
 @onready var power_up_container = $MarginContainer/HBoxContainer/PowerupContainer
-@onready var shield_bar = $MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox/ShieldBar
-@onready var health_bar = $MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox/HealthBar
-@onready var shield_label = $MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox/ShieldLabel
-@onready var health_label = $MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox/HealthLabel
+@onready var shield_bar = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/ShieldHBox/ShieldBar
+@onready var health_bar = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/HealthHBox/HealthBar
+@onready var shield_label = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/ShieldHBox/ShieldLabel
+@onready var health_label = $MarginContainer/HBoxContainer/VBoxContainerHealthShieldVBox/HealthHBox/HealthLabel
+@onready var melee_icon = $MarginContainer/HBoxContainer/VBoxContainer/MeleeIcon
+@onready var ranged_icon = $MarginContainer/HBoxContainer/VBoxContainer/RangedIcon
 @onready var credits_label = $MarginContainer/HBoxContainer/CounterVBox/CreditsLabel
 @onready var deaths_label = $MarginContainer/HBoxContainer/CounterVBox/DeathsLabel
 @onready var player: Player = get_node("../../Player")
@@ -32,6 +34,7 @@ func _process(delta: float) -> void:
 		_create_power_up_displays()
 		
 	_update_shield_health_displays()
+	_update_current_weapon_display()
 	_update_power_up_displays()
 	_update_credits_deaths_labels()
 	
@@ -78,6 +81,14 @@ func _update_power_up_displays() -> void:
 		
 		label.text = str(power_up_display.power_up.uses)
 	
+	
+func _update_current_weapon_display() -> void:
+	if player.current_weapon == Enums.Weapons.MELEE:
+		melee_icon.show()
+		ranged_icon.hide()
+	else:
+		melee_icon.hide()
+		ranged_icon.show()
 	
 func _update_shield_health_displays() -> void:
 	shield_label.text = "%d/%d" % [player.shield, player.total_shield]

@@ -58,6 +58,7 @@ theme = ExtResource("4_vciak")
 text = "Options"
 
 [node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_vciak")
 text = "   Level Select   "
