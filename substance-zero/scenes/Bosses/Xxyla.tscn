@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpu4epfhrs3sv"]
+[gd_scene load_steps=15 format=3 uid="uid://bpu4epfhrs3sv"]
 
 [ext_resource type="Script" path="res://scripts/Bosses/Xxyla.gd" id="1_64t2v"]
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="2_hf0f5"]
 [ext_resource type="Texture2D" uid="uid://c5vtjuvgcfnqi" path="res://sprites/bosses/World4_Boss/Before_Transformation/Xxyla.png" id="3_86fum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pavd"]
@@ -92,32 +93,16 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="Xxyla" type="CharacterBody2D"]
 collision_layer = 64
 script = ExtResource("1_64t2v")
-health = null
-shield = null
-total_health = null
-total_shield = null
-character_speed = null
-character_dash = null
-ship_acceleration = null
-ship_decceleration = null
-level = null
-ship_rotate_speed = null
-default_melee_length = null
-default_melee_damage = null
-default_melee_offset = null
-default_melee_duration = null
-default_projectile_length = null
-default_projectile_damage = null
-default_projectile_speed = null
-default_projectile_offset = null
-default_projectile_duration = null
-default_piercing_projectile_length = null
-default_piercing_projectile_damage = null
-default_piercing_projectile_speed = null
-default_piercing_projectile_offset = null
-default_piercing_projectile_duration = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3pavd")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("2_hf0f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_3pavd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

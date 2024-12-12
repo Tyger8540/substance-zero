@@ -10,9 +10,3 @@ func _on_body_entered(_body):
 	
 	$"../CutsceneManager".start_cutscene()
 	queue_free()
-
-# for testing purposes
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("start_cutscene"):
-		$"../CutsceneManager".start_cutscene()
-		queue_free()

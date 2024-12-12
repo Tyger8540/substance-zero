@@ -113,7 +113,7 @@ var ship_deccelerate_command:Command
 var attacking:= false
 var damaged := false
 var dead := false
-var char_name := ""
+
 # from exercise 1
 var facing:Facing = Facing.RIGHT
 
