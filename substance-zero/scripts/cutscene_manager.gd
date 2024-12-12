@@ -26,6 +26,7 @@ func end_cutscene() -> void:
 	
 
 func _physics_process(_delta):
+	
 	if _cutscene_played and len(player_cmd_list) == 0:
 		end_cutscene()
 	
