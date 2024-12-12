@@ -32,13 +32,10 @@ func _physics_process(_delta):
 	# otherwise execute commands
 	if not dialogue_queue.is_empty():
 		if not executing:
-			print("first: ", executing)
 			new_dialogue = DurativeDialogueCommand.new(dialogue_queue.front()[1])
 			executing = true
-			print("second: ", executing)
 		if new_dialogue != null:
 			command_status = new_dialogue.execute(dialogue_queue.front()[0])
 			if command_status == Command.Status.DONE:
-				print("stopped")
 				dialogue_queue.pop_front()
 				executing = false
