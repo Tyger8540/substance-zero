@@ -6,8 +6,7 @@ extends Control
 @export var target_display:PackedScene
 @export var shield_display:PackedScene
 @export var thrown_display:PackedScene
-@export var red_bottle_display:PackedScene
-@export var blue_bottle_display:PackedScene
+@export var boots_display:PackedScene
 
 var player_power_ups: Array[PowerUp] = []
 
@@ -57,14 +56,6 @@ func _create_power_up_displays() -> void:
 				var new_ranged = target_display.instantiate()
 				new_ranged.power_up = power_up
 				power_up_container.add_child(new_ranged)
-			#Enums.Power_Up_Type.HEALTH_BOOST:
-				#var new_health_boost = red_bottle_display.instantiate() as RedBottlePowerUpShopDisplay
-				#new_health_boost.power_up = power_up
-				#power_up_container.add_child(new_health_boost)
-			#Enums.Power_Up_Type.SHIELD_BOOST:
-				#var new_shield_boost = blue_bottle_display.instantiate() as BlueBottlePowerUpShopDisplay
-				#new_shield_boost.power_up = power_up
-				#power_up_container.add_child(new_shield_boost)
 			Enums.Power_Up_Type.BUBBLE_SHIELD:
 				var new_bubble_shield = shield_display.instantiate()
 				new_bubble_shield.power_up = power_up
@@ -73,6 +64,10 @@ func _create_power_up_displays() -> void:
 				var new_grenade = thrown_display.instantiate()
 				new_grenade.power_up = power_up
 				power_up_container.add_child(new_grenade)
+			Enums.Power_Up_Type.EXPLODING_DASH:
+				var new_exploding_dash = boots_display.instantiate()
+				new_exploding_dash.power_up = power_up
+				power_up_container.add_child(new_exploding_dash)
 			_:
 				pass
 
@@ -80,11 +75,8 @@ func _create_power_up_displays() -> void:
 func _update_power_up_displays() -> void:
 	for power_up_display in power_up_container.get_children():
 		var label = power_up_display.get_child(0)
-		#if power_up_display.power_up.lifespan == Enums.Power_Up_Lifespan.ROOM_LIMITED:
-			#label.text = power_up_display.power_up.room_count
-		#else:
-			#label.text = power_up_display.power_up.uses
-		label.text = "1"
+		
+		label.text = str(power_up_display.power_up.uses)
 	
 	
 func _update_shield_health_displays() -> void:
