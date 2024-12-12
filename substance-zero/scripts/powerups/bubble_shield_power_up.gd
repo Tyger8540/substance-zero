@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 
 func use_power_up() -> void:
 	set_shield_active()
+	get_parent().get_power_up(Enums.Power_Up_Type.BUBBLE_SHIELD).uses -= 1
 	super()
 
 

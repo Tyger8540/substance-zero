@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 
 func use_power_up() -> void:
 	throw_grenade(get_parent().facing)
+	get_parent().get_power_up(Enums.Power_Up_Type.GRENADE).uses -= 1
 	super()
 
 
