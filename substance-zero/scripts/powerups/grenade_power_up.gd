@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 
 func use_power_up() -> void:
 	throw_grenade(get_parent().facing)
-	
 	super()
 
 
