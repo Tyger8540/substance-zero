@@ -3,9 +3,6 @@ extends Character
 
 const _SPAWN_OFFSET = 50.0
 const EXPLODING_DASH_POWER_UP = preload("res://scenes/power_ups/exploding_dash_power_up.tscn")
-@onready var animation_tree: AnimationTree = $AnimationTree
-# from exercise 3
-@onready var projectile_spawn = $"../ProjectileSpawn"
 
 var credits:int = 500
 var deaths:int = 0

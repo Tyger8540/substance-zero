@@ -10,8 +10,11 @@
 [node name="Hud" parent="." instance=ExtResource("1_dxx7d")]
 
 [node name="ShopMenu" parent="." instance=ExtResource("1_4e1xa")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_0l1ax")]
+visible = false
 
 [node name="YouDiedMenu" parent="." instance=ExtResource("4_efnpt")]
 process_mode = 3
+visible = false
