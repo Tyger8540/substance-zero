@@ -1,7 +1,7 @@
 class_name Player
 extends Character
 
-
+const EXPLODING_DASH_POWER_UP = preload("res://scenes/power_ups/exploding_dash_power_up.tscn")
 @onready var animation_tree: AnimationTree = $AnimationTree
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
@@ -55,6 +55,9 @@ func _ready():
 	dead = false
 	animation_tree.active = true
 	bind_player_input_commands()
+	var power_up = EXPLODING_DASH_POWER_UP.instantiate()
+	add_child(power_up)
+	PlayerVariables.power_ups.append(power_up)
 
 
 # modified from exercise 1
@@ -129,6 +132,11 @@ func _physics_process(delta):
 				dash_left.execute(self)
 			elif Input.is_action_pressed("move_right"):
 				dash_right.execute(self)
+			
+			# NOTE
+			# Implementation for the exploding dash power up
+			if PlayerVariables.has_power_up(Enums.Power_Up_Type.EXPLODING_DASH):
+				$ExplodingDashPowerUp.spawn_grenade()
 	
 	super(delta)
 	
