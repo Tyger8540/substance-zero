@@ -3,11 +3,11 @@ class_name HazardManager
 extends Node
 
 const _MAX_HAZARDS = 10
-@export var _min_offset:int = 100.0
-@export var _offset_scale:int = 50.0
+@export var _min_offset:int = 50.0
+@export var _offset_scale:int = 5.0
 @export var _delay:float = 1.0
 @export var _speed:float = 10.0
-@export var _duration:float = 10.0
+@export var _duration:float = 1.0
 var command_status:Command.Status
 var _hazards:Array[Enemy]
 
@@ -53,27 +53,25 @@ func _spawn_hazard() -> void:
 	new_hazard.global_position = Global.room_position_array[random_room_index]
 	var offset_x:int = randi_range(_min_offset, Global.dimensions_array[random_room_index].x * _offset_scale)
 	var offset_y:int = randi_range(_min_offset, Global.dimensions_array[random_room_index].y * _offset_scale)
-	new_hazard.global_position.x += offset_x
-	new_hazard.global_position.y += offset_y
 	
 	if random_border == 0:
-		#print("top border")
+		print("top border")
 		new_hazard.facing = new_hazard.Facing.DOWN
-		#new_hazard.global_position.x += offset_x
+		new_hazard.global_position.x += offset_x
 	elif random_border == 1:
-		#print("left border")
+		print("left border")
 		new_hazard.facing = new_hazard.Facing.RIGHT
-		#new_hazard.global_position.x += offset_y
+		new_hazard.global_position.x += offset_y
 	elif random_border == 2:
-		#print("bottom border")
+		print("bottom border")
 		new_hazard.facing = new_hazard.Facing.UP
-		#new_hazard.global_position.x += offset_x
-		#new_hazard.global_position.x += offset_y
+		new_hazard.global_position.x += offset_x
+		new_hazard.global_position.x += offset_y
 	elif random_border == 3:
-		#print("right border")
+		print("right border")
 		new_hazard.facing = new_hazard.Facing.LEFT
-		#new_hazard.global_position.x += offset_x
-		#new_hazard.global_position.x += offset_y
+		new_hazard.global_position.x += offset_x
+		new_hazard.global_position.x += offset_y
 	
 	# set speed of hazard
 	new_hazard.default_projectile_speed = _speed

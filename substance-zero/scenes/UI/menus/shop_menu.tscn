@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://doy0ralb0fyy1" path="res://scenes/UI/power_up_shop/target_powerup_shop_display.tscn" id="5_ouqi4"]
 [ext_resource type="PackedScene" uid="uid://bjy3pj63t0y7h" path="res://scenes/UI/power_up_shop/blue_bottle_powerup_shop_display.tscn" id="6_o2jj7"]
 [ext_resource type="PackedScene" uid="uid://4f8r5u5u6r3h" path="res://scenes/UI/power_up_shop/thrown_powerup_shop_display.tscn" id="6_pn8xn"]
-[ext_resource type="PackedScene" path="res://scenes/UI/power_up_shop/boots_powerup_shop_display.tscn" id="7_t6geu"]
+[ext_resource type="PackedScene" uid="uid://7xaouw8opmev" path="res://scenes/UI/power_up_shop/boots_powerup_shop_display.tscn" id="7_t6geu"]
 [ext_resource type="Shader" path="res://Assets/shop_menu.gdshader" id="9_n5jx7"]
 [ext_resource type="PackedScene" uid="uid://m0ytennlsoce" path="res://scenes/power_ups/single_use_power_up.tscn" id="12_44ja1"]
 
