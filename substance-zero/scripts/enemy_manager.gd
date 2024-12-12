@@ -87,14 +87,29 @@ func _physics_process(_delta):
 			
 		_execute_commands(enemy)
 		
-	print(enemies_in_each_room)
+	#print(enemies_in_each_room)
 	# check if the room is empty
-	for room in enemies_in_each_room:
-		for enemy in room:
-			if enemy:
+	if Global.rooms_spawned:
+		if Input.is_action_just_pressed("skip_room"):
+			Global.room_position_array.pop_back()
+			if len(Global.room_position_array) - 1 < 0:
+				get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
 				return
-		print("teleport")
-		# teleport player to next room
-		#Global.room_position_array.pop_back()
-		#_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1]
-			
+			_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
+		else:
+			for room in enemies_in_each_room:
+				for enemy in room:
+					if enemy and is_instance_valid(enemy):
+						return
+				#print("teleport")
+				# teleport player to next room
+				print("Global room position array:")
+				print(Global.room_position_array)
+				Global.room_position_array.pop_back()
+				print("len")
+				print(len(Global.room_position_array) - 1)
+				if len(Global.room_position_array) - 1 < 0:
+					get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
+					return
+				_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
+	

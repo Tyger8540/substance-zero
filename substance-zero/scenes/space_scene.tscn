@@ -28,3 +28,9 @@ motion_mirroring = Vector2(1536, 1536)
 scale = Vector2(3, 3)
 texture = ExtResource("4_2whhs")
 centered = false
+
+[node name="SpaceDemoTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="timeout" from="SpaceDemoTimer" to="." method="_on_space_demo_timer_timeout"]
