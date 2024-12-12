@@ -18,4 +18,8 @@ func updateRoomCount() -> void:
 	room_count -= 1
 	if room_count == 0:
 		is_active = false
-		pass
+
+
+func enablePowerup(num_rooms: int) -> void:
+	room_count = num_rooms
+	is_active = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bknt2122phxy2"]
+
+[ext_resource type="Script" path="res://scripts/powerups/fire_dash_power_up.gd" id="1_kjr2t"]
+
+[node name="FireDashPowerUp" type="Node2D"]
+script = ExtResource("1_kjr2t")
+lifespan = null
+type = null
+price = null

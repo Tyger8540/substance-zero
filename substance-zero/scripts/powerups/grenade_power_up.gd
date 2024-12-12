@@ -8,7 +8,7 @@ var direction: Vector2
 var initial_position: Vector2
 var throw_distance: float = 300.0
 var travel_distance: float = 0.0
-var throw_speed: float = 200.0
+var throw_speed: float = 500.0
 var is_throwing: bool = false
 var is_exploding: bool = false
 
