@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
-[ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
+[ext_resource type="PackedScene" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
 [ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="13_sa6fc"]
 [ext_resource type="PackedScene" uid="uid://c36g5mrlolfim" path="res://ProdGen/levels_main.tscn" id="16_584wj"]
 
@@ -28,9 +28,6 @@ position = Vector2(186, 188)
 [node name="Grenade" parent="Player" instance=ExtResource("4_cpeue")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="UI" parent="Player" instance=ExtResource("11_r3488")]
-position = Vector2(0, 1000)
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
 position = Vector2(217, 297)
@@ -98,5 +95,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="LevelsMain" parent="." instance=ExtResource("16_584wj")]
+
+[node name="UI" parent="." instance=ExtResource("11_r3488")]
 
 [connection signal="timeout" from="PowerupLabel/Timer" to="PowerupLabel" method="_on_timer_timeout"]

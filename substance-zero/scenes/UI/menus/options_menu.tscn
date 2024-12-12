@@ -27,6 +27,7 @@ scale = Vector2(1.00137, 1)
 theme_override_styles/panel = SubResource("StyleBoxTexture_of7cv")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_top = 34.0
 offset_right = 231.0
 offset_bottom = 50.0
@@ -75,7 +76,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "W,A,S,D (Or Arrows)"
+text = "W,A,S,D / Arrows"
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer"]
@@ -92,7 +93,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "Mouse Left Click"
+text = "Mouse Left Click / SHIFT"
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer2"]

@@ -18,11 +18,11 @@ const _HUD_OFFSET = 300.0
 @onready var health_label = $MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox/HealthLabel
 @onready var credits_label = $MarginContainer/HBoxContainer/CounterVBox/CreditsLabel
 @onready var deaths_label = $MarginContainer/HBoxContainer/CounterVBox/DeathsLabel
-@onready var player: Player = get_node("../../../Player")
+@onready var player: Player = get_node("../../Player")
 
 
 func _ready() -> void:
-	global_position.y = player.global_position.y + _HUD_OFFSET
+	set_process(true)
 
 
 func _process(delta: float) -> void:
