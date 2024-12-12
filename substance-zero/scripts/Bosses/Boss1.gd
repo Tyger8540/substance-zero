@@ -1,19 +1,20 @@
 class_name Boss1
 extends Enemy 
 
-var target : Character
+var target:Character
 var following := false
-var _death:bool = false
+var _death := false
 
 @export var boss_projectile:PackedScene = load("res://scenes/weapons/boss_projectile.tscn")
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 func _ready() -> void:
 	health = 100
-	target = $"../Player"
+	target = %Player
 	character_speed = 400
 	projectile_spawn = $"../ProjectileSpawn"
 	animation_tree.active = true
+	char_name = "KLEE"
 
 
 func _process(_delta):
