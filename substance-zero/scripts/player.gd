@@ -116,27 +116,37 @@ func _physics_process(delta):
 			add_child(_dash_cooldown)
 			_dash_cooldown.start(0.33)
 			
+			var dashed: bool = false
+			
 			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):
 				dash_up_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_up") and Input.is_action_pressed("move_right"):
 				dash_up_right.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_left"):
 				dash_down_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_right"):
 				dash_down_right.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_up"):
 				dash_up.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down"):
 				dash_down.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_left"):
 				dash_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_right"):
 				dash_right.execute(self)
+				dashed = true
 			
 			# NOTE
 			# Implementation for the exploding dash power up
-			if PlayerVariables.has_power_up(Enums.Power_Up_Type.EXPLODING_DASH):
-				$ExplodingDashPowerUp.spawn_grenade()
+			if PlayerVariables.has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
+				$ExplodingDashPowerUp.start_spawning()
 	
 	super(delta)
 	
