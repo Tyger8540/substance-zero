@@ -17,7 +17,7 @@ var is_exploding: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	parent = get_parent()
+	parent = %Player
 	visible = false
 
 
@@ -60,9 +60,15 @@ func throw_grenade(facing: Character.Facing) -> void:
 
 func make_visible() -> void:
 	top_level = true
-	global_position = parent.global_position
+	#print()
+	#print("global pos")
+	#print(%Player.global_position)
+	global_position = get_parent().global_position
 	initial_position = global_position
 	visible = true
+	print()
+	print("global pos")
+	print(global_position)
 
 
 func explode() -> void:

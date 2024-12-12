@@ -1,11 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://bknt2122phxy2"]
 
-[ext_resource type="Script" path="res://scripts/powerups/fire_dash_power_up.gd" id="1_yavsd"]
+[ext_resource type="Script" path="res://scripts/powerups/exploding_dash_power_up.gd" id="1_23psh"]
 
-[node name="FireDashPowerUp" type="Node2D"]
-script = ExtResource("1_yavsd")
+[node name="ExplodingDashPowerUp" type="Node2D"]
+script = ExtResource("1_23psh")
+room_count = 1
+lifespan = 1
+type = 6
 
 [node name="ExplosionTimer1" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="ExplosionTimer2" type="Timer" parent="."]
 

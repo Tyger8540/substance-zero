@@ -1,7 +1,7 @@
 class_name RoomLimitedPowerUp
 extends PowerUp
 
-var room_count: int = 0
+@export var room_count: int = 0
 var is_active: bool = false
 
 # Called when the node enters the scene tree for the first time.

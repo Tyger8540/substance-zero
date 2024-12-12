@@ -18,7 +18,10 @@ func spawn_grenade() -> void:
 	add_child(grenade)
 	grenade.make_visible()
 	grenade.explode()
+	$ExplosionTimer1.start()
 
 
 func _on_explosion_timer_1_timeout() -> void:
-	pass # Replace with function body.
+	for child in get_children():
+		if child is GrenadePowerUp:
+			child.queue_free()

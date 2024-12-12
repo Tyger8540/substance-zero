@@ -13,4 +13,6 @@ enum Power_Up_Type {
 	SHIELD_BOOST, #possible idea
 	BUBBLE_SHIELD, #SINGLE_USE only
 	GRENADE, #possible idea (SINGLE_USE only)
+	EXPLODING_DASH, #ROOM_LIMITED (FOR NOW?)
+	
 }
