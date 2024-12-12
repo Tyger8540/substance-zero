@@ -10,6 +10,7 @@ extends Node2D
 func initialize(_lifespan: Enums.Power_Up_Lifespan, _type: Enums.Power_Up_Type) -> void:
 	lifespan = _lifespan
 	type = _type
+	#uses = _uses
 
 
 #func _on_area_2d_body_entered(body: Node2D) -> void:

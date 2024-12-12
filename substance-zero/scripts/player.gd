@@ -59,11 +59,10 @@ func _ready():
 	dead = false
 	animation_tree.active = true
 	bind_player_input_commands()
-	var power_up = EXPLODING_DASH_POWER_UP.instantiate()
-	add_child(power_up)
-	PlayerVariables.power_ups.append(power_up)
 	char_name = "NOVA"
-
+	#var power_up = EXPLODING_DASH_POWER_UP.instantiate()
+	#add_child(power_up)
+	#PlayerVariables.power_ups.append(power_up)
 
 # modified from exercise 1
 # execute() commands are from exercise 1
@@ -156,7 +155,7 @@ func _physics_process(delta):
 			
 			# NOTE
 			# Implementation for the exploding dash power up
-			if PlayerVariables.has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
+			if has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
 				$ExplodingDashPowerUp.start_spawning()
 	
 	super(delta)
