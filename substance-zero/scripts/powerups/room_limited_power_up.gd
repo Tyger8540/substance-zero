@@ -14,12 +14,12 @@ func _process(delta: float) -> void:
 	pass
 
 
-func update_room_count() -> void:
+func updateRoomCount() -> void:
 	uses -= 1
 	if uses == 0:
 		is_active = false
 
 
-func enable_powerup(num_rooms: int) -> void:
+func enablePowerup(num_rooms: int) -> void:
 	uses = num_rooms
 	is_active = true

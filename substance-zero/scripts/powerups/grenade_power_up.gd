@@ -22,9 +22,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if get_parent() is Character and get_parent().has_power_up(Enums.Power_Up_Type.GRENADE) and uses == 0:
-		uses = get_parent().get_power_up(Enums.Power_Up_Type.GRENADE).uses
-	if Input.is_action_just_pressed("use_grenade") and not is_exploding and not is_throwing and uses > 0 and get_parent() is Character:
+	if Input.is_action_just_pressed("use_power_up") and not is_exploding and not is_throwing and uses > 0:
 		use_power_up()
 		animation_player.play("Moving")
 	if is_throwing:
@@ -42,7 +40,7 @@ func _process(delta: float) -> void:
 
 func use_power_up() -> void:
 	throw_grenade(get_parent().facing)
-	get_parent().get_power_up(Enums.Power_Up_Type.GRENADE).uses -= 1
+	
 	super()
 
 

@@ -2,21 +2,6 @@
 class_name EnemyManager
 extends Node
 
-var command_dict = {
-	0: DurativeIdleCommand,
-	1: DurativeMoveDownCommand,
-	2: DurativeMoveUpCommand,
-	3: DurativeMoveLeftCommand,
-	4: DurativeMoveUpCommand,
-}
-
-var weapon_dict = {
-	0: Enemy.Weapons.MELEE,
-	1: Enemy.Weapons.LASER_GUN,
-	2: Enemy.Weapons.PIERCING_GUN,
-	3: Enemy.Weapons.ALL_DIRECTIONS_GUN
-}
-
 @export var max_enemies:int = 10
 @export var _min_offset:int = 50.0
 @export var _offset_scale:int = 5.0
@@ -44,8 +29,7 @@ func _spawn_enemy() -> void:
 	
 	# set enemy weapon
 	# by default it is the melee
-	var random_weapon:int = randi_range(0, len(weapon_dict) - 1)
-	new_enemy.current_weapon = weapon_dict[random_weapon]
+	new_enemy.current_weapon = new_enemy.Weapons.LASER_GUN
 	
 	# handle position
 	
@@ -64,9 +48,11 @@ func _spawn_enemy() -> void:
 	
 	
 func _give_enemies_commands(enemy:Enemy) -> void:
-	# randomize commands
-	var random_command:int = randi_range(0, len(command_dict) - 1)
-	enemy.enemy_cmd_list.push_back(command_dict[random_command].new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeIdleCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
 	enemy.enemy_cmd_list.push_back(AttackCommand.new())
 	
 	
@@ -100,58 +86,30 @@ func _physics_process(_delta):
 			_give_enemies_commands(enemy)
 			
 		_execute_commands(enemy)
-	# check if the room is empty
-	#if Global.rooms_spawned:
-		#if Input.is_action_just_pressed("skip_room"):
-			#Global.room_position_array.pop_back()
-			#if len(Global.room_position_array) - 1 < 0:
-				#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
-				#return
-			#_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
-		#else:
-			#for room in enemies_in_each_room:
-				#for enemy in room:
-					#if enemy and is_instance_valid(enemy):
-						#return
-				##print("teleport")
-				## teleport player to next room
-				#print("Global room position array:")
-				#print(Global.room_position_array)
-				#Global.room_position_array.pop_back()
-				#print("len")
-				#print(len(Global.room_position_array) - 1)
-				#if len(Global.room_position_array) - 1 < 0:
-					#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
-					#return
-				#_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
-				
-	if Global.rooms_spawned:
 		
+	#print(enemies_in_each_room)
+	# check if the room is empty
+	if Global.rooms_spawned:
 		if Input.is_action_just_pressed("skip_room"):
 			Global.room_position_array.pop_back()
-			
 			if len(Global.room_position_array) - 1 < 0:
 				get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
 				return
-				
 			_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
-			
-		# check if current room is empty
-		var current_room:Array = enemies_in_each_room[len(Global.room_position_array) - 1]
-		var number_of_enemies:int = 0
-		for enemy in current_room:
-			if is_instance_valid(enemy):
-				number_of_enemies += 1
-				
-		if number_of_enemies == 0:
-			Global.room_position_array.pop_back()
-			# check if room position array is empty
-			# if it is teleport to spaceship
-			if len(Global.room_position_array) <= 0:
-				get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
-			# otherwise teleport to next room
-			else:
-				_player.global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _min_offset
-				_player.global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _min_offset
-			
+		else:
+			for room in enemies_in_each_room:
+				for enemy in room:
+					if enemy and is_instance_valid(enemy):
+						return
+				#print("teleport")
+				# teleport player to next room
+				print("Global room position array:")
+				print(Global.room_position_array)
+				Global.room_position_array.pop_back()
+				print("len")
+				print(len(Global.room_position_array) - 1)
+				if len(Global.room_position_array) - 1 < 0:
+					get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
+					return
+				_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
 	
