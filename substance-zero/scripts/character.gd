@@ -19,8 +19,8 @@ enum Facing {
 # constants
 const LEFT_IN_RADIANS = 180.0 * 3.14 / 180.0
 const RIGHT_IN_RADIANS = 0.0 * 3.14 / 180.0
-const UP_IN_RADIANS = 90 * 3.14 / 180.0
-const DOWN_IN_RADIANS = 270 * 3.14 / 180.0
+const UP_IN_RADIANS = 270 * 3.14 / 180.0
+const DOWN_IN_RADIANS = 90 * 3.14 / 180.0
 
 const _DEFAULT_HEALTH:float = 100.0
 const _DEFAULT_SHIELD:float = 100.0
@@ -149,17 +149,17 @@ func handle_position(hurtbox:HurtBox, offset:float) -> void:
 		hurtbox.global_position.y += offset
 		
 		
-func set_facing_of_hurtbox(hurtbox:HurtBox, character_facing:Facing) -> void:
-	if character_facing == Facing.LEFT:
+func set_facing_of_hurtbox(hurtbox:HurtBox) -> void:
+	if facing == Facing.LEFT:
 		hurtbox.rotation = LEFT_IN_RADIANS
 		hurtbox.facing = hurtbox.Facing.LEFT
-	elif character_facing == Facing.RIGHT:
+	elif facing == Facing.RIGHT:
 		hurtbox.rotation = RIGHT_IN_RADIANS
 		hurtbox.facing = hurtbox.Facing.RIGHT
-	elif character_facing == Facing.UP:
+	elif facing == Facing.UP:
 		hurtbox.rotation = UP_IN_RADIANS
 		hurtbox.facing = hurtbox.Facing.UP
-	elif character_facing == Facing.DOWN:
+	elif facing == Facing.DOWN:
 		hurtbox.rotation = DOWN_IN_RADIANS
 		hurtbox.facing = hurtbox.Facing.DOWN
 
@@ -194,7 +194,7 @@ func attack_with_melee(length:float=default_melee_length, damage:float=default_m
 	handle_position(new_melee, offset)
 	
 	# handle direction
-	set_facing_of_hurtbox(new_melee, facing)
+	set_facing_of_hurtbox(new_melee)
 	
 	
 func fire_laser_gun(projectile_spawn:Node, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
@@ -221,7 +221,7 @@ func fire_laser_gun(projectile_spawn:Node, length:float=default_projectile_lengt
 	handle_position(new_projectile, offset)
 	
 	# handle facing
-	set_facing_of_hurtbox(new_projectile, facing)
+	set_facing_of_hurtbox(new_projectile)
 	
 	
 func fire_piercing_gun(projectile_spawn:Node, length:float=default_piercing_projectile_length, damage:float=default_piercing_projectile_damage, speed:float=default_piercing_projectile_speed, offset:float=default_piercing_projectile_offset, duration:float=default_piercing_projectile_duration) -> void:
@@ -248,7 +248,7 @@ func fire_piercing_gun(projectile_spawn:Node, length:float=default_piercing_proj
 	handle_position(new_piercing_projectile, offset)
 	
 	# handle facing
-	set_facing_of_hurtbox(new_piercing_projectile, facing)
+	set_facing_of_hurtbox(new_piercing_projectile)
 	
 	
 func fire_all_directions_gun(projectile_spawn:Node, length:float=default_projectile_length, damage:float=default_projectile_damage, speed:float=default_projectile_speed, offset:float=default_projectile_offset, duration:float=default_projectile_duration) -> void:
@@ -278,18 +278,21 @@ func fire_all_directions_gun(projectile_spawn:Node, length:float=default_project
 		
 		# add projectile to projectile spawn
 		projectile_spawn.add_child(new_projectile)
-	
-		# set position of projectile
+		
 		# save the character's facing when setting the offset for the projectiles
 		old_facing = facing
 		# this is so handle position can correctly set the offset based on facing
 		facing = current_facing
+		
+		# set position of projectile
 		handle_position(new_projectile, offset)
+		
+		# handle facing
+		set_facing_of_hurtbox(new_projectile)
+		
 		# set the character's facing back to the original
 		facing = old_facing
-	
-		# handle facing
-		set_facing_of_hurtbox(new_projectile, current_facing)
+		
 
 func _ready():
 	pass

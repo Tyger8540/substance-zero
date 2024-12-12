@@ -59,7 +59,7 @@ func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_posi
 	handle_position(new_projectile, offset)
 	
 	# handle facing
-	set_facing_of_hurtbox(new_projectile, facing)
+	set_facing_of_hurtbox(new_projectile)
 
 
 func _manage_animation_tree_state() -> void:

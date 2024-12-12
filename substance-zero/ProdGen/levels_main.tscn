@@ -56,10 +56,6 @@ popup/item_3/id = 3
 popup/item_4/text = "Planet 5"
 popup/item_4/id = 4
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(849, 104)
-zoom = Vector2(0.2, 0.2)
-
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="item_selected" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]

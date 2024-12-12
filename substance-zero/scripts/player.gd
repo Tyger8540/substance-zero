@@ -2,15 +2,19 @@ class_name Player
 extends Character
 
 
-@onready var animation_tree: AnimationTree = $AnimationTree
-# from exercise 3
-@onready var projectile_spawn = $"../ProjectileSpawn"
+const _SPAWN_OFFSET = 50.0
 
 var credits:int = 200
 var deaths:int = 0
 
 var _dash_timer:Timer
 var _dash_cooldown:Timer
+
+var spawned:bool = false
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+# from exercise 3
+@onready var projectile_spawn = $"../ProjectileSpawn"
 
 
 # from exercise 1
@@ -60,6 +64,12 @@ func _ready():
 # modified from exercise 1
 # execute() commands are from exercise 1
 func _physics_process(delta):
+	
+	if not spawned and Global.rooms_spawned:
+		global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _SPAWN_OFFSET
+		global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _SPAWN_OFFSET
+		spawned = true
+		print("spawned")
 		
 	# handle equipping weapons
 	if Input.is_action_just_pressed("melee"):
