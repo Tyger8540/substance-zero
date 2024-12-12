@@ -28,4 +28,5 @@ func _on_area_entered(hurtbox:HurtBox) -> void:
 		#print("took damage")
 		##print(owner.health)
 		#print()
-		
+	elif hurtbox.name_of_hurtbox == "Grenade":
+		owner.take_damage(hurtbox.damage)
