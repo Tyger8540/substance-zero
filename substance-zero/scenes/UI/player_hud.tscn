@@ -95,24 +95,6 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="MeleePowerupHUD" parent="MarginContainer/HBoxContainer/PowerupContainer" instance=ExtResource("4_ia4nf")]
-layout_mode = 2
-
-[node name="TargetPowerupHUD" parent="MarginContainer/HBoxContainer/PowerupContainer" instance=ExtResource("6_1dq7s")]
-layout_mode = 2
-
-[node name="RedBottlePowerupHUD" parent="MarginContainer/HBoxContainer/PowerupContainer" instance=ExtResource("8_o4aef")]
-layout_mode = 2
-
-[node name="BlueBottlePowerupHUD" parent="MarginContainer/HBoxContainer/PowerupContainer" instance=ExtResource("9_tni0k")]
-layout_mode = 2
-
-[node name="ShieldPowerupHUD" parent="MarginContainer/HBoxContainer/PowerupContainer" instance=ExtResource("5_mpygp")]
-layout_mode = 2
-
-[node name="ThrownPowerupHUD" parent="MarginContainer/HBoxContainer/PowerupContainer" instance=ExtResource("7_snjf8")]
-layout_mode = 2
-
 [node name="CounterVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
