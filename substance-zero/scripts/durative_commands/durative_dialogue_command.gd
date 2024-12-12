@@ -11,7 +11,7 @@ func _init(script:String, duration:float = 1.0):
 	_duration = duration
 	
 func execute(character:Character) -> Command.Status:
-	#print("executing ", character)
+	print(_timer)
 	if _timer == null:
 		character.dialogue_box.dialogue.text = _script
 		character.dialogue_box.character_name.text = character.char_name
@@ -21,13 +21,15 @@ func execute(character:Character) -> Command.Status:
 		_timer.one_shot = true
 		_timer.start(_duration)
 		return Status.ACTIVE
-		
+	
+	if (Input.is_action_just_pressed("start_cutscene")):
+		print("stop")
+		_timer.stop()
+	
 	if !_timer.is_stopped():
 		print("IS NOT STOPPED")
-		if (Input.is_action_just_pressed("dash")):
-			_timer.stop()
 		return Status.ACTIVE
 	else:
-		print("IS STOPPED")
+		#print("IS STOPPED")
 		character.dialogue_box.visible = false
 		return Status.DONE
