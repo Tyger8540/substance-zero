@@ -13,11 +13,11 @@ func _on_area_entered(hurtbox:HurtBox) -> void:
 	
 	if hurtbox.name_of_hurtbox == "Melee":
 		owner.take_damage(hurtbox.damage + 10.0 * PowerUpInventory.power_up_level[Enums.Power_Up_Lifespan.PERMANENT][Enums.Power_Up_Type.MELEE_DAMAGE])
-		print("melee hit")
-		print(owner.name)
-		print("took damage")
+		#print("melee hit")
+		#print(owner.name)
+		#print("took damage")
 		#print(owner.health)
-		print()
+		#print()
 		
 	elif hurtbox.name_of_hurtbox == "Projectile":
 		owner.take_damage(hurtbox.damage + 10.0 * PowerUpInventory.power_up_level[Enums.Power_Up_Lifespan.PERMANENT][Enums.Power_Up_Type.RANGED_DAMAGE])

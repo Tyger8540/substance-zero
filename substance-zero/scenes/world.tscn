@@ -20,6 +20,8 @@
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
 
+[node name="LevelsMain" parent="." instance=ExtResource("16_584wj")]
+
 [node name="Player" parent="." instance=ExtResource("2_gqb7m")]
 unique_name_in_owner = true
 position = Vector2(186, 188)

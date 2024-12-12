@@ -59,7 +59,11 @@ func create_special_room(rtype:String):
 func create_room(sizeRange: Vector2):   
 	# create floor  
 	var width = rng.randi_range(sizeRange.x, sizeRange.y) 
-	var height = rng.randi_range(sizeRange.x, sizeRange.y) 
+	var height = rng.randi_range(sizeRange.x, sizeRange.y)
+	
+	# store width and height globally
+	var dimensions:Vector2 = Vector2(width, height)
+	Global.dimensions_array.append(dimensions)
 
 	for x in range(width): 
 		for y in range(height): 

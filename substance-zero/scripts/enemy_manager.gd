@@ -2,17 +2,13 @@
 class_name EnemyManager
 extends Node
 
-@export var max_enemies:int = 8
-
-# offset relative to the player
-@export var _enemy_offset_x = 250.0
-@export var _enemy_offset_y = -45.0
-
-# offset relative to a nearby enemy
-@export var _offset_x = 150.0
-@export var _offset_y = 150.0
+@export var max_enemies:int = 10
+@export var _min_offset:int = 50.0
+@export var _offset_scale:int = 5.0
 
 var command_status:Command.Status
+var enemies_in_each_room:Array[Array] = []
+var appended:bool = false
 
 # from exercise 1
 @onready var _player = $"../Player"
@@ -22,7 +18,7 @@ var command_status:Command.Status
 @onready var _enemy:PackedScene = load("res://scenes/alien.tscn")
 
 
-func spawn_enemy() -> void:
+func _spawn_enemy() -> void:
 	# modified from exercise 3
 	
 	# initialize new enemy
@@ -35,21 +31,28 @@ func spawn_enemy() -> void:
 	# by default it is the melee
 	new_enemy.current_weapon = new_enemy.Weapons.LASER_GUN
 	
-	# set enemy's position relative to the player
-	new_enemy.global_position.x = _player.global_position.x + _enemy_offset_x
-	new_enemy.global_position.y = _player.global_position.y + _enemy_offset_y
+	# handle position
 	
-	# make sure enemy does not overlap with another enemy
-	_enemy_offset_x += _offset_x
-	_enemy_offset_y += _offset_y
+	# pick a random room
+	var random_room_index:int = randi_range(0, len(Global.room_position_array) - 1)
 	
-		
-
+	# pick a random offset
+	new_enemy.global_position = Global.room_position_array[random_room_index]
+	var offset_x:int = randi_range(_min_offset, Global.dimensions_array[random_room_index].x * _offset_scale)
+	var offset_y:int = randi_range(_min_offset, Global.dimensions_array[random_room_index].y * _offset_scale)
+	new_enemy.global_position.x += offset_x
+	new_enemy.global_position.y += offset_y
+	
+	# add enemy to room count of enemies
+	enemies_in_each_room[random_room_index].append(new_enemy)
+	
+	
 func _give_enemies_commands(enemy:Enemy) -> void:
-	enemy.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.66))
-	enemy.enemy_cmd_list.push_back(DurativeMoveRightCommand.new(0.66))
-	enemy.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeIdleCommand.new(0.66))
 	enemy.enemy_cmd_list.push_back(DurativeMoveDownCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveLeftCommand.new(0.66))
+	enemy.enemy_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
 	enemy.enemy_cmd_list.push_back(AttackCommand.new())
 	
 	
@@ -66,13 +69,32 @@ func _physics_process(_delta):
 	if not _player:
 		return
 		
-	if _player.health > 0.0 and len(_enemy_spawn.get_children()) < max_enemies:
-		spawn_enemy()
-	
+	if Global.rooms_spawned and not appended:
+		# initialize enemy array
+		for room in Global.room_position_array:
+			enemies_in_each_room.append([])
+		appended = true
+		
+		
+	if _player.health > 0.0 and len(_enemy_spawn.get_children()) < max_enemies and Global.rooms_spawned:
+			
+		_spawn_enemy()
+		
+	# give enemies commands
 	for enemy in _enemy_spawn.get_children():
 		if len(enemy.enemy_cmd_list) == 0:
 			_give_enemies_commands(enemy)
 			
 		_execute_commands(enemy)
 		
-		
+	print(enemies_in_each_room)
+	# check if the room is empty
+	for room in enemies_in_each_room:
+		for enemy in room:
+			if enemy:
+				return
+		print("teleport")
+		# teleport player to next room
+		#Global.room_position_array.pop_back()
+		#_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1]
+			
