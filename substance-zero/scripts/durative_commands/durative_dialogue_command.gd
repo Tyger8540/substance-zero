@@ -11,17 +11,23 @@ func _init(script:String, duration:float = 1.0):
 	_duration = duration
 	
 func execute(character:Character) -> Command.Status:
+	#print("executing ", character)
 	if _timer == null:
 		character.dialogue_box.dialogue.text = _script
+		character.dialogue_box.character_name.text = character.char_name
 		character.dialogue_box.visible = true
 		_timer = Timer.new()
 		character.add_child(_timer)
 		_timer.one_shot = true
 		_timer.start(_duration)
 		return Status.ACTIVE
-	
+		
 	if !_timer.is_stopped():
+		print("IS NOT STOPPED")
+		if (Input.is_action_just_pressed("dash")):
+			_timer.stop()
 		return Status.ACTIVE
 	else:
+		print("IS STOPPED")
 		character.dialogue_box.visible = false
 		return Status.DONE

@@ -92,6 +92,30 @@ unique_name_in_owner = true
 position = Vector2(64, 581)
 scale = Vector2(2, 2)
 collision_mask = 2
+health = null
+shield = null
+total_health = null
+total_shield = null
+character_speed = null
+character_dash = null
+ship_acceleration = null
+ship_decceleration = null
+level = null
+ship_rotate_speed = null
+default_melee_length = null
+default_melee_damage = null
+default_melee_offset = null
+default_melee_duration = null
+default_projectile_length = null
+default_projectile_damage = null
+default_projectile_speed = null
+default_projectile_offset = null
+default_projectile_duration = null
+default_piercing_projectile_length = null
+default_piercing_projectile_damage = null
+default_piercing_projectile_speed = null
+default_piercing_projectile_offset = null
+default_piercing_projectile_duration = null
 
 [node name="Xxyla" parent="." instance=ExtResource("12_oa8fy")]
 
