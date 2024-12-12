@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://doexeixm3waui"]
+
+[ext_resource type="Script" path="res://scripts/UI/player_hud.gd" id="1_vy5d7"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="2_dnlta"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="3_l32ed"]
+[ext_resource type="PackedScene" uid="uid://cti2x5pg6fjmy" path="res://scenes/UI/power_up_hud/melee_powerup_hud.tscn" id="4_ia4nf"]
+[ext_resource type="PackedScene" uid="uid://0yu6i1tthh7c" path="res://scenes/UI/power_up_hud/shield_powerup_hud.tscn" id="5_mpygp"]
+[ext_resource type="PackedScene" uid="uid://bqopauq1uhvls" path="res://scenes/UI/power_up_hud/target_powerup_hud.tscn" id="6_1dq7s"]
+[ext_resource type="PackedScene" uid="uid://cmivk7tjt2m22" path="res://scenes/UI/power_up_hud/boots_powerup_hud.tscn" id="6_gmutl"]
+[ext_resource type="PackedScene" uid="uid://s5lf45ci0tad" path="res://scenes/UI/power_up_hud/thrown_powerup_hud.tscn" id="7_snjf8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnelv"]
+texture = ExtResource("3_l32ed")
+region_rect = Rect2(50, 21, 44, 6)
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vy5d7")
+melee_display = ExtResource("4_ia4nf")
+target_display = ExtResource("6_1dq7s")
+shield_display = ExtResource("5_mpygp")
+thrown_display = ExtResource("7_snjf8")
+boots_display = ExtResource("6_gmutl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HealthShieldVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="ShieldHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HealthShieldVBox"]
+layout_mode = 2
+
+[node name="ShieldBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox"]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_dnlta")
+theme_override_styles/fill = SubResource("StyleBoxTexture_dnelv")
+show_percentage = false
+
+[node name="ShieldLabel" type="Label" parent="MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox"]
+custom_minimum_size = Vector2(123, 17)
+layout_mode = 2
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 17
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="HealthHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HealthShieldVBox"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_dnlta")
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox"]
+custom_minimum_size = Vector2(123, 17)
+layout_mode = 2
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 17
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="PowerupContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="CounterVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/HBoxContainer/CounterVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="MarginContainer/HBoxContainer/CounterVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/HBoxContainer/LabelVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="MarginContainer/HBoxContainer/LabelVBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 20
+text = "Deaths"
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d23aireoo7wp5"]
+
+[ext_resource type="TileSet" uid="uid://rqf1fyi4ihku" path="res://ProdGen/Tilemaps/BluePlanetTileMapLayer.tres" id="1_q7yie"]
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_set = ExtResource("1_q7yie")

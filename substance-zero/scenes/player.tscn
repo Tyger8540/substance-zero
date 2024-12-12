@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://dxb8g0cbxxokj"]
+[gd_scene load_steps=38 format=3 uid="uid://dxb8g0cbxxokj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_e0wdy"]
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="2_ka8on"]
-[ext_resource type="Texture2D" uid="uid://dvjfn2qksicd0" path="res://sprites/characters/player/Warrior_sprite_sheet.png" id="3_4xsw2"]
+[ext_resource type="Texture2D" uid="uid://10kvfd66iiiw" path="res://sprites/characters/player/Warrior_Gun_Sprite.png" id="3_w0mce"]
+[ext_resource type="PackedScene" uid="uid://drj5ig1l5ey6b" path="res://scenes/UI/health_shield_bars.tscn" id="4_608mn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gn0l2"]
 
@@ -56,6 +57,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 47]
+}
+
+[sub_resource type="Animation" id="Animation_emjoa"]
+resource_name = "Gun_Attack"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [55]
 }
 
 [sub_resource type="Animation" id="Animation_h16vo"]
@@ -114,6 +132,7 @@ _data = {
 "Attack": SubResource("Animation_divqe"),
 "Damaged": SubResource("Animation_clsyu"),
 "Die": SubResource("Animation_fv6ak"),
+"Gun_Attack": SubResource("Animation_emjoa"),
 "Idle": SubResource("Animation_h16vo"),
 "RESET": SubResource("Animation_046cd"),
 "Run": SubResource("Animation_v4giv")
@@ -127,6 +146,9 @@ animation = &"Damaged"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3no14"]
 animation = &"Die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q5lkm"]
+animation = &"Gun_Attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aswq7"]
 animation = &"Idle"
@@ -178,29 +200,56 @@ advance_condition = &"damaged"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f0271"]
+advance_mode = 2
+advance_condition = &"gun_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iovjj"]
+advance_mode = 2
+advance_condition = &"gun_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0pgfg"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0d8hs"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eb6bb"]
+advance_mode = 2
+advance_condition = &"damaged"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_67bdd"]
 states/Attack/node = SubResource("AnimationNodeAnimation_il8om")
-states/Attack/position = Vector2(412.571, -14.2366)
+states/Attack/position = Vector2(354.857, -33.0937)
 states/Damaged/node = SubResource("AnimationNodeAnimation_r0wul")
 states/Damaged/position = Vector2(413.374, 207.606)
 states/Die/node = SubResource("AnimationNodeAnimation_3no14")
 states/Die/position = Vector2(646.444, 47.709)
+states/Gun_Attack/node = SubResource("AnimationNodeAnimation_q5lkm")
+states/Gun_Attack/position = Vector2(496.158, -32.2028)
 states/Idle/node = SubResource("AnimationNodeAnimation_aswq7")
 states/Idle/position = Vector2(321.714, 99.6327)
 states/Run/node = SubResource("AnimationNodeAnimation_p58ql")
-states/Run/position = Vector2(514.286, 100.157)
+states/Run/position = Vector2(514.286, 100.029)
 states/Start/position = Vector2(166.857, 100.443)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3i0m7"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_n4t58"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_j8hwl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_6yor0"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_ewlgt"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_1hy61"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_svq2p"), "Idle", "Damaged", SubResource("AnimationNodeStateMachineTransition_ns33a"), "Attack", "Damaged", SubResource("AnimationNodeStateMachineTransition_5f30h"), "Run", "Damaged", SubResource("AnimationNodeStateMachineTransition_jriji"), "Damaged", "Idle", SubResource("AnimationNodeStateMachineTransition_m05uc")]
-graph_offset = Vector2(109.872, 5.13758)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3i0m7"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_n4t58"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_j8hwl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_6yor0"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_ewlgt"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_1hy61"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_svq2p"), "Idle", "Damaged", SubResource("AnimationNodeStateMachineTransition_ns33a"), "Attack", "Damaged", SubResource("AnimationNodeStateMachineTransition_5f30h"), "Run", "Damaged", SubResource("AnimationNodeStateMachineTransition_jriji"), "Damaged", "Idle", SubResource("AnimationNodeStateMachineTransition_m05uc"), "Idle", "Gun_Attack", SubResource("AnimationNodeStateMachineTransition_f0271"), "Run", "Gun_Attack", SubResource("AnimationNodeStateMachineTransition_iovjj"), "Gun_Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_0pgfg"), "Gun_Attack", "Run", SubResource("AnimationNodeStateMachineTransition_0d8hs"), "Gun_Attack", "Damaged", SubResource("AnimationNodeStateMachineTransition_eb6bb")]
+graph_offset = Vector2(109.872, -49.0985)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(132, 113)
+collision_layer = 128
 script = ExtResource("1_e0wdy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gn0l2")
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 10
 script = ExtResource("2_ka8on")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -209,8 +258,8 @@ shape = SubResource("CapsuleShape2D_uenih")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
-texture = ExtResource("3_4xsw2")
-hframes = 55
+texture = ExtResource("3_w0mce")
+hframes = 56
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -219,9 +268,17 @@ libraries = {
 autoplay = "Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_67bdd")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attacking = false
 parameters/conditions/damaged = false
+parameters/conditions/gun_attacking = false
 parameters/conditions/idle = false
 parameters/conditions/moving = false
+
+[node name="HealthShieldBars" parent="." instance=ExtResource("4_608mn")]
+offset_left = -16.0
+offset_top = 25.0
+offset_right = 9.0
+offset_bottom = 34.0

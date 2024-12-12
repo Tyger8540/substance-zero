@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpu4epfhrs3sv"]
+
+[ext_resource type="Script" path="res://scripts/Bosses/Xxyla.gd" id="1_64t2v"]
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="2_hf0f5"]
+[ext_resource type="Texture2D" uid="uid://c5vtjuvgcfnqi" path="res://sprites/bosses/World4_Boss/Before_Transformation/Xxyla.png" id="3_86fum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pavd"]
+size = Vector2(26, 50)
+
+[sub_resource type="Animation" id="Animation_dubpt"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_ehwww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k85dh"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-7.45058e-09, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mm6as"]
+_data = {
+"Idle": SubResource("Animation_dubpt"),
+"RESET": SubResource("Animation_ehwww"),
+"Walk": SubResource("Animation_k85dh")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbley"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g367f"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wfa4o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b8ry8"]
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e2114"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5dfgh"]
+states/Idle/node = SubResource("AnimationNodeAnimation_sbley")
+states/Idle/position = Vector2(248.571, 129.347)
+states/Start/position = Vector2(132, 131.429)
+states/Walk/node = SubResource("AnimationNodeAnimation_g367f")
+states/Walk/position = Vector2(405.143, 130.362)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_wfa4o"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_b8ry8"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_e2114")]
+
+[node name="Xxyla" type="CharacterBody2D"]
+collision_layer = 64
+script = ExtResource("1_64t2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3pavd")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("2_hf0f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_3pavd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18, -23)
+texture = ExtResource("3_86fum")
+hframes = 6
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mm6as")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_5dfgh")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/idle = false
+parameters/conditions/moving = false

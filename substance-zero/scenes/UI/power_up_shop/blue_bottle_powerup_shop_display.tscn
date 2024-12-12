@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjy3pj63t0y7h"]
+
+[ext_resource type="Script" path="res://scripts/UI/power_up_shop/blue_bottle_powerup_shop_display.gd" id="1_51c3d"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_hfgfc"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_phrak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2otth"]
+atlas = ExtResource("2_phrak")
+region = Rect2(100, 244, 8, 9)
+
+[node name="BlueBottlePowerupShopDisplay" type="HBoxContainer"]
+theme_override_constants/separation = 15
+script = ExtResource("1_51c3d")
+
+[node name="BuyButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme = ExtResource("1_hfgfc")
+text = "Buy (100)"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2otth")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Shield Boost"
+
+[connection signal="pressed" from="BuyButton" to="." method="_send_buying_signal"]

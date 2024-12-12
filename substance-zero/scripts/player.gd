@@ -1,12 +1,21 @@
 class_name Player
 extends Character
 
+const _SPAWN_OFFSET = 50.0
+const EXPLODING_DASH_POWER_UP = preload("res://scenes/power_ups/exploding_dash_power_up.tscn")
+
+var credits:int = 500
+var deaths:int = 0
+
+var _dash_timer:Timer
+var _dash_cooldown:Timer
+
+var spawned:bool = false
+
 @onready var animation_tree: AnimationTree = $AnimationTree
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
 
-var _dash_timer:Timer
-var _dash_cooldown:Timer
 
 # from exercise 1
 func bind_player_input_commands() -> void:
@@ -18,7 +27,7 @@ func bind_player_input_commands() -> void:
 	move_right = MoveRightCommand.new()
 	move_up = MoveUpCommand.new()
 	move_down = MoveDownCommand.new()
-	#dash bindings:
+	# dash bindings:
 	dash_up_left = DashUpLeftCommand.new()
 	dash_up_right = DashUpRightCommand.new()
 	dash_down_left = DashDownLeftCommand.new()
@@ -47,14 +56,24 @@ func unbind_player_input_commands() -> void:
 
 # from exercise 1
 func _ready():
+	dead = false
 	animation_tree.active = true
 	bind_player_input_commands()
+	#var power_up = EXPLODING_DASH_POWER_UP.instantiate()
+	#add_child(power_up)
+	#PlayerVariables.power_ups.append(power_up)
 
 
 # modified from exercise 1
 # execute() commands are from exercise 1
 func _physics_process(delta):
 	
+	if not spawned and Global.rooms_spawned:
+		global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _SPAWN_OFFSET
+		global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _SPAWN_OFFSET
+		spawned = true
+		print("spawned")
+		
 	# handle equipping weapons
 	if Input.is_action_just_pressed("melee"):
 		current_weapon = Weapons.MELEE
@@ -107,22 +126,37 @@ func _physics_process(delta):
 			add_child(_dash_cooldown)
 			_dash_cooldown.start(0.33)
 			
+			var dashed: bool = false
+			
 			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):
 				dash_up_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_up") and Input.is_action_pressed("move_right"):
 				dash_up_right.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_left"):
 				dash_down_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_right"):
 				dash_down_right.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_up"):
 				dash_up.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down"):
 				dash_down.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_left"):
 				dash_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_right"):
 				dash_right.execute(self)
+				dashed = true
+			
+			# NOTE
+			# Implementation for the exploding dash power up
+			if has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
+				$ExplodingDashPowerUp.start_spawning()
 	
 	super(delta)
 	
@@ -138,10 +172,17 @@ func _manage_animation_tree_state() -> void:
 		animation_tree["parameters/conditions/moving"] = false
 	#toggles
 	if attacking:
-		animation_tree["parameters/conditions/attacking"] = true
-		attacking = false
+		if current_weapon == Weapons.MELEE:
+			animation_tree["parameters/conditions/attacking"] = true
+			animation_tree["parameters/conditions/gun_attacking"] = false
+			attacking = false
+		elif current_weapon == Weapons.LASER_GUN:
+			animation_tree["parameters/conditions/gun_attacking"] = true
+			animation_tree["parameters/conditions/attacking"] = false
+			attacking = false
 	else:
 		animation_tree["parameters/conditions/attacking"] = false
+		animation_tree["parameters/conditions/gun_attacking"] = false
 		
 	if damaged:
 		animation_tree["parameters/conditions/damaged"] = true

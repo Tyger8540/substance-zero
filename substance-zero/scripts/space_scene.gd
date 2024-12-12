@@ -26,7 +26,6 @@ func _ready() -> void:
 		add_child(ast)
 
 
-func _physics_process(delta: float) -> void:
-	for ast in _asteroids:
-		pass
-	
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("skip_room"):
+		get_tree().change_scene_to_file("res://scenes/world.tscn")

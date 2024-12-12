@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dht3bqp7mdnso"]
+
+[ext_resource type="Script" path="res://scripts/Bosses/Boss_Projectile.gd" id="1_648n5"]
+[ext_resource type="Texture2D" uid="uid://dl0bmx2tifiwo" path="res://sprites/enemy/Droid01/Projectile/Droid01Projectile.png" id="2_qeukp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ymm7"]
+size = Vector2(42, 12)
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 129
+script = ExtResource("1_648n5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 1.5)
+texture = ExtResource("2_qeukp")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_3ymm7")
