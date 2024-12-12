@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
-[ext_resource type="PackedScene" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
+[ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
 [ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="13_sa6fc"]
 
 [node name="World" type="Node"]

@@ -3,7 +3,9 @@ class_name Room
 @export var map: TileMapLayer = null
 @export var planetScene = preload("res://ProdGen/Tilemaps/BluePlanetTileMapLayer.tscn")
 var ShopRoom = preload("res://ProdGen/Tilemaps/Planet1/PShop1.tscn")
-var BossRoom = preload("res://ProdGen/Tilemaps/Planet1/PBoss1.tscn")
+# TODO
+# Add boss room scene
+#var BossRoom = preload("res://ProdGen/Tilemaps/Planet1/PBoss1.tscn")
 var TreasureRoom = preload("res://ProdGen/Tilemaps/Planet1/PTreasure1.tscn")
 var planet = 0 
 
@@ -87,7 +89,10 @@ func createScene(sname: String):
 	if sname == "planet": 
 		scene = planetScene
 	if sname == "boss":
-		scene = BossRoom
+		# TODO
+		# Make boss room scene and attach inside here instead of a shop room
+		#scene = BossRoom
+		scene = ShopRoom
 	elif sname == "treasure":
 		scene = TreasureRoom 
 	elif sname == "shop": 
