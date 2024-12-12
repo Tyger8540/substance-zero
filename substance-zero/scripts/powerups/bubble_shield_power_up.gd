@@ -16,6 +16,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if get_parent() is Character and get_parent().has_power_up(Enums.Power_Up_Type.BUBBLE_SHIELD) and uses == 0:
+		uses = get_parent().get_power_up(Enums.Power_Up_Type.BUBBLE_SHIELD).uses
 	if Input.is_action_just_pressed("use_power_up") and not in_use and uses > 0:
 		use_power_up()
 
