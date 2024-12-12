@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelGenRes" load_steps=2 format=3 uid="uid://cb5110ykuq3nb"]
+
+[ext_resource type="Script" path="res://ProdGen/LevelGenRes.gd" id="1_8jyyd"]
+
+[resource]
+script = ExtResource("1_8jyyd")
+roomDistanceRange = Vector2(3, 4)
+sizeRange = Vector2(5, 10)
+roomCount = 4
+shopsRange = Vector2(0, 0)
+treasuresRange = Vector2(0, 0)
+bossRange = Vector2(0, 0)

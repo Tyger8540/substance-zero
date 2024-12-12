@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 Enums="*res://scripts/autoload/enums.gd"
 PlayerVariables="*res://scripts/autoload/player_variables.gd"
 PowerUpInventory="*res://scripts/autoload/power_up_inventory.gd"
+Global="*res://scripts/autoload/Global.gd"
+SoundManager="*res://scripts/autoload/SoundManager.tscn"
 Signals="*res://scripts/autoload/signals.gd"
 
 [display]
