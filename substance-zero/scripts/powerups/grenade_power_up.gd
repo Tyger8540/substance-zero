@@ -30,9 +30,7 @@ func _process(delta: float) -> void:
 		if global_position == initial_position + direction * throw_distance:
 			is_throwing = false
 			# Explode
-			animation_player.play("Explode")
-			is_exploding = true
-			pass
+			explode()
 		else:
 			global_position = global_position.move_toward(initial_position + direction * throw_distance, throw_speed * delta)
 			# TODO
@@ -40,7 +38,7 @@ func _process(delta: float) -> void:
 			# the wall so it is always able to land
 	if is_exploding and not animation_player.is_playing():
 		is_exploding = false
-		
+
 func use_power_up() -> void:
 	throw_grenade(parent.facing)
 	
@@ -56,8 +54,17 @@ func throw_grenade(facing: Character.Facing) -> void:
 		direction = Vector2(0, -1)
 	elif facing == Character.Facing.DOWN:
 		direction = Vector2(0, 1)
+	make_visible()
+	is_throwing = true
+
+
+func make_visible() -> void:
 	top_level = true
 	global_position = parent.global_position
 	initial_position = global_position
 	visible = true
-	is_throwing = true
+
+
+func explode() -> void:
+	animation_player.play("Explode")
+	is_exploding = true
