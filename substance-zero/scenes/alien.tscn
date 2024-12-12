@@ -129,10 +129,15 @@ states/Start/position = Vector2(175.428, 125.796)
 transitions = ["Start", "Scientist_Idle", SubResource("AnimationNodeStateMachineTransition_bxawp"), "Scientist_Idle", "Scientist_Run", SubResource("AnimationNodeStateMachineTransition_rqwoj"), "Scientist_Run", "Scientist_Idle", SubResource("AnimationNodeStateMachineTransition_b0iha"), "Scientist_Idle", "Scientist_Attack", SubResource("AnimationNodeStateMachineTransition_snep8"), "Scientist_Attack", "Scientist_Idle", SubResource("AnimationNodeStateMachineTransition_8qoff"), "Scientist_Attack", "Scientist_Run", SubResource("AnimationNodeStateMachineTransition_johyp"), "Scientist_Run", "Scientist_Attack", SubResource("AnimationNodeStateMachineTransition_23y8n")]
 
 [node name="Enemy" instance=ExtResource("1_mnpcx")]
+collision_layer = 64
 script = ExtResource("2_q2hk5")
 
 [node name="CollisionShape2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
+
+[node name="HitBox" parent="." index="1"]
+collision_layer = 64
+collision_mask = 6
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 scale = Vector2(0.5, 0.5)
