@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://4f8r5u5u6r3h"]
+
+[ext_resource type="Script" path="res://scripts/UI/power_up_shop/thrown_powerup_shop_display.gd" id="1_0atub"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_tgxog"]
+[ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_nm7vl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5801j"]
+atlas = ExtResource("2_nm7vl")
+region = Rect2(116, 227, 9, 9)
+
+[node name="ThrownPowerupShopDisplay" type="HBoxContainer"]
+theme_override_constants/separation = 15
+script = ExtResource("1_0atub")
+
+[node name="BuyButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme = ExtResource("1_tgxog")
+text = "Buy (100)"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5801j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Grenade Powerup"
+
+[connection signal="pressed" from="BuyButton" to="." method="_send_buying_signal"]

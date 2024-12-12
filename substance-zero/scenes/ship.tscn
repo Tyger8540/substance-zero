@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://qwmcsixftmoc"]
+
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_dri1c"]
+[ext_resource type="Script" path="res://scripts/hit_box.gd" id="2_mqejo"]
+[ext_resource type="Texture2D" uid="uid://rb84vnvx7ubl" path="res://sprites/environment/Spaceship/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png" id="3_xkdwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bw1n"]
+
+[node name="Ship" type="CharacterBody2D"]
+position = Vector2(587, 543)
+script = ExtResource("1_dri1c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -77, 30, -20, 82, 31, 82, 61, 38, 39, -38, 39, -82, 61, -82, 31, -30, -20)
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_mqejo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_4bw1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("3_xkdwy")

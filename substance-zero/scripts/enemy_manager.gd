@@ -62,6 +62,10 @@ func _execute_commands(enemy:Enemy) -> void:
 	
 	
 func _physics_process(_delta):
+	# check if player is dead
+	if not _player:
+		return
+		
 	if _player.health > 0.0 and len(_enemy_spawn.get_children()) < max_enemies:
 		spawn_enemy()
 	

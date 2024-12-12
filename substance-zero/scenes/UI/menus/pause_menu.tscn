@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://87qnwk55ciam"]
+
+[ext_resource type="Script" path="res://scripts/UI/pause_menu.gd" id="1_6udk1"]
+[ext_resource type="Texture2D" uid="uid://d2fn801bsa60x" path="res://sprites/environment/Space_Backgrounds/Blue Nebula/Blue_Nebula_02-512x512.png" id="2_ffgc6"]
+[ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_m7rfu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vagxe"]
+texture = ExtResource("2_ffgc6")
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6udk1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00137, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_vagxe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -204.0
+offset_right = 91.0
+offset_bottom = -100.0
+grow_vertical = 2
+scale = Vector2(1.98228, 1.98228)
+size_flags_horizontal = 4
+theme_override_constants/separation = 7
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(116, 23)
+layout_mode = 2
+theme = ExtResource("3_m7rfu")
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(116, 23)
+layout_mode = 2
+theme = ExtResource("3_m7rfu")
+text = "Exit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -104.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.98228, 1.98228)
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_top = 34.0
+offset_right = 231.0
+offset_bottom = 50.0
+scale = Vector2(3, 3)
+theme = ExtResource("3_m7rfu")
+text = "Substance Zero"
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_toggle_pause"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

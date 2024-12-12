@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://btrd5fd7iohyp"]
+
+[ext_resource type="Script" path="res://scripts/powerups/room_limited_power_up.gd" id="1_qpgwv"]
+
+[node name="RoomLimitedPowerUp" type="Node2D"]
+script = ExtResource("1_qpgwv")
+lifespan = 1

@@ -3,6 +3,8 @@ extends Enemy
 
 @onready var scientist_animation_tree: AnimationTree = $Scientist_AnimationTree
 @onready var shootSound = $SoundQueue/AudioStreamPlayer2D
+
+
 func _ready():
 	scientist_animation_tree.active = true
 	

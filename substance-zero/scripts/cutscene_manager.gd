@@ -18,18 +18,6 @@ func start_cutscene() -> void:
 	# stop player movement
 	_player.velocity.x = 0
 	_player.velocity.y = 0
-	
-	# player's current level can indicate which commands to push
-	
-	player_cmd_list.push_back(DurativeMoveUpLeftCommand.new(0.66))
-	player_cmd_list.push_back(DurativeMoveUpRightCommand.new(0.66))
-	player_cmd_list.push_back(DurativeMoveDownLeftCommand.new(0.66))
-	player_cmd_list.push_back(DurativeMoveDownRightCommand.new(0.66))
-
-	player_cmd_list.push_back(DurativeMoveDownCommand.new(0.66))
-	player_cmd_list.push_back(DurativeMoveRightCommand.new(0.66))
-	player_cmd_list.push_back(DurativeMoveLeftCommand.new(0.66))
-	player_cmd_list.push_back(DurativeMoveUpCommand.new(0.66))
 
 
 func end_cutscene() -> void:
