@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://p00mw2spqc5c"]
+[gd_scene load_steps=16 format=3 uid="uid://p00mw2spqc5c"]
 
 [ext_resource type="Script" path="res://scripts/UI/shop_menu.gd" id="1_yebpy"]
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_ups/power_up.tscn" id="2_1w3fk"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://e3cn7s5xqkis" path="res://scenes/UI/power_up_shop/melee_powerup_shop_display.tscn" id="3_7ylh0"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="3_nkout"]
 [ext_resource type="PackedScene" uid="uid://rnj384ncknfn" path="res://scenes/UI/power_up_shop/shield_powerup_shop_display.tscn" id="4_fvv7n"]
+[ext_resource type="PackedScene" uid="uid://d3miqrrmetkon" path="res://scenes/UI/power_up_shop/red_bottle_powerup_shop_display.tscn" id="5_j5kjd"]
 [ext_resource type="PackedScene" uid="uid://doy0ralb0fyy1" path="res://scenes/UI/power_up_shop/target_powerup_shop_display.tscn" id="5_ouqi4"]
-[ext_resource type="PackedScene" uid="uid://d3miqrrmetkon" path="res://scenes/UI/power_up_shop/red_bottle_powerup_shop_display.tscn" id="6_irffq"]
+[ext_resource type="PackedScene" uid="uid://bjy3pj63t0y7h" path="res://scenes/UI/power_up_shop/blue_bottle_powerup_shop_display.tscn" id="6_o2jj7"]
 [ext_resource type="PackedScene" uid="uid://4f8r5u5u6r3h" path="res://scenes/UI/power_up_shop/thrown_powerup_shop_display.tscn" id="6_pn8xn"]
-[ext_resource type="PackedScene" uid="uid://bjy3pj63t0y7h" path="res://scenes/UI/power_up_shop/blue_bottle_powerup_shop_display.tscn" id="7_5d47l"]
+[ext_resource type="PackedScene" uid="uid://7xaouw8opmev" path="res://scenes/UI/power_up_shop/boots_powerup_shop_display.tscn" id="7_t6geu"]
 [ext_resource type="Shader" path="res://Assets/shop_menu.gdshader" id="9_n5jx7"]
+[ext_resource type="PackedScene" uid="uid://m0ytennlsoce" path="res://scenes/power_ups/single_use_power_up.tscn" id="12_44ja1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yiakl"]
 shader = ExtResource("9_n5jx7")
@@ -31,10 +33,11 @@ script = ExtResource("1_yebpy")
 power_up_scene = ExtResource("2_1w3fk")
 melee_display = ExtResource("3_7ylh0")
 target_display = ExtResource("5_ouqi4")
+red_bottle_display = ExtResource("5_j5kjd")
+blue_bottle_display = ExtResource("6_o2jj7")
 shield_display = ExtResource("4_fvv7n")
 thrown_display = ExtResource("6_pn8xn")
-red_bottle_display = ExtResource("6_irffq")
-blue_bottle_display = ExtResource("7_5d47l")
+boots_display = ExtResource("7_t6geu")
 shop_capacity = 3
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -119,6 +122,8 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 alignment = 1
+
+[node name="SingleUsePowerUp" parent="VBoxContainer/EmptyHBoxBottom" instance=ExtResource("12_44ja1")]
 
 [node name="ExitHBox" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

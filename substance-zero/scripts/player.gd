@@ -1,10 +1,13 @@
 class_name Player
 extends Character
 
-
 const _SPAWN_OFFSET = 50.0
+const EXPLODING_DASH_POWER_UP = preload("res://scenes/power_ups/exploding_dash_power_up.tscn")
+@onready var animation_tree: AnimationTree = $AnimationTree
+# from exercise 3
+@onready var projectile_spawn = $"../ProjectileSpawn"
 
-var credits:int = 200
+var credits:int = 500
 var deaths:int = 0
 
 var _dash_timer:Timer
@@ -59,6 +62,9 @@ func _ready():
 	dead = false
 	animation_tree.active = true
 	bind_player_input_commands()
+	var power_up = EXPLODING_DASH_POWER_UP.instantiate()
+	add_child(power_up)
+	PlayerVariables.power_ups.append(power_up)
 
 
 # modified from exercise 1
@@ -123,22 +129,37 @@ func _physics_process(delta):
 			add_child(_dash_cooldown)
 			_dash_cooldown.start(0.33)
 			
+			var dashed: bool = false
+			
 			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_left"):
 				dash_up_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_up") and Input.is_action_pressed("move_right"):
 				dash_up_right.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_left"):
 				dash_down_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down") and Input.is_action_pressed("move_right"):
 				dash_down_right.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_up"):
 				dash_up.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_down"):
 				dash_down.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_left"):
 				dash_left.execute(self)
+				dashed = true
 			elif Input.is_action_pressed("move_right"):
 				dash_right.execute(self)
+				dashed = true
+			
+			# NOTE
+			# Implementation for the exploding dash power up
+			if PlayerVariables.has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
+				$ExplodingDashPowerUp.start_spawning()
 	
 	super(delta)
 	

@@ -35,3 +35,10 @@ func load_player_state(player: Player) -> void:
 	player.deaths = deaths
 	player.credits = credits
 	player.power_ups = power_ups
+
+
+func has_power_up(_type: Enums.Power_Up_Type) -> bool:
+	for power_up in power_ups:
+		if is_instance_valid(power_up) and power_up.type == _type:
+			return true
+	return false

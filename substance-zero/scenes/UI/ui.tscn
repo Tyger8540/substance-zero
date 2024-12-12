@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://87qnwk55ciam" path="res://scenes/UI/menus/pause_menu.tscn" id="2_0l1ax"]
 [ext_resource type="PackedScene" uid="uid://e2lg7q431ufd" path="res://scenes/UI/menus/you_died_menu.tscn" id="4_efnpt"]
 
-[node name="UI" type="Node2D"]
+[node name="UI" type="CanvasLayer"]
 
 [node name="Hud" parent="." instance=ExtResource("1_dxx7d")]
 
