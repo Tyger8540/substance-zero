@@ -20,6 +20,7 @@ var shopping: bool = false
 
 
 func _ready() -> void:
+	Signals.gain_power_up.connect(_on_gain_power_up)
 	Signals.buying_power_up.connect(_on_buying_power_up)
 	credits_label.text = "%d Credits" % player.credits
 
@@ -143,3 +144,7 @@ func _toggle_shopping() -> void:
 		get_tree().paused = true
 		
 	Signals.shopping.emit(shopping)
+
+
+func _on_gain_power_up(power_up: PowerUp) -> void:
+	player.power_ups.append(power_up)

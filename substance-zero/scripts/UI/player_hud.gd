@@ -2,14 +2,14 @@ class_name PlayerHUD
 extends Control
 
 
-const _HUD_OFFSET = 300.0
-
 @export var melee_display:PackedScene
 @export var target_display:PackedScene
 @export var shield_display:PackedScene
 @export var thrown_display:PackedScene
 @export var red_bottle_display:PackedScene
 @export var blue_bottle_display:PackedScene
+
+var player_power_ups: Array[PowerUp] = []
 
 @onready var power_up_container = $MarginContainer/HBoxContainer/PowerupContainer
 @onready var shield_bar = $MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox/ShieldBar
@@ -28,23 +28,35 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player.dead:
 		set_process(false)
+	
+	if _update_power_ups_if_outdated():
+		_create_power_up_displays()
 		
 	_update_shield_health_displays()
 	_update_power_up_displays()
 	_update_credits_deaths_labels()
 	
 
-#func _create_power_up_displays() -> void:
-	#for power_up in player.power_ups:
-		#match power_up.type:	
-			#Enums.Power_Up_Type.MELEE_DAMAGE:
-				#var new_melee = melee_display.instantiate() as MeleePowerupHUD
-				#new_melee.power_up = power_up
-				#power_up_container.add_child(new_melee)
-			#Enums.Power_Up_Type.RANGED_DAMAGE:
-				#var new_ranged = target_display.instantiate() as TargetPowerupHUD
-				#new_ranged.power_up = power_up
-				#power_up_container.add_child(new_ranged)
+func _update_power_ups_if_outdated() -> bool:
+	if player_power_ups != player.power_ups:
+		print("power ups different")
+		player_power_ups = player.power_ups
+		return true
+	
+	return false
+	
+	
+func _create_power_up_displays() -> void:
+	for power_up in player_power_ups:
+		match power_up.type:	
+			Enums.Power_Up_Type.MELEE_DAMAGE:
+				var new_melee = melee_display.instantiate()
+				new_melee.power_up = power_up
+				power_up_container.add_child(new_melee)
+			Enums.Power_Up_Type.RANGED_DAMAGE:
+				var new_ranged = target_display.instantiate()
+				new_ranged.power_up = power_up
+				power_up_container.add_child(new_ranged)
 			#Enums.Power_Up_Type.HEALTH_BOOST:
 				#var new_health_boost = red_bottle_display.instantiate() as RedBottlePowerUpShopDisplay
 				#new_health_boost.power_up = power_up
@@ -53,19 +65,25 @@ func _process(delta: float) -> void:
 				#var new_shield_boost = blue_bottle_display.instantiate() as BlueBottlePowerUpShopDisplay
 				#new_shield_boost.power_up = power_up
 				#power_up_container.add_child(new_shield_boost)
-			#Enums.Power_Up_Type.BUBBLE_SHIELD:
-				#var new_bubble_shield = shield_display.instantiate() as ShieldPowerUpShopDisplay
-				#new_bubble_shield.power_up = power_up
-				#power_up_container.add_child(new_bubble_shield)
-			#Enums.Power_Up_Type.GRENADE:
-				#var new_grenade = thrown_display.instantiate() as ThrownPowerUpShopDisplay
-				#new_grenade.power_up = power_up
-				#power_up_container.add_child(new_grenade)
-#
+			Enums.Power_Up_Type.BUBBLE_SHIELD:
+				var new_bubble_shield = shield_display.instantiate()
+				new_bubble_shield.power_up = power_up
+				power_up_container.add_child(new_bubble_shield)
+			Enums.Power_Up_Type.GRENADE:
+				var new_grenade = thrown_display.instantiate()
+				new_grenade.power_up = power_up
+				power_up_container.add_child(new_grenade)
+			_:
+				pass
+
 
 func _update_power_up_displays() -> void:
 	for power_up_display in power_up_container.get_children():
 		var label = power_up_display.get_child(0)
+		#if power_up_display.power_up.lifespan == Enums.Power_Up_Lifespan.ROOM_LIMITED:
+			#label.text = power_up_display.power_up.room_count
+		#else:
+			#label.text = power_up_display.power_up.uses
 		label.text = "1"
 	
 	

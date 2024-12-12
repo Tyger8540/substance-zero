@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dry0loufbfy7y"]
+[gd_scene load_steps=5 format=3 uid="uid://dry0loufbfy7y"]
 
 [ext_resource type="PackedScene" uid="uid://p00mw2spqc5c" path="res://scenes/UI/menus/shop_menu.tscn" id="1_4e1xa"]
 [ext_resource type="PackedScene" uid="uid://doexeixm3waui" path="res://scenes/UI/player_hud.tscn" id="1_dxx7d"]
 [ext_resource type="PackedScene" uid="uid://87qnwk55ciam" path="res://scenes/UI/menus/pause_menu.tscn" id="2_0l1ax"]
 [ext_resource type="PackedScene" uid="uid://e2lg7q431ufd" path="res://scenes/UI/menus/you_died_menu.tscn" id="4_efnpt"]
-[ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="5_xf1ri"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -18,7 +17,4 @@ visible = false
 
 [node name="YouDiedMenu" parent="." instance=ExtResource("4_efnpt")]
 process_mode = 3
-visible = false
-
-[node name="DialogueBox" parent="." instance=ExtResource("5_xf1ri")]
 visible = false
