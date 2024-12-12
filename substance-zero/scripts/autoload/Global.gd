@@ -4,6 +4,8 @@ class_name G
 const CELL_SIZE = 16
 const four_dir_opts = [Vector2.UP, Vector2.DOWN,Vector2.LEFT, Vector2.RIGHT]
 
+var room_position_array:Array[Vector2] = []
+
 static func map_to_global(map: TileMapLayer, coord: Vector2i): 
 	return map.to_global(map.map_to_local(coord))
 

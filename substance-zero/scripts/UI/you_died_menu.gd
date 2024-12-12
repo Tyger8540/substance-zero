@@ -2,7 +2,7 @@ class_name YouDiedMenu
 extends Control
 
 
-@onready var player: Player = get_node("../../Player")
+@onready var player: Player = get_node("../../../Player")
 
 
 func _ready() -> void:

@@ -2,6 +2,8 @@ class_name PlayerHUD
 extends Control
 
 
+const _HUD_OFFSET = 300.0
+
 @export var melee_display:PackedScene
 @export var target_display:PackedScene
 @export var shield_display:PackedScene
@@ -16,11 +18,11 @@ extends Control
 @onready var health_label = $MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox/HealthLabel
 @onready var credits_label = $MarginContainer/HBoxContainer/CounterVBox/CreditsLabel
 @onready var deaths_label = $MarginContainer/HBoxContainer/CounterVBox/DeathsLabel
-@onready var player: Player = get_node("../../Player")
+@onready var player: Player = get_node("../../../Player")
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	global_position.y = player.global_position.y + _HUD_OFFSET
 
 
 func _process(delta: float) -> void:
