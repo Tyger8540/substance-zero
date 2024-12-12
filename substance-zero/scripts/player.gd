@@ -59,9 +59,9 @@ func _ready():
 	dead = false
 	animation_tree.active = true
 	bind_player_input_commands()
-	var power_up = EXPLODING_DASH_POWER_UP.instantiate()
-	add_child(power_up)
-	PlayerVariables.power_ups.append(power_up)
+	#var power_up = EXPLODING_DASH_POWER_UP.instantiate()
+	#add_child(power_up)
+	#PlayerVariables.power_ups.append(power_up)
 	char_name = "NOVA"
 
 

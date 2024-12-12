@@ -2,25 +2,13 @@ class_name Xxyla
 extends Enemy
 
 @onready var animation_tree: AnimationTree = $AnimationTree
-var _death:bool = false
+
 
 func _ready() -> void:
-	char_name = "XXYLA"
 	animation_tree.active = true
 	
 
-func _process(_delta):
-	if _death:
-		animation_tree.active = false
-		$Sprite2D.visible = false
-		return
-		
-	if len(enemy_cmd_list)>0:
-		var command_status:Command.Status = enemy_cmd_list.front().execute(self)
-		if Command.Status.DONE == command_status:
-			#cmd_list
-			enemy_cmd_list.pop_front()
-		
+func _process(delta: float) -> void:
 	_manage_animation_tree_state()
 
 

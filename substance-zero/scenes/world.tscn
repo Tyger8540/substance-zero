@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://swutlhq7x08m" path="res://scenes/power_ups/power_up.tscn" id="6_u3q6a"]
 [ext_resource type="Script" path="res://scripts/Bosses/BossBattleManager.gd" id="6_wugql"]
 [ext_resource type="Script" path="res://scripts/cutscene_boss1_enter.gd" id="7_ffjx4"]
+[ext_resource type="PackedScene" path="res://scenes/power_ups/exploding_dash_power_up.tscn" id="6_wuhyx"]
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
 [ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
@@ -40,10 +41,10 @@ position = Vector2(217, 297)
 position = Vector2(217, 297)
 
 [node name="CutsceneTrigger" parent="." instance=ExtResource("3_umxqw")]
-position = Vector2(73, 477)
+position = Vector2(1034, 300)
 
 [node name="CutsceneManager" type="Node" parent="."]
-script = ExtResource("7_ffjx4")
+script = ExtResource("1_gw17q")
 
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource("4_5p6fg")
@@ -88,19 +89,16 @@ position = Vector2(858, 111)
 type = 1
 
 [node name="Boss1" parent="." instance=ExtResource("9_d3cjy")]
-unique_name_in_owner = true
 position = Vector2(64, 581)
 scale = Vector2(2, 2)
 collision_mask = 2
 
 [node name="Xxyla" parent="." instance=ExtResource("12_oa8fy")]
 
-[node name="UI" parent="." instance=ExtResource("11_r3488")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DialogueBox" parent="CanvasLayer" instance=ExtResource("13_sa6fc")]
+[node name="DialogueBox" parent="." instance=ExtResource("13_sa6fc")]
 unique_name_in_owner = true
 visible = false
+
+[node name="UI" parent="." instance=ExtResource("11_r3488")]
 
 [connection signal="timeout" from="PowerupLabel/Timer" to="PowerupLabel" method="_on_timer_timeout"]
