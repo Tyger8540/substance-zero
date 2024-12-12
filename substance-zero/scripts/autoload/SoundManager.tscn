@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3px37e7fxdpf"]
+
+[ext_resource type="Script" path="res://scripts/autoload/sound_manager.gd" id="1_w5lvd"]
+[ext_resource type="PackedScene" uid="uid://b2wk2v3feqrt5" path="res://scenes/SoundQueue.tscn" id="2_5nl5g"]
+[ext_resource type="AudioStream" uid="uid://igqy5riu1tnd" path="res://sfx/retro-hurt-2-236675.mp3" id="3_8tbs5"]
+[ext_resource type="AudioStream" uid="uid://c1p6vxo2mjqca" path="res://sfx/game-start-6104.mp3" id="4_ibydd"]
+[ext_resource type="AudioStream" uid="uid://nfkjrd4rtlgv" path="res://sfx/sword-sound-effect-1-234987.mp3" id="5_x5nl3"]
+[ext_resource type="AudioStream" uid="uid://cvt53h6sjtmny" path="res://sfx/person-running-loop-245173.mp3" id="6_2dfly"]
+[ext_resource type="AudioStream" uid="uid://cjkpi830pfxff" path="res://sfx/retro-laser-1-236669.mp3" id="7_1t50f"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_w5lvd")
+
+[node name="hurt" parent="." instance=ExtResource("2_5nl5g")]
+count = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="hurt"]
+stream = ExtResource("3_8tbs5")
+
+[node name="pickup" parent="." instance=ExtResource("2_5nl5g")]
+count = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="pickup"]
+stream = ExtResource("4_ibydd")
+
+[node name="sword" parent="." instance=ExtResource("2_5nl5g")]
+count = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="sword"]
+stream = ExtResource("5_x5nl3")
+
+[node name="running" parent="." instance=ExtResource("2_5nl5g")]
+count = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="running"]
+stream = ExtResource("6_2dfly")
+
+[node name="laser" parent="." instance=ExtResource("2_5nl5g")]
+count = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="laser"]
+stream = ExtResource("7_1t50f")

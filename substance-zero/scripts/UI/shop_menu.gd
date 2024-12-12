@@ -16,7 +16,7 @@ var shopping: bool = false
 
 @onready var power_up_container = $VBoxContainer/PowerupContainer
 @onready var credits_label = $PanelContainer/MarginContainer/CreditsLabel
-@onready var player: Player = get_node("../../Player")
+@onready var player: Player = get_node("../../../Player")
 
 
 func _ready() -> void:

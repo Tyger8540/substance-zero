@@ -23,7 +23,7 @@ func bind_player_input_commands() -> void:
 	move_right = MoveRightCommand.new()
 	move_up = MoveUpCommand.new()
 	move_down = MoveDownCommand.new()
-	#dash bindings:
+	# dash bindings:
 	dash_up_left = DashUpLeftCommand.new()
 	dash_up_right = DashUpRightCommand.new()
 	dash_down_left = DashDownLeftCommand.new()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b05vmja2pmstv"]
+[gd_scene load_steps=17 format=3 uid="uid://b05vmja2pmstv"]
 
 [ext_resource type="Script" path="res://scripts/cutscene_manager.gd" id="1_gw17q"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="2_gqb7m"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
 [ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
 [ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="13_sa6fc"]
+[ext_resource type="PackedScene" uid="uid://c36g5mrlolfim" path="res://ProdGen/levels_main.tscn" id="16_584wj"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_gw17q")
@@ -25,6 +26,11 @@ position = Vector2(186, 188)
 [node name="BubbleShield" parent="Player" instance=ExtResource("4_0g5f5")]
 
 [node name="Grenade" parent="Player" instance=ExtResource("4_cpeue")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="UI" parent="Player" instance=ExtResource("11_r3488")]
+position = Vector2(0, 1000)
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
 position = Vector2(217, 297)
@@ -91,6 +97,6 @@ collision_mask = 2
 unique_name_in_owner = true
 visible = false
 
-[node name="UI" parent="." instance=ExtResource("11_r3488")]
+[node name="LevelsMain" parent="." instance=ExtResource("16_584wj")]
 
 [connection signal="timeout" from="PowerupLabel/Timer" to="PowerupLabel" method="_on_timer_timeout"]
