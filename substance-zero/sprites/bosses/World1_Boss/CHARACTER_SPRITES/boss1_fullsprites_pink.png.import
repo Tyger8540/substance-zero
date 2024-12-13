@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7qnswqb3cxjx"
-path="res://.godot/imported/boss1_fullsprites.png-9a426bb879165ab84dd8c0e218108f0d.ctex"
+uid="uid://b7lb7mc14b81m"
+path="res://.godot/imported/boss1_fullsprites_pink.png-ac402433cd98ff313738f0b359f2fb51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/Yellow/boss1_fullsprites.png"
-dest_files=["res://.godot/imported/boss1_fullsprites.png-9a426bb879165ab84dd8c0e218108f0d.ctex"]
+source_file="res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/boss1_fullsprites_pink.png"
+dest_files=["res://.godot/imported/boss1_fullsprites_pink.png-ac402433cd98ff313738f0b359f2fb51.ctex"]
 
 [params]
 

@@ -21,7 +21,8 @@ var ent_side = null
 var ent_pos = null 
 
 func _ready() -> void:
-	rng.randomize() 
+	rng.randomize()
+	var planet = Global.planet_number
 	
 	
 func _init() -> void:
@@ -84,6 +85,8 @@ func create_room(sizeRange: Vector2):
 
 func createScene(sname: String): 
 	var scene = null
+	planet = Global.planet_number
+	print("CURRENT PLANET NUMBER IS: ", planet)
 	var texture = ["res://sprites/Tilesets/World1_Tilesets/tileset_blue.png",
 	"res://sprites/Tilesets/World1_Tilesets/tileset_brown.png",
 	"res://sprites/Tilesets/World1_Tilesets/tileset_gray.png",
@@ -105,6 +108,8 @@ func createScene(sname: String):
 	var obj = scene.instantiate()
 	(obj.tile_set.get_source(0) as TileSetAtlasSource).texture = load(texture)
 	return obj 
+	
+	
 func build_exit_path(dest: Vector2):
 	var start = exit_pos
 	var desti = map.local_to_map(to_local(dest))

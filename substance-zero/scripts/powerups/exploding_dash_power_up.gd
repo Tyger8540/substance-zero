@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if get_parent() is Character and get_parent().has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and uses == 0:
+		uses = get_parent().get_power_up(Enums.Power_Up_Type.EXPLODING_DASH).uses
 
 
 func start_spawning() -> void:

@@ -78,29 +78,39 @@ func _update_power_up_displays() -> void:
 		match power_up.type:	
 			Enums.Power_Up_Type.MELEE_DAMAGE:
 				var new_melee = melee_display.instantiate() as MeleePowerUpShopDisplay
+				power_up.price = 50
 				new_melee.power_up = power_up
 				power_up_container.add_child(new_melee)
 			Enums.Power_Up_Type.RANGED_DAMAGE:
 				var new_ranged = target_display.instantiate() as TargetPowerUpShopDisplay
+				power_up.price = 75
 				new_ranged.power_up = power_up
 				power_up_container.add_child(new_ranged)
 			Enums.Power_Up_Type.HEALTH_BOOST:
 				var new_health_boost = red_bottle_display.instantiate() as RedBottlePowerUpShopDisplay
+				power_up.price = 100
 				new_health_boost.power_up = power_up
 				power_up_container.add_child(new_health_boost)
 			Enums.Power_Up_Type.SHIELD_BOOST:
 				var new_shield_boost = blue_bottle_display.instantiate() as BlueBottlePowerUpShopDisplay
+				power_up.price = 100
 				new_shield_boost.power_up = power_up
 				power_up_container.add_child(new_shield_boost)
 			Enums.Power_Up_Type.BUBBLE_SHIELD:
+				power_up.price = 125
+				power_up.uses = 1
 				var new_bubble_shield = shield_display.instantiate() as ShieldPowerUpShopDisplay
 				new_bubble_shield.power_up = power_up
 				power_up_container.add_child(new_bubble_shield)
 			Enums.Power_Up_Type.GRENADE:
+				power_up.price = 75
+				power_up.uses = 3
 				var new_grenade = thrown_display.instantiate() as ThrownPowerUpShopDisplay
 				new_grenade.power_up = power_up
 				power_up_container.add_child(new_grenade)
 			Enums.Power_Up_Type.EXPLODING_DASH:
+				power_up.price = 100
+				power_up.uses = 3
 				var new_exploding_dash = boots_display.instantiate() as BootsPowerUpShopDisplay
 				new_exploding_dash.power_up = power_up
 				power_up_container.add_child(new_exploding_dash)

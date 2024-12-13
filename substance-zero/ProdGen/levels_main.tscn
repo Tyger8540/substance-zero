@@ -22,6 +22,7 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 200
 alignment = 1
@@ -38,6 +39,7 @@ theme_override_font_sizes/font_size = 48
 text = "Next"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
