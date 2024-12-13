@@ -69,11 +69,12 @@ func _ready():
 # execute() commands are from exercise 1
 func _physics_process(delta):
 	
-	if not spawned and Global.rooms_spawned:
+	if not spawned and Global.rooms_spawned and len(Global.room_position_array) > 0:
+		print(Global.room_position_array)
 		global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _SPAWN_OFFSET
 		global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _SPAWN_OFFSET
 		spawned = true
-		print("spawned")
+		#print("spawned")
 		
 	# handle equipping weapons
 	if Input.is_action_just_pressed("melee"):
