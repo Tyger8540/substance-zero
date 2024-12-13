@@ -192,7 +192,8 @@ Instead of using the animation player to control the hurtbox for the character, 
 
 **Describe the implementation of your audio system.**
 
-**Document the sound style.** 
+**Document the sound style.**
+
 The audio system for the game is designed to enhance immersion and player feedback. 
 It incorporates various sound effects and music elements tailored to the sci-fi roguelike theme. 
 Each sound has been carefully chosen to align with the game's futuristic and intense atmosphere. The only problem I encountered was the file extensions which Godot gave me errors. 
