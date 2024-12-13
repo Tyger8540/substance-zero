@@ -8,5 +8,5 @@ extends Area2D
 func _on_body_entered(_body):
 	# fix camera to camera_location and set position here
 	
-	$"../CutsceneManager".start_cutscene()
+	$"../CutSceneManager".start_cutscene()
 	queue_free()

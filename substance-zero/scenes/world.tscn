@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="9_d3cjy"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="11_r3488"]
 [ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="12_oa8fy"]
-[ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="13_sa6fc"]
 [ext_resource type="PackedScene" uid="uid://c36g5mrlolfim" path="res://ProdGen/levels_main.tscn" id="16_584wj"]
 
 [node name="World" type="Node"]
@@ -56,6 +55,7 @@ script = ExtResource("5_dlf44")
 script = ExtResource("6_wugql")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("6_f6tc3")
@@ -94,10 +94,6 @@ scale = Vector2(2, 2)
 collision_mask = 2
 
 [node name="Xxyla" parent="." instance=ExtResource("12_oa8fy")]
-
-[node name="DialogueBox" parent="." instance=ExtResource("13_sa6fc")]
-unique_name_in_owner = true
-visible = false
 
 [node name="UI" parent="." instance=ExtResource("11_r3488")]
 
