@@ -83,7 +83,7 @@ func _update_power_up_displays() -> void:
 	
 	
 func _update_current_weapon_display() -> void:
-	if player.current_weapon == Enums.Weapons.MELEE:
+	if player.current_weapon == player.Weapons.MELEE:
 		melee_icon.show()
 		ranged_icon.hide()
 	else:
