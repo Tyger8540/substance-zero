@@ -1,4 +1,4 @@
-# The title of your game #
+# Substance Zero #
 
 ## Summary ##
 
@@ -62,6 +62,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
+## Level Generation
+
+**Describe the methodology used to generate levels and the results of your implementation.
+
 # Sub-Roles
 
 ## Audio
@@ -91,3 +95,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Game Feel and Polish
 
 **Document what you added to and how you tweaked your game to improve its game feel.**
+
+## Power Up System
+
+**Describe the power ups implemented and how the power up system functions.
