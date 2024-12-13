@@ -13,6 +13,7 @@ collision_mask = 65
 script = ExtResource("1_esasu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-0.499962, 1)
 scale = Vector2(0.445313, 0.421875)
 texture = ExtResource("1_mpplt")

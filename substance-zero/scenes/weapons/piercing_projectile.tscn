@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://6ah3j0pes4e4"]
 
 [ext_resource type="Script" path="res://scripts/weapons/piercing_projectile.gd" id="1_qyoyj"]
-[ext_resource type="Texture2D" uid="uid://btewrqtswxv2" path="res://icon.svg" id="1_u7ltw"]
+[ext_resource type="Texture2D" uid="uid://dk2iy2om40qtb" path="res://sprites/environment/Spaceship/Main ship weapons/PNGs/Main ship weapon - Projectile - Zapper.png" id="2_cacx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qooo"]
-size = Vector2(502, 46)
+size = Vector2(502, 23)
 
 [node name="PiercingProjectile" type="Area2D"]
 position = Vector2(279, 224)
@@ -13,10 +13,12 @@ collision_mask = 193
 script = ExtResource("1_qyoyj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.49996, 0)
-scale = Vector2(3.86719, 0.3125)
-texture = ExtResource("1_u7ltw")
+position = Vector2(1.99999, 0.999994)
+rotation = 1.5708
+scale = Vector2(3.57298, 15.7)
+texture = ExtResource("2_cacx8")
+hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_1qooo")
