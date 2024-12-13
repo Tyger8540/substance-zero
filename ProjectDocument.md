@@ -86,6 +86,73 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
+*Characters Animations:* - For the player’s animation, the sprites sheet that I used only had the animation for sword attacks. Because our game takes place in a sci-fi setting, the group decided that the player would have a gun. So I decided to take the gun from the boss’s sprite sheet and add it to the player to make a gun attacking animation.
+For each of the characters on screen, including the player, the enemies and the bosses, I created an animation tree to manage their animation with their state. When they are not moving, the animation tree state would set idle to True and the idle animation would play. Same with taking damage, walking, and attacking. The animation would set the appropriate state to true and the corresponding animation would play.
+
+Instead of using the animation player to control the hurtbox for the character, our group decided to make hurtbox and hitbox classes and use that to generate attacks that damage other players.
+
+*Player Scene:* \
+![Player Scene](./MediaFiles/Player_Scene.png)
+
+*Player Animation Tree:* \
+![Player Animation Tree](./MediaFiles/Player_AnimationTree.png)
+
+*Player Animation Player (Attack Animation):* \
+![Player Animation Tree](./MediaFiles/Player_Animation.png)
+
+*Powerup Animations:* - For the power up animation, the sprites were stored in individual images instead of being on a sprite sheet. So for those animations, I used an animated sprite and an animation player to manage the animations. The animated sprite allows an animation to be played from a collection of images. I used the animation player to toggle off the hurtbox of the grenade so it only hurts the enemies when they step into the explosion. 
+
+*Grenade Powerup Animation Player:* \
+![Player Animation Tree](./MediaFiles/Grenade_AnimationPlayer.png)
+
+*Grenade Powerup AnimatedSprite2D:* \
+![Player Animation Tree](./MediaFiles/Grenade_Animation.png)
+
+*Visuals:* -  I had to use a lot of different assets and try to match them together to fit the aesthetics of sci-fi that we were going for. All of the sprites had to be in a pixel art style to create a cohesive feel to our game. A lot of the sprites that I found were cut out of the game due to part of the planned gameplay being cut out of the game, including tilesets for 4 more planets, 4 more bosses, 2 more types of characters. The sprites that ended up being used are:
+
+- [Player sprite](https://unknown-soldiersz.itch.io/platform-character-warrior):
+    - License: This asset pack can be used in free and commercial projects. You can modify the assets as you need. You may not repackage, redistribute or resell the assets, no matter how much they are modified. Credit is not necessary, but always appreciated.
+    - Sprite made by: Unknown Soldier
+- [Boss Sprite](https://secrethideout.itch.io/team-wars-platformer-battle):
+    - License: May use the assets for non-commercial & commercial projects
+    - Sprite made by: Secret Hideout
+- [Enemy Sprite](https://dani-maccari.itch.io/nuclear-leak-character-asset-pack):
+    - License: Can be used on free and commercial projects with credit
+    - Sprite made by: Dani Maccari
+- [Projectile Sprites](https://foozlecc.itch.io/sci-fi-lab-droids):
+    - License: (Creative Commons Zero, CC0)
+    - Sprite made by: Foozle
+- [NPC Sprite](https://free-game-assets.itch.io/free-sci-fi-antagonists-pixel-character-pack):
+    - License: May use the assets for non-commercial & commercial projects
+    - Sprite made by: Craftpix.net
+- [Bubble Shield Sprite](https://999overlap.itch.io/force-shield-2d-effects-pack):
+    - License: May use the assets for non-commercial & commercial projects
+    - Sprite made by: 999overlap
+- [Grenade Sprite](https://surfacetoash.itch.io/kaboom-explosives-asset-pack)
+    - License: May use the assets for non-commercial & commercial projects
+- [Space Sprite](https://screamingbrainstudios.itch.io/seamless-space-backgrounds):
+    - License: CC0/Public Domain
+    - Sprite made by: Screaming Brain Studios
+- [Spaceship Sprite](https://foozlecc.itch.io/void-main-ship):
+    - License: CC0/Public Domain
+    - Sprite made by: Foozle
+- [Explosive Sprite](https://xyezawr.itch.io/free-pixel-effects-pack-4-explosions?download)
+    - License: May use the assets for non-commercial & commercial projects
+    - Sprite made by: XYEzawr
+- [UI Sprite1](https://shiva89.itch.io/pixel-game-ui):
+    - License: May use the assets for non-commercial & commercial projects
+    - Sprite made by: Shiv89
+- [UI Sprite 2](https://kick14.itch.io/renpy-sci-fi-gui-asset-2)
+    - License: Not listed
+    - Sprite made by: Kick14
+- [Font Sprite](https://jotson.itch.io/gravity-pixel-font):
+    - License: May use the assets for non-commercial & commercial projects
+    - Sprite made by: jotson
+- [Planet Tilesheet](https://rgsdev.itch.io/free-cc0-top-down-tileset-template-pixel-art)
+    - License: CC0/Public Domain
+    - Sprite made by: RGS_Dev
+
+
 ## Game Logic
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
