@@ -129,9 +129,9 @@ func _physics_process(_delta):
 		
 		if Input.is_action_just_pressed("skip_room"):
 			Global.room_position_array.pop_back()
-			print(len(Global.room_position_array))
+			#print(len(Global.room_position_array))
 			
-			if len(Global.room_position_array) - 1 < 0:
+			if len(Global.room_position_array) <= 0:
 				#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
 				get_tree().change_scene_to_file("res://scenes/Bosses/Boss_Rooms/Boss1_Room.tscn")
 				return
@@ -152,7 +152,7 @@ func _physics_process(_delta):
 			# check if room position array is empty
 			# if it is teleport to spaceship
 			if len(Global.room_position_array) <= 0:
-				get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
+				get_tree().change_scene_to_file("res://scenes/Bosses/Boss_Rooms/Boss1_Room.tscn")
 			# otherwise teleport to next room
 			else:
 				_player.global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _min_offset
