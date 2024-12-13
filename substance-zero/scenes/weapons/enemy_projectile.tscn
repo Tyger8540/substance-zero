@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://6ojmg1b6x7nd"]
+[gd_scene load_steps=4 format=3 uid="uid://dfw4u5wksd7p3"]
 
-[ext_resource type="Script" path="res://scripts/weapons/projectile.gd" id="1_4wul6"]
-[ext_resource type="Texture2D" uid="uid://dl0bmx2tifiwo" path="res://sprites/enemy/Droid01/Projectile/Droid01Projectile.png" id="2_wu3xw"]
+[ext_resource type="Script" path="res://scripts/weapons/projectile.gd" id="1_p34wm"]
+[ext_resource type="Texture2D" uid="uid://dl0bmx2tifiwo" path="res://sprites/enemy/Droid01/Projectile/Droid01Projectile.png" id="2_15fda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_704ha"]
 size = Vector2(43, 11)
@@ -9,13 +9,13 @@ size = Vector2(43, 11)
 [node name="Projectile" type="Area2D"]
 position = Vector2(70, 54)
 collision_layer = 2
-collision_mask = 193
-script = ExtResource("1_4wul6")
+collision_mask = 128
+script = ExtResource("1_p34wm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(22, -4.25)
 scale = Vector2(3, 1.5)
-texture = ExtResource("2_wu3xw")
+texture = ExtResource("2_15fda")
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

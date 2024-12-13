@@ -62,6 +62,7 @@ func _ready():
 	#var power_up = EXPLODING_DASH_POWER_UP.instantiate()
 	#add_child(power_up)
 	#PlayerVariables.power_ups.append(power_up)
+	char_name = "Player"
 
 
 # modified from exercise 1

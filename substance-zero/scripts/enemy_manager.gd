@@ -4,10 +4,10 @@ extends Node
 
 var command_dict = {
 	0: DurativeIdleCommand,
-	1: DurativeMoveDownCommand,
-	2: DurativeMoveUpCommand,
-	3: DurativeMoveLeftCommand,
-	4: DurativeMoveUpCommand,
+	1: DurativeMoveLeftCommand,
+	2: DurativeMoveRightCommand,
+	3: DurativeMoveUpCommand,
+	4: DurativeMoveDownCommand,
 }
 
 var weapon_dict = {
@@ -145,6 +145,8 @@ func _physics_process(_delta):
 				
 		if number_of_enemies == 0:
 			Global.room_position_array.pop_back()
+			
+			
 			# check if room position array is empty
 			# if it is teleport to spaceship
 			if len(Global.room_position_array) <= 0:
@@ -153,5 +155,10 @@ func _physics_process(_delta):
 			else:
 				_player.global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _min_offset
 				_player.global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _min_offset
+				
+				# check if room position array is of size 1
+				# if it is teleport to boss room and start cutscene
+				if len(Global.room_position_array) == 1:
+					pass
 			
 	

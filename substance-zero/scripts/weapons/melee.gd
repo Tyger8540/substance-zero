@@ -1,7 +1,7 @@
+# modified from exercise 1
 class_name Melee
 extends HurtBox
 
-const name_of_hurtbox:String = "Melee"
 @export var length:float
 @export var damage:float
 @export var duration:float

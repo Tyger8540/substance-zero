@@ -14,7 +14,7 @@ var enemy_cmd_list:Array[Command]
 
 
 func _ready():
-	pass
+	char_name = "Enemy"
 
 
 func _physics_process(delta):

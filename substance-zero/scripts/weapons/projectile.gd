@@ -2,8 +2,6 @@
 class_name Projectile
 extends HurtBox
 
-const name_of_hurtbox:String = "Projectile"
-
 # stats
 @export var length:float
 @export var damage:float

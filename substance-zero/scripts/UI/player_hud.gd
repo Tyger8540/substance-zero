@@ -25,6 +25,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	
+	# check if player is dead
+	if not player:
+		return
+	
 	if player.dead:
 		set_process(false)
 	

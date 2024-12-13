@@ -32,13 +32,13 @@ const _DEFAULT_ROTATE_SPEED:float = 0.04
 
 const _DEFAULT_MELEE_LENGTH = 10.0
 const _DEFAULT_MELEE_DAMAGE = 10.0
-const _DEFAULT_MELEE_OFFSET = 80.0
+const _DEFAULT_MELEE_OFFSET = 55.0
 const _DEFAULT_MELEE_DURATION = 0.5
 
 const _DEFAULT_PROJECTILE_LENGTH = 10.0
 const _DEFAULT_PROJECTILE_DAMAGE = 10.0
-const _DEFAULT_PROJECTILE_SPEED = 50.0
-const _DEFAULT_PROJECTILE_OFFSET = 120.0
+const _DEFAULT_PROJECTILE_SPEED = 20.0
+const _DEFAULT_PROJECTILE_OFFSET = 50.0
 const _DEFAULT_PROJECTILE_DURATION = 0.2
 
 const _DEFAULT_PIERCING_PROJECTILE_LENGTH = 10.0
@@ -114,13 +114,18 @@ var attacking:= false
 var damaged := false
 var dead := false
 
+var char_name:String = ""
+
 # from exercise 1
 var facing:Facing = Facing.RIGHT
 
 # from exercise 3
-@onready var melee = load("res://scenes/weapons/melee.tscn")
-@onready var projectile = load("res://scenes/weapons/projectile.tscn")
-@onready var piercing_projectile = load("res://scenes/weapons/piercing_projectile.tscn")
+@onready var player_melee = load("res://scenes/weapons/player_melee.tscn")
+@onready var player_projectile = load("res://scenes/weapons/player_projectile.tscn")
+@onready var player_piercing_projectile = load("res://scenes/weapons/player_piercing_projectile.tscn")
+@onready var enemy_melee = load("res://scenes/weapons/enemy_melee.tscn")
+@onready var enemy_projectile = load("res://scenes/weapons/enemy_projectile.tscn")
+@onready var enemy_piercing_projectile = load("res://scenes/weapons/enemy_piercing_projectile.tscn")
 
 @onready var dialogue_box: DialogueBox = %DialogueBox
 
@@ -131,10 +136,9 @@ func take_damage(damage:float) -> void:
 	if health <= 0.0:
 		dead = true
 		health = 0.0
-		queue_free()
-		print("character died")
-		if name == "Player":
-			print("Game Over")
+		if name != "Player":
+			queue_free()
+			
 		
 		
 func handle_position(hurtbox:HurtBox, offset:float) -> void:
@@ -185,7 +189,11 @@ func attack_with_melee(length:float=default_melee_length, damage:float=default_m
 	var melee_factory:MeleeFactory = MeleeFactory.new()
 	
 	# make a melee
-	var new_melee:Melee = melee_factory.build(melee_spec, self)
+	var new_melee:Melee
+	if char_name == "Player":
+		new_melee = melee_factory.build_player_melee(melee_spec, self)
+	elif char_name == "Enemy":
+		new_melee = melee_factory.build_enemy_melee(melee_spec, self)
 	
 	# equip melee to character
 	add_child(new_melee)
@@ -293,7 +301,6 @@ func fire_all_directions_gun(projectile_spawn:Node, length:float=default_project
 		# set the character's facing back to the original
 		facing = old_facing
 		
-
 
 func has_power_up(_type: Enums.Power_Up_Type) -> bool:
 	for power_up in power_ups:

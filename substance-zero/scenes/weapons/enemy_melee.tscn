@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm5hln0tn5ulp"]
+[gd_scene load_steps=4 format=3 uid="uid://b3glcah5i31b6"]
 
-[ext_resource type="Script" path="res://scripts/weapons/melee.gd" id="1_esasu"]
-[ext_resource type="Texture2D" uid="uid://btewrqtswxv2" path="res://icon.svg" id="1_mpplt"]
+[ext_resource type="Script" path="res://scripts/weapons/melee.gd" id="1_auy1d"]
+[ext_resource type="Texture2D" uid="uid://btewrqtswxv2" path="res://icon.svg" id="2_757fb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phv83"]
 size = Vector2(117, 109)
@@ -10,12 +10,12 @@ size = Vector2(117, 109)
 position = Vector2(92, 60)
 collision_layer = 4
 collision_mask = 65
-script = ExtResource("1_esasu")
+script = ExtResource("1_auy1d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.499962, 1)
 scale = Vector2(0.445313, 0.421875)
-texture = ExtResource("1_mpplt")
+texture = ExtResource("2_757fb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.499969, 0.25)
