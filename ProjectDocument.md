@@ -97,6 +97,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 ![Planet3 Random-generated Level](./MediaFiles/Planet3-level.png)
 
 *Procedural Level Generation System* - The game's levels are procedurally generated, creating a series of interconnected rooms for Planet 1. The system dynamically generates room layouts at runtime, combining the graph-based algorithm with modular room templates. Each room type (combat, shop, treasure, boss) is designed as a reusable template, ensuring scalability and ease of integration for future planets. The implementation applies principles from the procedural content generation (PCG), balancing randomness with structure.
+![Procedural_Level_Genration1](./MediaFiles/Procedural_Level_Generation1.png)
+![Procedural_Level_Genration2](./MediaFiles/Procedural_Level_Generation2.png)
+![Procedural_Level_Genration3](./MediaFiles/Procedural_Level_Generation3.png)
+
 
 *Environmental Hazards in Combat Rooms* - Combat rooms are designed as modular templates that dynamically adapt to gameplay needs. Each combat room includes predefined spawn points for enemies and loot, with enemy types and numbers randomized at runtime. Additionally, obstacles and hazards are placed procedurally to create unique combat scenarios for each encounter. These templates are developed using the factory design pattern, allowing reusable and scalable room designs that can be dynamically instantiated during level generation.
 ![Environmental Hazrds](./MediaFiles/Environmental_Hazards.png)
