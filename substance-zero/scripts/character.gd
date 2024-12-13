@@ -135,7 +135,7 @@ func take_damage(damage:float) -> void:
 	if health <= 0.0:
 		dead = true
 		health = 0.0
-    
+	
 		if name == "Player":
 			SoundManager.playSound("playerDeath")
 		if name != "Player":

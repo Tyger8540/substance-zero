@@ -29,7 +29,7 @@ func _ready():
 	_timer.start(duration)
 	bind_commands()
 	
-	$laser.playSound()
+	#$laser.playSound()
 
 
 func _physics_process(_delta):
