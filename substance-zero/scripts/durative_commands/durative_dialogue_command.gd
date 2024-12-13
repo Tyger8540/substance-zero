@@ -13,6 +13,7 @@ func _init(script:String, duration:float = 5.0):
 func execute(character:Character) -> Command.Status:
 	if _timer == null:
 		character.dialogue_box.dialogue.text = _script
+		character.dialogue_box.character_name.text = character.char_name
 		character.dialogue_box.visible = true
 		_timer = Timer.new()
 		character.add_child(_timer)
@@ -22,7 +23,7 @@ func execute(character:Character) -> Command.Status:
 	
 	if (Input.is_action_just_pressed("start_cutscene")):
 		_timer.stop()
-		
+
 	if !_timer.is_stopped():
 		return Status.ACTIVE
 	else:

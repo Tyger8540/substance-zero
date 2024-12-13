@@ -29,6 +29,14 @@ func end_cutscene() -> void:
 	boss_battle_manager.boss_fight = true
 	xxyla.visible = false
 	$"../UI".visible = true
+	
+  # NOTE Commented out for merge, was in main before
+	# NPC (Xxyla) actions:
+	#xxyla.global_position = Vector2(500, 500)
+	
+	# boss1 actions:
+	#boss.enemy_cmd_list.clear()
+	#boss.global_position = Vector2(700, 500)
 
 
 func _physics_process(_delta):

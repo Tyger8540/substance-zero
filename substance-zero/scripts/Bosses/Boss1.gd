@@ -14,6 +14,7 @@ func _ready() -> void:
 	character_speed = 400
 	projectile_spawn = $"../ProjectileSpawn"
 	animation_tree.active = true
+	char_name = "KLEE"
 
 
 func _process(_delta):

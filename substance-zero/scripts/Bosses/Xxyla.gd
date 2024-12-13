@@ -5,6 +5,7 @@ extends Enemy
 
 
 func _ready() -> void:
+	char_name = "XXYLA"
 	animation_tree.active = true
 	
 
