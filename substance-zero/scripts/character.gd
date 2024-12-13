@@ -129,9 +129,15 @@ var facing:Facing = Facing.RIGHT
 func take_damage(damage:float) -> void:
 	health -= damage
 	damaged = true
+	if name == "Player": 
+		SoundManager.playSound("playerHurt")
+		
 	if health <= 0.0:
 		dead = true
 		health = 0.0
+    
+		if name == "Player":
+			SoundManager.playSound("playerDeath")
 		if name != "Player":
 			queue_free()
 		

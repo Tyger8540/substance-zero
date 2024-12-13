@@ -27,7 +27,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if player.dead:
+	# bug here, you should make a global event emitter, not accessing player
+	if player and player.dead:
 		set_process(false)
 	
 	if _update_power_ups_if_outdated():

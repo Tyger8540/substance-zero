@@ -28,7 +28,7 @@ func _ready():
 	add_child(_timer)
 	_timer.start(duration)
 	bind_commands()
-
+	$laser.playSound()
 
 func _physics_process(_delta):
 	# fire projectile in the direction that the character is facing

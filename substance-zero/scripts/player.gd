@@ -15,7 +15,7 @@ var spawned:bool = false
 @onready var animation_tree: AnimationTree = $AnimationTree
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
-
+@onready var PlayerSound = $PlayerSoundManager
 
 # from exercise 1
 func bind_player_input_commands() -> void:
@@ -161,6 +161,9 @@ func _physics_process(delta):
 			# Implementation for the exploding dash power up
 			if has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
 				$ExplodingDashPowerUp.start_spawning()
+				
+			if dashed: 
+				PlayerSound.get_node("dash").playSound()
 	
 	super(delta)
 	
@@ -171,15 +174,19 @@ func _manage_animation_tree_state() -> void:
 	if !is_zero_approx(velocity.x) || !is_zero_approx(velocity.y):
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/moving"] = true
+		PlayerSound.get_node("./running").playSound()
 	else:
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/moving"] = false
+		PlayerSound.get_node("./running").stopSound()
 	#toggles
 	if attacking:
 		if current_weapon == Weapons.MELEE:
 			animation_tree["parameters/conditions/attacking"] = true
 			animation_tree["parameters/conditions/gun_attacking"] = false
 			attacking = false
+			PlayerSound.get_node("./sword").playSound()
+			
 		elif current_weapon == Weapons.LASER_GUN:
 			animation_tree["parameters/conditions/gun_attacking"] = true
 			animation_tree["parameters/conditions/attacking"] = false
