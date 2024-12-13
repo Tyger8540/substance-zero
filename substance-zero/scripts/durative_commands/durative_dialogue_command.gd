@@ -6,7 +6,7 @@ extends DurativeAnimationCommand
 var _script:String = ""
 var _duration:float
 
-func _init(script:String, duration:float = 1.0):
+func _init(script:String, duration:float = 5.0):
 	_script = script
 	_duration = duration
 	

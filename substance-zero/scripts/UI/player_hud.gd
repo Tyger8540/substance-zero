@@ -31,9 +31,9 @@ func _process(delta: float) -> void:
 	if _update_power_ups_if_outdated():
 		_create_power_up_displays()
 		
-	_update_shield_health_displays()
-	_update_power_up_displays()
-	_update_credits_deaths_labels()
+	#_update_shield_health_displays()
+	#_update_power_up_displays()
+	#_update_credits_deaths_labels()
 	
 
 func _update_power_ups_if_outdated() -> bool:
