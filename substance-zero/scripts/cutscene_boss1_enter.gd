@@ -13,7 +13,7 @@ var new_dialogue:DurativeDialogueCommand
 func start_cutscene() -> void:
 	super()
 	$"../UI".visible = false
-	xxyla.facing = xxyla.Facing.RIGHT
+	xxyla.facing = xxyla.Facing.LEFT
 	
 	dialogue_queue.push_back([player, "I think I’ve found my target."])
 	dialogue_queue.push_back([xxyla, "You won’t stop us. I’ve just finished collecting my data. I’ll leave you with the Commander."])
