@@ -8,6 +8,9 @@ var room_position_array:Array[Vector2] = []
 var dimensions_array:Array[Vector2] = []
 var rooms_spawned:bool = false
 
+var planet_number:int
+
+
 static func map_to_global(map: TileMapLayer, coord: Vector2i): 
 	return map.to_global(map.map_to_local(coord))
 

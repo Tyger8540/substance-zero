@@ -29,10 +29,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("skip_room"):
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
+		Global.planet_number += 1
 		
 	# from exercise 3
 	if _timer != null and _timer.is_stopped():
 		_timer.queue_free()
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
-		
-		
+		Global.planet_number += 1

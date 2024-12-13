@@ -68,6 +68,8 @@ func _ready():
 # modified from exercise 1
 # execute() commands are from exercise 1
 func _physics_process(delta):
+	if dead:
+		Global.planet_number = 0
 	
 	if not spawned and Global.rooms_spawned and len(Global.room_position_array) > 0:
 		print(Global.room_position_array)

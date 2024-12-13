@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cti2x5pg6fjmy" path="res://scenes/UI/power_up_hud/melee_powerup_hud.tscn" id="4_ia4nf"]
 [ext_resource type="PackedScene" uid="uid://0yu6i1tthh7c" path="res://scenes/UI/power_up_hud/shield_powerup_hud.tscn" id="5_mpygp"]
 [ext_resource type="PackedScene" uid="uid://bqopauq1uhvls" path="res://scenes/UI/power_up_hud/target_powerup_hud.tscn" id="6_1dq7s"]
-[ext_resource type="PackedScene" path="res://scenes/UI/power_up_hud/boots_powerup_hud.tscn" id="6_gmutl"]
+[ext_resource type="PackedScene" uid="uid://cmivk7tjt2m22" path="res://scenes/UI/power_up_hud/boots_powerup_hud.tscn" id="6_gmutl"]
 [ext_resource type="PackedScene" uid="uid://s5lf45ci0tad" path="res://scenes/UI/power_up_hud/thrown_powerup_hud.tscn" id="7_snjf8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejqya"]
