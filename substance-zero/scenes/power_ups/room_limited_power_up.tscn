@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://btrd5fd7iohyp"]
+[gd_scene load_steps=2 format=3 uid="uid://b7nu8jluc4py3"]
 
 [ext_resource type="Script" path="res://scripts/powerups/room_limited_power_up.gd" id="1_qpgwv"]
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://0yu6i1tthh7c"]
+[gd_scene load_steps=5 format=3 uid="uid://0yu6i1tthh7c"]
 
+[ext_resource type="Script" path="res://scripts/UI/power_up_hud/shield_powerup_hud.gd" id="1_auc7t"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="1_xkqaq"]
 [ext_resource type="Texture2D" uid="uid://bv7bq53w3ttli" path="res://sprites/Interface/pixel-ui.png" id="2_wlecn"]
 
@@ -10,6 +11,7 @@ region = Rect2(100, 227, 9, 9)
 [node name="ShieldPowerupHUD" type="VBoxContainer"]
 size_flags_vertical = 8
 theme_override_constants/separation = 10
+script = ExtResource("1_auc7t")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

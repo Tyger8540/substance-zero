@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw3h12krle0sd"]
+
+[ext_resource type="Script" path="res://scripts/powerups/exploding_dash_power_up.gd" id="1_23psh"]
+
+[node name="ExplodingDashPowerUp" type="Node2D"]
+script = ExtResource("1_23psh")
+lifespan = 1
+type = 6
+
+[node name="ExplosionTimer1" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ExplosionTimer2" type="Timer" parent="."]
+
+[node name="ExplosionTimer3" type="Timer" parent="."]
+
+[node name="BetweenSpawnsTimer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
+[connection signal="timeout" from="ExplosionTimer1" to="." method="_on_explosion_timer_1_timeout"]
+[connection signal="timeout" from="BetweenSpawnsTimer" to="." method="_on_between_spawns_timer_timeout"]

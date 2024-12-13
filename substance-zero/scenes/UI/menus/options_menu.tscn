@@ -27,6 +27,7 @@ scale = Vector2(1.00137, 1)
 theme_override_styles/panel = SubResource("StyleBoxTexture_of7cv")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_top = 34.0
 offset_right = 231.0
 offset_bottom = 50.0
@@ -58,54 +59,54 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -175.0
-offset_top = 230.0
-offset_right = 145.0
-offset_bottom = 430.0
+offset_left = -40.9999
+offset_top = 151.0
+offset_right = 279.0
+offset_bottom = 387.0
 grow_horizontal = 2
 scale = Vector2(1.98228, 1.98228)
 pivot_offset = Vector2(160, 23.5)
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="MovementHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/MovementHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "W,A,S,D (Or Arrows)"
+text = "W,A,S,D / Arrows"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer2/MovementHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Movement"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="AttackHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer2/AttackHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "Mouse Left Click"
+text = "Mouse Left Click / SHIFT"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer2/AttackHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Attack"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="DashHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer7"]
+[node name="Label" type="Label" parent="VBoxContainer2/DashHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
@@ -113,76 +114,110 @@ text = "SPACE
 "
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer7"]
+[node name="Label2" type="Label" parent="VBoxContainer2/DashHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Dash"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="BubbleShieldHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer2/BubbleShieldHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
-text = "E
-"
+text = "F"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer3"]
+[node name="Label2" type="Label" parent="VBoxContainer2/BubbleShieldHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "Use Power Up"
+text = "Use Bubble Shield"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="GrenadeHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer2/GrenadeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "G
+"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/GrenadeHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Use Grenade"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="EquipMeleeHBox" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EquipMeleeHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 text = "1"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer4"]
+[node name="Label2" type="Label" parent="VBoxContainer2/EquipMeleeHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Equip Melee Weapon"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="EquipRangedHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer5"]
+[node name="Label" type="Label" parent="VBoxContainer2/EquipRangedHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 text = "2"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer5"]
+[node name="Label2" type="Label" parent="VBoxContainer2/EquipRangedHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Equip Primary (Ranged) Weapon"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="BuyPowerupsHBox" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer6"]
+[node name="Label" type="Label" parent="VBoxContainer2/BuyPowerupsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "B"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/BuyPowerupsHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Buy Power Ups"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PauseHBox" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/PauseHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 text = "ESC"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer2/HBoxContainer6"]
+[node name="Label2" type="Label" parent="VBoxContainer2/PauseHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Pause"

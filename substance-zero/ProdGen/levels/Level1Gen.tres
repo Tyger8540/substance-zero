@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_8jyyd")
 roomDistanceRange = Vector2(3, 4)
-sizeRange = Vector2(5, 10)
+sizeRange = Vector2(20, 40)
 roomCount = 4
 shopsRange = Vector2(0, 0)
 treasuresRange = Vector2(0, 0)

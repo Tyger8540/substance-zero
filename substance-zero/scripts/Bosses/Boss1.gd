@@ -14,6 +14,7 @@ func _ready() -> void:
 	character_speed = 400
 	projectile_spawn = $"../ProjectileSpawn"
 	animation_tree.active = true
+	char_name = "KLEE"
 
 
 func _process(_delta):
@@ -59,7 +60,7 @@ func fire_laser_gun(projectile_spawn:Node, starting_position_x:float=global_posi
 	handle_position(new_projectile, offset)
 	
 	# handle facing
-	set_facing_of_hurtbox(new_projectile, facing)
+	set_facing_of_hurtbox(new_projectile)
 
 
 func _manage_animation_tree_state() -> void:

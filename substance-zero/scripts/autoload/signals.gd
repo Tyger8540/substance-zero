@@ -11,6 +11,7 @@ signal gain_melee_power_up
 signal gain_target_power_up
 signal gain_shield_power_up
 signal gain_thrown_power_up
+signal gain_boots_power_up
 signal gain_red_bottle_power_up
 signal gain_blue_bottle_power_up
 signal shopping(shopping: bool)

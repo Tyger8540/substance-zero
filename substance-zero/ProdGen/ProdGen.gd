@@ -8,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 @export var genRes: LevelGenRes
 var sizeRange = null
 var roomDistanceRange = null
-var planet = 0 
+var planet = 0
 
 func _ready():
 	rng.randomize()
@@ -70,6 +70,8 @@ func spawn_rooms(roomCount: int):
 		prevRoom = newRoom
 		prevExitDirs.append(-newRoom.ent_side if newRoom.ent_side else null)
 		print("exit: ",-newRoom.ent_side if newRoom.ent_side else "none")
+		
+	Global.rooms_spawned = true
 
 
 func spawn_room(prevRoom: Room = null, secondExitDir = null, rtype = null):  
@@ -112,6 +114,10 @@ func spawn_room(prevRoom: Room = null, secondExitDir = null, rtype = null):
 		
 		add_child(currentRoom) 
 		currentRoom.global_position = prevRoom.global_position + Vector2(xOffset, yOffset) * G.CELL_SIZE
+		# add room position to global array
+		Global.room_position_array.append(currentRoom.global_position)
+		print("room position array")
+		print(Global.room_position_array)
 		
 		# build corridors 
 		if currentRoom.ent_pos == null: 

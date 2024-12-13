@@ -6,66 +6,90 @@ extends Control
 @export var target_display:PackedScene
 @export var shield_display:PackedScene
 @export var thrown_display:PackedScene
-@export var red_bottle_display:PackedScene
-@export var blue_bottle_display:PackedScene
+@export var boots_display:PackedScene
+
+var player_power_ups: Array[PowerUp] = []
 
 @onready var power_up_container = $MarginContainer/HBoxContainer/PowerupContainer
-@onready var shield_bar = $MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox/ShieldBar
-@onready var health_bar = $MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox/HealthBar
-@onready var shield_label = $MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox/ShieldLabel
-@onready var health_label = $MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox/HealthLabel
+@onready var shield_bar = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/ShieldHBox/ShieldBar
+@onready var health_bar = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/HealthHBox/HealthBar
+@onready var shield_label = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/ShieldHBox/ShieldLabel
+@onready var health_label = $MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/HealthHBox/HealthLabel
+@onready var melee_icon = $MarginContainer/HBoxContainer/VBoxContainer/MeleeIcon
+@onready var ranged_icon = $MarginContainer/HBoxContainer/VBoxContainer/RangedIcon
 @onready var credits_label = $MarginContainer/HBoxContainer/CounterVBox/CreditsLabel
 @onready var deaths_label = $MarginContainer/HBoxContainer/CounterVBox/DeathsLabel
 @onready var player: Player = get_node("../../Player")
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	set_process(true)
 
 
 func _process(delta: float) -> void:
-	if player.dead:
+	# bug here, you should make a global event emitter, not accessing player
+	if player and player.dead:
 		set_process(false)
+	
+	if _update_power_ups_if_outdated():
+		_create_power_up_displays()
 		
 	_update_shield_health_displays()
+	_update_current_weapon_display()
 	_update_power_up_displays()
 	_update_credits_deaths_labels()
 	
 
-#func _create_power_up_displays() -> void:
-	#for power_up in player.power_ups:
-		#match power_up.type:	
-			#Enums.Power_Up_Type.MELEE_DAMAGE:
-				#var new_melee = melee_display.instantiate() as MeleePowerupHUD
-				#new_melee.power_up = power_up
-				#power_up_container.add_child(new_melee)
-			#Enums.Power_Up_Type.RANGED_DAMAGE:
-				#var new_ranged = target_display.instantiate() as TargetPowerupHUD
-				#new_ranged.power_up = power_up
-				#power_up_container.add_child(new_ranged)
-			#Enums.Power_Up_Type.HEALTH_BOOST:
-				#var new_health_boost = red_bottle_display.instantiate() as RedBottlePowerUpShopDisplay
-				#new_health_boost.power_up = power_up
-				#power_up_container.add_child(new_health_boost)
-			#Enums.Power_Up_Type.SHIELD_BOOST:
-				#var new_shield_boost = blue_bottle_display.instantiate() as BlueBottlePowerUpShopDisplay
-				#new_shield_boost.power_up = power_up
-				#power_up_container.add_child(new_shield_boost)
-			#Enums.Power_Up_Type.BUBBLE_SHIELD:
-				#var new_bubble_shield = shield_display.instantiate() as ShieldPowerUpShopDisplay
-				#new_bubble_shield.power_up = power_up
-				#power_up_container.add_child(new_bubble_shield)
-			#Enums.Power_Up_Type.GRENADE:
-				#var new_grenade = thrown_display.instantiate() as ThrownPowerUpShopDisplay
-				#new_grenade.power_up = power_up
-				#power_up_container.add_child(new_grenade)
-#
+func _update_power_ups_if_outdated() -> bool:
+	if player_power_ups != player.power_ups:
+		print("power ups different")
+		player_power_ups = player.power_ups
+		return true
+	
+	return false
+	
+	
+func _create_power_up_displays() -> void:
+	for power_up in player_power_ups:
+		match power_up.type:	
+			Enums.Power_Up_Type.MELEE_DAMAGE:
+				var new_melee = melee_display.instantiate()
+				new_melee.power_up = power_up
+				power_up_container.add_child(new_melee)
+			Enums.Power_Up_Type.RANGED_DAMAGE:
+				var new_ranged = target_display.instantiate()
+				new_ranged.power_up = power_up
+				power_up_container.add_child(new_ranged)
+			Enums.Power_Up_Type.BUBBLE_SHIELD:
+				var new_bubble_shield = shield_display.instantiate()
+				new_bubble_shield.power_up = power_up
+				power_up_container.add_child(new_bubble_shield)
+			Enums.Power_Up_Type.GRENADE:
+				var new_grenade = thrown_display.instantiate()
+				new_grenade.power_up = power_up
+				power_up_container.add_child(new_grenade)
+			Enums.Power_Up_Type.EXPLODING_DASH:
+				var new_exploding_dash = boots_display.instantiate()
+				new_exploding_dash.power_up = power_up
+				power_up_container.add_child(new_exploding_dash)
+			_:
+				pass
+
 
 func _update_power_up_displays() -> void:
 	for power_up_display in power_up_container.get_children():
 		var label = power_up_display.get_child(0)
-		label.text = "1"
+		
+		label.text = str(power_up_display.power_up.uses)
 	
+	
+func _update_current_weapon_display() -> void:
+	if player.current_weapon == player.Weapons.MELEE:
+		melee_icon.show()
+		ranged_icon.hide()
+	else:
+		melee_icon.hide()
+		ranged_icon.show()
 	
 func _update_shield_health_displays() -> void:
 	shield_label.text = "%d/%d" % [player.shield, player.total_shield]
