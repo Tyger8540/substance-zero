@@ -92,7 +92,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Level Generation
 
-**Describe the methodology used to generate levels and the results of your implementation.
+*Graph-Based Algorithm*
+The level generation system utilizes a graph-based algorithm to ensure logical room connectivity and navigability. Each room in the level is represented as a node in the graph, and edges define the possible pathways between rooms. The algorithm dynamically generates these nodes and edges during runtime, ensuring that all rooms are connected in a meaningful sequence. The placement of special rooms (e.g., shop, treasure, and boss) follows a priority-based approach to guarantee their accessibility at appropriate stages of the level.
+
+![Planet3 Random-generated Level](./MediaFiles/planet3-level.png)
 
 # Sub-Roles
 
