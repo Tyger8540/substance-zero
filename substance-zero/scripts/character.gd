@@ -296,6 +296,18 @@ func fire_all_directions_gun(projectile_spawn:Node, length:float=default_project
 		facing = old_facing
 		
 
+func has_power_up(_type: Enums.Power_Up_Type) -> bool:
+	for power_up in power_ups:
+		if is_instance_valid(power_up) and power_up.type == _type:
+			return true
+	return false
+func get_power_up(_type: Enums.Power_Up_Type) -> PowerUp:
+	for power_up in power_ups:
+		if is_instance_valid(power_up) and power_up.type == _type:
+			return power_up
+	return null
+
+
 func _ready():
 	pass
 
