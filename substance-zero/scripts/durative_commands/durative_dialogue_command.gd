@@ -20,6 +20,9 @@ func execute(character:Character) -> Command.Status:
 		_timer.start(_duration)
 		return Status.ACTIVE
 	
+	if (Input.is_action_just_pressed("start_cutscene")):
+		_timer.stop()
+		
 	if !_timer.is_stopped():
 		return Status.ACTIVE
 	else:
