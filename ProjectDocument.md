@@ -193,6 +193,26 @@ Instead of using the animation player to control the hurtbox for the character, 
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
+The audio system for the game is designed to enhance immersion and player feedback. 
+It incorporates various sound effects and music elements tailored to the sci-fi roguelike theme. 
+Each sound has been carefully chosen to align with the game's futuristic and intense atmosphere. The only problem I encountered was the file extensions which Godot gave me errors. 
+This document [Google Docs script](https://docs.google.com/document/d/1nLYpXAx5Cx0RoTBfg_2F8WWzAK9lS0I-pFFLdZd6Wnc/edit?tab=t.0) provides details about the sound style for each part. 
+
+- [Player Getting Hit](https://mixkit.co/free-sound-effects/game/)
+    - License: Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
+    - Sprite made by: Envato
+- [Player Dash ](https://mixkit.co/free-sound-effects/game/)
+    - License: Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
+    - Sprite made by: Envato
+- [Player Death](https://mixkit.co/free-sound-effects/game/)
+    - License: Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
+    - Sprite made by: Envato
+- [Player Getting Hit](https://mixkit.co/free-sound-effects/game/)
+    - License: Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
+    - Sprite made by: Envato
+- [Player Footsteps](https://mixkit.co/free-sound-effects/game/)
+    - License: Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
+    - Sprite made by: Envato
 
 ## Gameplay Testing
 
