@@ -27,6 +27,7 @@ position = Vector2(186, 188)
 [node name="BubbleShield" parent="Player" instance=ExtResource("4_0g5f5")]
 
 [node name="Grenade" parent="Player" instance=ExtResource("4_cpeue")]
+uses = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

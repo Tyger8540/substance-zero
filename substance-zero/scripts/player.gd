@@ -159,7 +159,7 @@ func _physics_process(delta):
 			
 			# NOTE
 			# Implementation for the exploding dash power up
-			if PlayerVariables.has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
+			if has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
 				$ExplodingDashPowerUp.start_spawning()
 	
 	super(delta)
