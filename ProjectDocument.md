@@ -90,7 +90,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-## Animation and Visuals
+## Animation and Visuals (Ruohan Huang)
 
 **List your assets, including their sources and licenses.**
 
@@ -204,7 +204,7 @@ Instead of using the animation player to control the hurtbox for the character, 
 
 *Script* - This 10 page [Google Docs script](https://docs.google.com/document/d/1AzL-Xw95xl-VU2a_c_DNzcz6L4h6DknmAcX1kDs1e6U/edit?usp=sharing) provides a story outline, characters and organizations, character motivations, description of locations, dialogue for 5 planet dungeons, 5 boss battles, and space levels between each planet. The story motivates much of the visual aesthetics in the UI and level/character assets (however many of the assets Ruohan got to reflect different levels and story elements were unable to be used). The story also provides an emotional and direct narrative progression to the gameplay. Unfortunately, much of the dialogue and level locations are not fully realized within the game due to time constraints faced by our team so the narrative is not extremely apparent in the game's current state.
 
-## Press Kit and Trailer
+## Press Kit and Trailer (Ruohan Huang)
 
 **Include links to your presskit materials and trailer.**
 
