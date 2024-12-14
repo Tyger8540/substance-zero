@@ -10,6 +10,9 @@ var _cutscene_played:bool = false
 
 @onready var _player:= $"../Player"
 
+func _ready() -> void: 
+	SoundManager.playSound("gameMusic")
+
 
 func start_cutscene() -> void:
 	_cutscene_played = true

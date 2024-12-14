@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://doexeixm3waui"]
+[gd_scene load_steps=12 format=3 uid="uid://doexeixm3waui"]
 
 [ext_resource type="Script" path="res://scripts/UI/player_hud.gd" id="1_vy5d7"]
 [ext_resource type="Theme" uid="uid://q5cognvpljim" path="res://Assets/UI_theme.tres" id="2_dnlta"]
@@ -6,8 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cti2x5pg6fjmy" path="res://scenes/UI/power_up_hud/melee_powerup_hud.tscn" id="4_ia4nf"]
 [ext_resource type="PackedScene" uid="uid://0yu6i1tthh7c" path="res://scenes/UI/power_up_hud/shield_powerup_hud.tscn" id="5_mpygp"]
 [ext_resource type="PackedScene" uid="uid://bqopauq1uhvls" path="res://scenes/UI/power_up_hud/target_powerup_hud.tscn" id="6_1dq7s"]
-[ext_resource type="PackedScene" uid="uid://cmivk7tjt2m22" path="res://scenes/UI/power_up_hud/boots_powerup_hud.tscn" id="6_gmutl"]
+[ext_resource type="PackedScene" path="res://scenes/UI/power_up_hud/boots_powerup_hud.tscn" id="6_gmutl"]
 [ext_resource type="PackedScene" uid="uid://s5lf45ci0tad" path="res://scenes/UI/power_up_hud/thrown_powerup_hud.tscn" id="7_snjf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejqya"]
+atlas = ExtResource("3_l32ed")
+region = Rect2(84, 227, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kcmg"]
+atlas = ExtResource("3_l32ed")
+region = Rect2(132, 227, 9, 9)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnelv"]
 texture = ExtResource("3_l32ed")
@@ -45,16 +53,58 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HealthShieldVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MeleeIcon" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/MeleeIcon"]
+use_parent_material = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_ejqya")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MeleeIcon"]
+custom_minimum_size = Vector2(123, 17)
+layout_mode = 2
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 15
+text = "Equipped"
+horizontal_alignment = 2
+
+[node name="RangedIcon" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/RangedIcon"]
+use_parent_material = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_1kcmg")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/RangedIcon"]
+custom_minimum_size = Vector2(123, 17)
+layout_mode = 2
+theme = ExtResource("2_dnlta")
+theme_override_font_sizes/font_size = 15
+text = "Equipped"
+horizontal_alignment = 2
+
+[node name="HealthShieldVBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 10
 
-[node name="ShieldHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HealthShieldVBox"]
+[node name="ShieldHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox"]
 layout_mode = 2
 
-[node name="ShieldBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox"]
+[node name="ShieldBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/ShieldHBox"]
 custom_minimum_size = Vector2(400, 20)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -63,7 +113,7 @@ theme = ExtResource("2_dnlta")
 theme_override_styles/fill = SubResource("StyleBoxTexture_dnelv")
 show_percentage = false
 
-[node name="ShieldLabel" type="Label" parent="MarginContainer/HBoxContainer/HealthShieldVBox/ShieldHBox"]
+[node name="ShieldLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/ShieldHBox"]
 custom_minimum_size = Vector2(123, 17)
 layout_mode = 2
 theme = ExtResource("2_dnlta")
@@ -71,17 +121,17 @@ theme_override_font_sizes/font_size = 17
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="HealthHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HealthShieldVBox"]
+[node name="HealthHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox"]
 layout_mode = 2
 
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox"]
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/HealthHBox"]
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_dnlta")
 show_percentage = false
 
-[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/HealthShieldVBox/HealthHBox"]
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthShieldVBox/HealthHBox"]
 custom_minimum_size = Vector2(123, 17)
 layout_mode = 2
 theme = ExtResource("2_dnlta")

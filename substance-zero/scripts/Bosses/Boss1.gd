@@ -7,6 +7,15 @@ var _death:bool = false
 
 @export var boss_projectile:PackedScene = load("res://scenes/weapons/boss_projectile.tscn")
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+var textures = {
+	0: "res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/boss1_fullsprites_blue.png",
+	1: "res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/boss1_fullsprites_red.png",
+	2: "res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/boss1_fullsprites.png",
+	3: "res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/boss1_fullsprites_green.png",
+	4: "res://sprites/bosses/World1_Boss/CHARACTER_SPRITES/boss1_fullsprites_pink.png"
+}
 
 func _ready() -> void:
 	health = 100
@@ -14,6 +23,8 @@ func _ready() -> void:
 	character_speed = 400
 	projectile_spawn = $"../ProjectileSpawn"
 	animation_tree.active = true
+	char_name = "KLEE"
+	sprite_2d.texture = load(textures[Global.planet_number])
 
 
 func _process(_delta):

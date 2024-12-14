@@ -97,15 +97,15 @@ func _update_power_up_displays() -> void:
 				new_shield_boost.power_up = power_up
 				power_up_container.add_child(new_shield_boost)
 			Enums.Power_Up_Type.BUBBLE_SHIELD:
-				var new_bubble_shield = shield_display.instantiate() as ShieldPowerUpShopDisplay
 				power_up.price = 125
 				power_up.uses = 1
+				var new_bubble_shield = shield_display.instantiate() as ShieldPowerUpShopDisplay
 				new_bubble_shield.power_up = power_up
 				power_up_container.add_child(new_bubble_shield)
 			Enums.Power_Up_Type.GRENADE:
-				var new_grenade = thrown_display.instantiate() as ThrownPowerUpShopDisplay
 				power_up.price = 75
 				power_up.uses = 3
+				var new_grenade = thrown_display.instantiate() as ThrownPowerUpShopDisplay
 				new_grenade.power_up = power_up
 				power_up_container.add_child(new_grenade)
 			Enums.Power_Up_Type.EXPLODING_DASH:
@@ -165,5 +165,3 @@ func _toggle_shopping() -> void:
 
 func _on_gain_power_up(power_up: PowerUp) -> void:
 	player.power_ups.append(power_up)
-	print("power_ups executing")
-	

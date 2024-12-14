@@ -102,7 +102,7 @@ func _physics_process(_delta):
 		return
 		
 	if _player.health > 0.0 and len(_hazards) < _MAX_HAZARDS:
-		print("spawning hazard")
+		#print("spawning hazard")
 		_spawn_hazard()
 		
 	for hazard in _hazards:

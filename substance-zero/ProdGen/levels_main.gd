@@ -1,14 +1,18 @@
 extends Node2D
 
-var currLevel = 1 
+var currlevel:int = 1
 var gener = null
 var planet = 0
 func restartGener(): 
 	if gener != null: 
 		gener.queue_free()
 	gener = preload("res://ProdGen/ProdGenTest.tscn").instantiate()
-	gener.genRes = loadres(currLevel)
-	gener.planet = planet
+	gener.genRes = loadres(currlevel)
+	
+	if (Global.planet_number > 4):
+		Global.planet_number = 0
+	gener.planet = Global.planet_number
+	print("CURRENT LEVEL IS ", Global.planet_number)
 	add_child(gener)
 	return gener
 	
@@ -22,17 +26,17 @@ func loadres(i):
 
 
 func _on_button_2_pressed() -> void:
-	if currLevel == 4:
-		currLevel = 1
+	if currlevel == 4:
+		currlevel = 1
 	else: 
-		currLevel += 1
+		currlevel += 1
 	restartGener()
 
 
 func _on_button_pressed() -> void:
-	if currLevel == 1:
+	if currlevel == 1:
 		return 
-	currLevel -= 1
+	currlevel -= 1
 	restartGener()
 
 

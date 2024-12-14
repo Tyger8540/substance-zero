@@ -9,6 +9,7 @@ enum Weapons {
 	ALL_DIRECTIONS_GUN
 }
 
+# modified from exercise 1
 enum Facing { 
 	LEFT,
 	RIGHT,
@@ -32,14 +33,14 @@ const _DEFAULT_ROTATE_SPEED:float = 0.04
 
 const _DEFAULT_MELEE_LENGTH = 10.0
 const _DEFAULT_MELEE_DAMAGE = 10.0
-const _DEFAULT_MELEE_OFFSET = 80.0
+const _DEFAULT_MELEE_OFFSET = 50.0
 const _DEFAULT_MELEE_DURATION = 0.5
 
 const _DEFAULT_PROJECTILE_LENGTH = 10.0
 const _DEFAULT_PROJECTILE_DAMAGE = 10.0
-const _DEFAULT_PROJECTILE_SPEED = 50.0
-const _DEFAULT_PROJECTILE_OFFSET = 120.0
-const _DEFAULT_PROJECTILE_DURATION = 0.2
+const _DEFAULT_PROJECTILE_SPEED = 20.0
+const _DEFAULT_PROJECTILE_OFFSET = 30.0
+const _DEFAULT_PROJECTILE_DURATION = 1.0
 
 const _DEFAULT_PIERCING_PROJECTILE_LENGTH = 10.0
 const _DEFAULT_PIERCING_PROJECTILE_DAMAGE = 10.0
@@ -113,11 +114,11 @@ var ship_deccelerate_command:Command
 var attacking:= false
 var damaged := false
 var dead := false
+var char_name:String = ""
 
 # from exercise 1
 var facing:Facing = Facing.RIGHT
 
-# from exercise 3
 @onready var melee = load("res://scenes/weapons/melee.tscn")
 @onready var projectile = load("res://scenes/weapons/projectile.tscn")
 @onready var piercing_projectile = load("res://scenes/weapons/piercing_projectile.tscn")
@@ -128,13 +129,20 @@ var facing:Facing = Facing.RIGHT
 func take_damage(damage:float) -> void:
 	health -= damage
 	damaged = true
+	if name == "Player": 
+		SoundManager.playSound("playerHurt")
+		
 	if health <= 0.0:
 		dead = true
 		health = 0.0
-		queue_free()
-		print("character died")
+	
 		if name == "Player":
-			print("Game Over")
+			SoundManager.playSound("playerDeath")
+		if name != "Player":
+			queue_free()
+		
+		if name == "Boss1":
+			get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
 		
 		
 func handle_position(hurtbox:HurtBox, offset:float) -> void:
@@ -292,7 +300,6 @@ func fire_all_directions_gun(projectile_spawn:Node, length:float=default_project
 		
 		# set the character's facing back to the original
 		facing = old_facing
-		
 
 
 func has_power_up(_type: Enums.Power_Up_Type) -> bool:
@@ -300,8 +307,6 @@ func has_power_up(_type: Enums.Power_Up_Type) -> bool:
 		if is_instance_valid(power_up) and power_up.type == _type:
 			return true
 	return false
-
-
 func get_power_up(_type: Enums.Power_Up_Type) -> PowerUp:
 	for power_up in power_ups:
 		if is_instance_valid(power_up) and power_up.type == _type:

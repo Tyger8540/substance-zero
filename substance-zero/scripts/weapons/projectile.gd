@@ -1,4 +1,3 @@
-# modified from exercise 1
 class_name Projectile
 extends HurtBox
 
@@ -28,6 +27,8 @@ func _ready():
 	add_child(_timer)
 	_timer.start(duration)
 	bind_commands()
+	
+	#$laser.playSound()
 
 
 func _physics_process(_delta):

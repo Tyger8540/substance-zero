@@ -1,0 +1,13 @@
+
+1. Local sounds (disappear when character queue freed) for e.g player.tscn: 
+In that scene, add a SoundQueue instance, add an AudioStreamPlayer 2D as its child, and attach the audio file to it.
+Call $SoundQueue.playSound() should play the sound 
+Call $SoundQueue.stopSound should stop the sound
+
+2. Global sound (still play after queue freed) for e.g gameMusic: 
+In SoundManager.tscn, add a SoundQueue (as above), renamed it
+Call SoundManager.playSound("<the name you renamed above>") anywhere and it will play 
+ 
+3. Change sounds: 
+Just find the audiostreamplayer2d and drag a different audio into it
+For e.g: In SoundManager.tscn, select gameMusic/AudioStreamPlayer2D and drag an audio into it

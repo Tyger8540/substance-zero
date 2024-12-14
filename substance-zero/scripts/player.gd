@@ -15,7 +15,7 @@ var spawned:bool = false
 @onready var animation_tree: AnimationTree = $AnimationTree
 # from exercise 3
 @onready var projectile_spawn = $"../ProjectileSpawn"
-
+@onready var PlayerSound = $PlayerSoundManager
 
 # from exercise 1
 func bind_player_input_commands() -> void:
@@ -62,17 +62,22 @@ func _ready():
 	#var power_up = EXPLODING_DASH_POWER_UP.instantiate()
 	#add_child(power_up)
 	#PlayerVariables.power_ups.append(power_up)
+	char_name = "NOVA"
 
 
 # modified from exercise 1
 # execute() commands are from exercise 1
 func _physics_process(delta):
+	if dead:
+		Global.planet_number = 0
 	
-	if not spawned and Global.rooms_spawned:
+	if not spawned and Global.rooms_spawned and len(Global.room_position_array) > 0:
+		print(Global.room_position_array)
 		global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _SPAWN_OFFSET
 		global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _SPAWN_OFFSET
+		Global.current_room = len(Global.room_position_array) - 1
 		spawned = true
-		print("spawned")
+		#print("spawned")
 		
 	# handle equipping weapons
 	if Input.is_action_just_pressed("melee"):
@@ -157,6 +162,9 @@ func _physics_process(delta):
 			# Implementation for the exploding dash power up
 			if has_power_up(Enums.Power_Up_Type.EXPLODING_DASH) and dashed:
 				$ExplodingDashPowerUp.start_spawning()
+				
+			if dashed: 
+				PlayerSound.get_node("dash").playSound()
 	
 	super(delta)
 	
@@ -167,15 +175,19 @@ func _manage_animation_tree_state() -> void:
 	if !is_zero_approx(velocity.x) || !is_zero_approx(velocity.y):
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/moving"] = true
+		PlayerSound.get_node("./running").playSound()
 	else:
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/moving"] = false
+		PlayerSound.get_node("./running").stopSound()
 	#toggles
 	if attacking:
 		if current_weapon == Weapons.MELEE:
 			animation_tree["parameters/conditions/attacking"] = true
 			animation_tree["parameters/conditions/gun_attacking"] = false
 			attacking = false
+			PlayerSound.get_node("./sword").playSound()
+			
 		elif current_weapon == Weapons.LASER_GUN:
 			animation_tree["parameters/conditions/gun_attacking"] = true
 			animation_tree["parameters/conditions/attacking"] = false

@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if get_parent() is Character and get_parent().has_power_up(Enums.Power_Up_Type.BUBBLE_SHIELD) and uses == 0:
+	if uses == 0 and get_parent().has_power_up(Enums.Power_Up_Type.BUBBLE_SHIELD):
 		uses = get_parent().get_power_up(Enums.Power_Up_Type.BUBBLE_SHIELD).uses
 	if Input.is_action_just_pressed("use_power_up") and not in_use and uses > 0:
 		use_power_up()
@@ -45,10 +45,8 @@ func take_damage(damage:float) -> void:
 	if shield_health <= 0.0:
 		set_shield_inactive()
 	elif shield_health <= 0.25 * max_shield_health:
-		# TODO
 		# Sets the texture to red to symbolize quarter health
 		shield.texture = load("res://sprites/characters/Weapons/Shield Colour/Shield_Red.png")
 	elif shield_health <= 0.5 * max_shield_health:
-		# TODO
 		# Sets the texture to yellow/orange to symbolize half health
 		shield.texture = load("res://sprites/characters/Weapons/Shield Colour/Shield_Yellow.png")

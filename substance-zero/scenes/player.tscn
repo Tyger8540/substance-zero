@@ -1,9 +1,13 @@
-[gd_scene load_steps=38 format=3 uid="uid://dxb8g0cbxxokj"]
+[gd_scene load_steps=42 format=3 uid="uid://dxb8g0cbxxokj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_e0wdy"]
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="2_ka8on"]
 [ext_resource type="Texture2D" uid="uid://10kvfd66iiiw" path="res://sprites/characters/player/Warrior_Gun_Sprite.png" id="3_w0mce"]
 [ext_resource type="PackedScene" uid="uid://drj5ig1l5ey6b" path="res://scenes/UI/health_shield_bars.tscn" id="4_608mn"]
+[ext_resource type="PackedScene" uid="uid://b2wk2v3feqrt5" path="res://scenes/SoundQueue.tscn" id="5_jwnr0"]
+[ext_resource type="AudioStream" uid="uid://nfkjrd4rtlgv" path="res://sfx/sword-sound-effect-1-234987.mp3" id="6_e2ur4"]
+[ext_resource type="AudioStream" uid="uid://cvt53h6sjtmny" path="res://sfx/person-running-loop-245173.mp3" id="7_g0pad"]
+[ext_resource type="AudioStream" uid="uid://dur0k68qs1vlk" path="res://sfx/playerDash.mp3" id="8_vkrts"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gn0l2"]
 
@@ -282,3 +286,26 @@ offset_left = -16.0
 offset_top = 25.0
 offset_right = 9.0
 offset_bottom = 34.0
+
+[node name="PlayerSoundManager" type="Node" parent="."]
+
+[node name="sword" parent="PlayerSoundManager" instance=ExtResource("5_jwnr0")]
+count = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerSoundManager/sword"]
+stream = ExtResource("6_e2ur4")
+volume_db = 12.0
+
+[node name="running" parent="PlayerSoundManager" instance=ExtResource("5_jwnr0")]
+count = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerSoundManager/running"]
+stream = ExtResource("7_g0pad")
+volume_db = 20.0
+
+[node name="dash" parent="PlayerSoundManager" instance=ExtResource("5_jwnr0")]
+count = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlayerSoundManager/dash"]
+stream = ExtResource("8_vkrts")
+volume_db = 20.0

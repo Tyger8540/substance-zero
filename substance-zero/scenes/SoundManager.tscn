@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3px37e7fxdpf"]
+
+[ext_resource type="Script" path="res://scripts/autoload/sound_manager.gd" id="1_dlg1j"]
+[ext_resource type="PackedScene" uid="uid://b2wk2v3feqrt5" path="res://scenes/SoundQueue.tscn" id="2_342cm"]
+[ext_resource type="AudioStream" uid="uid://c1p6vxo2mjqca" path="res://sfx/game-start-6104.mp3" id="4_pmlwh"]
+[ext_resource type="AudioStream" uid="uid://dl44rbnmlcyw" path="res://sfx/mouse-click-117076.mp3" id="6_48xhf"]
+[ext_resource type="AudioStream" uid="uid://bbcucr6emk12q" path="res://sfx/PlayerDeath.wav" id="8_jf2gr"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_dlg1j")
+
+[node name="playerHurt" parent="." instance=ExtResource("2_342cm")]
+count = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="playerHurt"]
+volume_db = 15.0
+
+[node name="pickup" parent="." instance=ExtResource("2_342cm")]
+count = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="pickup"]
+stream = ExtResource("4_pmlwh")
+
+[node name="gameMusic" parent="." instance=ExtResource("2_342cm")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="gameMusic"]
+
+[node name="playerDeath" parent="." instance=ExtResource("2_342cm")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="playerDeath"]
+stream = ExtResource("8_jf2gr")
+volume_db = 20.0
+
+[node name="ButtonClickSound" parent="." instance=ExtResource("2_342cm")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ButtonClickSound"]
+stream = ExtResource("6_48xhf")
+volume_db = 20.0
