@@ -22,8 +22,10 @@ var weapon_dict = {
 @export var _offset_scale:int = 5.0
 
 var command_status:Command.Status
-var enemies_in_each_room:Array[Array] = []
-var appended:bool = false
+var _enemies_in_each_room:Array[Array] = []
+var _appended:bool = false
+
+var _spawned_enemies:int = 0
 
 # from exercise 1
 @onready var _player = $"../Player"
@@ -60,7 +62,7 @@ func _spawn_enemy() -> void:
 	new_enemy.global_position.y += offset_y
 	
 	# add enemy to room count of enemies
-	enemies_in_each_room[random_room_index].append(new_enemy)
+	_enemies_in_each_room[random_room_index].append(new_enemy)
 	
 	
 func _give_enemies_commands(enemy:Enemy) -> void:
@@ -68,6 +70,23 @@ func _give_enemies_commands(enemy:Enemy) -> void:
 	var random_command:int = randi_range(0, len(command_dict) - 1)
 	enemy.enemy_cmd_list.push_back(command_dict[random_command].new(0.66))
 	enemy.enemy_cmd_list.push_back(AttackCommand.new())
+	
+	
+func _room_is_empty(room:Array) -> bool:
+	var number_of_enemies:int = 0
+	for enemy in room:
+		if is_instance_valid(enemy):
+			number_of_enemies += 1
+	return number_of_enemies == 0
+	
+	
+func _get_next_non_empty_room(enemies_in_each_room:Array[Array]) -> int:
+	var room_index:int = 0
+	for room in enemies_in_each_room:
+		if not _room_is_empty(room):
+			return room_index
+		room_index += 1
+	return -1
 	
 	
 # from exercise 1
@@ -83,16 +102,16 @@ func _physics_process(_delta):
 	if not _player:
 		return
 		
-	if Global.rooms_spawned and not appended:
+	if Global.rooms_spawned and not _appended:
 		# initialize enemy array
 		for room in Global.room_position_array:
-			enemies_in_each_room.append([])
-		appended = true
+			_enemies_in_each_room.append([])
+		_appended = true
 		
 		
-	if _player.health > 0.0 and len(_enemy_spawn.get_children()) < max_enemies and Global.rooms_spawned:
-			
+	if _player.health > 0.0 and _spawned_enemies < max_enemies and Global.rooms_spawned:
 		_spawn_enemy()
+		_spawned_enemies += 1
 		
 	# give enemies commands
 	for enemy in _enemy_spawn.get_children():
@@ -100,68 +119,16 @@ func _physics_process(_delta):
 			_give_enemies_commands(enemy)
 			
 		_execute_commands(enemy)
-	# check if the room is empty
-	#if Global.rooms_spawned:
-		#if Input.is_action_just_pressed("skip_room"):
-			#Global.room_position_array.pop_back()
-			#if len(Global.room_position_array) - 1 < 0:
-				#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
-				#return
-			#_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
-		#else:
-			#for room in enemies_in_each_room:
-				#for enemy in room:
-					#if enemy and is_instance_valid(enemy):
-						#return
-				##print("teleport")
-				## teleport player to next room
-				#print("Global room position array:")
-				#print(Global.room_position_array)
-				#Global.room_position_array.pop_back()
-				#print("len")
-				#print(len(Global.room_position_array) - 1)
-				#if len(Global.room_position_array) - 1 < 0:
-					#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
-					#return
-				#_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
-				
+	
 	if Global.rooms_spawned:
 		
-		if Input.is_action_just_pressed("skip_room"):
-			Global.room_position_array.pop_back()
-			#print(len(Global.room_position_array))
-			
-			if len(Global.room_position_array) <= 0:
-				#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
+		# if player has defeated all enemies in the current room, teleport to the next room
+		if _room_is_empty(_enemies_in_each_room[Global.current_room]) or Input.is_action_pressed("skip_room"):
+			Global.current_room = _get_next_non_empty_room(_enemies_in_each_room)
+			# if player has defeated all enemies, teleport to boss room
+			if Global.current_room == -1:
+				Global.room_position_array = []
 				get_tree().change_scene_to_file("res://scenes/Bosses/Boss_Rooms/Boss1_Room.tscn")
-				return
-				
-			_player.global_position = Global.room_position_array[len(Global.room_position_array) - 1] + Vector2(30.0, 30.0)
-			
-		# check if current room is empty
-		var current_room:Array = enemies_in_each_room[len(Global.room_position_array) - 1]
-		var number_of_enemies:int = 0
-		for enemy in current_room:
-			if is_instance_valid(enemy):
-				number_of_enemies += 1
-				
-		if number_of_enemies == 0:
-			Global.room_position_array.pop_back()
-			
-			
-			# check if room position array is empty
-			# if it is teleport to spaceship
-			if len(Global.room_position_array) <= 0:
-				get_tree().change_scene_to_file("res://scenes/Bosses/Boss_Rooms/Boss1_Room.tscn")
-			# otherwise teleport to next room
 			else:
-				_player.global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _min_offset
-				_player.global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _min_offset
-				
-				# check if room position array is of size 1
-				# if it is teleport to boss room and start cutscene
-				if len(Global.room_position_array) == 1:
-					pass
-					#get_tree().change_scene_to_file("res://scenes/space_scene.tscn")
-			
-	
+				_player.global_position.x = Global.room_position_array[Global.current_room].x + _min_offset
+				_player.global_position.y = Global.room_position_array[Global.current_room].y + _min_offset

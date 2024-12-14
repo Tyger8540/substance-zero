@@ -2,7 +2,7 @@ class_name SpaceScene
 extends Node2D
 
 @export var asteroid:PackedScene
-@export var duration:float = 15.0
+@export var duration:float = 5.0
 
 @onready var ship: Ship = $Ship
 
