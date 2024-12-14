@@ -1,4 +1,4 @@
-# from exercise 1
+# modified from exercise 1
 class_name DurativeMoveDownCommand
 extends DurativeAnimationCommand
 

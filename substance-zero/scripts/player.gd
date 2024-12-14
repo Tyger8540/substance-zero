@@ -75,6 +75,7 @@ func _physics_process(delta):
 		print(Global.room_position_array)
 		global_position.x = Global.room_position_array[len(Global.room_position_array) - 1].x + _SPAWN_OFFSET
 		global_position.y = Global.room_position_array[len(Global.room_position_array) - 1].y + _SPAWN_OFFSET
+		Global.current_room = len(Global.room_position_array) - 1
 		spawned = true
 		#print("spawned")
 		

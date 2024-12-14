@@ -11,6 +11,9 @@ func _init() -> void:
 
 func _on_area_entered(hurtbox:HurtBox) -> void:
 	
+	if hurtbox.name_of_hurtbox == "Asteroid":
+		owner.take_damage(1.0)
+	
 	if hurtbox.name_of_hurtbox == "Melee":
 		owner.take_damage(hurtbox.damage + 10.0 * PowerUpInventory.power_up_level[Enums.Power_Up_Lifespan.PERMANENT][Enums.Power_Up_Type.MELEE_DAMAGE])
 		#print("melee hit")

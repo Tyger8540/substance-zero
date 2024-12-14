@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr4goiskdo3jc"]
+[gd_scene load_steps=7 format=3 uid="uid://dr4goiskdo3jc"]
 
 [ext_resource type="Script" path="res://scripts/space_scene.gd" id="1_uibie"]
 [ext_resource type="PackedScene" uid="uid://qwmcsixftmoc" path="res://scenes/ship.tscn" id="2_326y7"]
-[ext_resource type="PackedScene" path="res://scenes/asteroid.tscn" id="2_lu0m7"]
+[ext_resource type="PackedScene" uid="uid://y3pxgjvknyfu" path="res://scenes/asteroid.tscn" id="2_lu0m7"]
 [ext_resource type="PackedScene" uid="uid://2d0cqji7v8x" path="res://scenes/space_autoscroll_camera.tscn" id="3_tvx3a"]
 [ext_resource type="Texture2D" uid="uid://d2b4hjmg6b0tp" path="res://sprites/environment/Space_Backgrounds/Starfields/Starfield_03-512x512.png" id="4_2whhs"]
+[ext_resource type="FontFile" uid="uid://yb147olpvguo" path="res://sprites/Interface/GravityRegular5.ttf" id="5_oewg8"]
 
 [node name="SpaceScene" type="Node2D"]
 script = ExtResource("1_uibie")
@@ -18,6 +19,16 @@ position = Vector2(576, 324)
 scroll_speed = 0.5
 max_lead = 400.0
 subject = NodePath("../Ship")
+
+[node name="Label" type="Label" parent="SpaceAutoscrollCamera"]
+z_index = 4
+offset_left = -576.0
+offset_top = -275.0
+offset_right = 576.0
+offset_bottom = -225.0
+theme_override_fonts/font = ExtResource("5_oewg8")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

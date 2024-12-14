@@ -1,6 +1,8 @@
 class_name CutSceneBoss1
 extends CutSceneManager
 
+const _PLAYER_OFFSET = 500.0
+
 @onready var player: Player = $"../Player"
 @onready var boss: Boss1 = $"../Boss1"
 @onready var xxyla: Xxyla = $"../Xxyla"
@@ -14,6 +16,10 @@ func start_cutscene() -> void:
 	super()
 	$"../UI".visible = false
 	xxyla.facing = xxyla.Facing.LEFT
+	
+	# set player position
+	player.global_position.x = xxyla.global_position.x - _PLAYER_OFFSET
+	player.global_position.y = xxyla.global_position.y
 	
 	dialogue_queue.push_back([player, "I think I’ve found my target."])
 	dialogue_queue.push_back([xxyla, "You won’t stop us. I’ve just finished collecting my data. I’ll leave you with the Commander."])

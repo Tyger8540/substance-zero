@@ -9,6 +9,7 @@ enum Weapons {
 	ALL_DIRECTIONS_GUN
 }
 
+# modified from exercise 1
 enum Facing { 
 	LEFT,
 	RIGHT,
@@ -118,7 +119,6 @@ var char_name:String = ""
 # from exercise 1
 var facing:Facing = Facing.RIGHT
 
-# from exercise 3
 @onready var melee = load("res://scenes/weapons/melee.tscn")
 @onready var projectile = load("res://scenes/weapons/projectile.tscn")
 @onready var piercing_projectile = load("res://scenes/weapons/piercing_projectile.tscn")
