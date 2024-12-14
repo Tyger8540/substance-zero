@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bpbu5jlvro3qy"]
+[gd_scene load_steps=13 format=4 uid="uid://bpbu5jlvro3qy"]
 
 [ext_resource type="Script" path="res://scenes/Bosses/Boss_Rooms/boss_1_room.gd" id="1_81rlc"]
 [ext_resource type="PackedScene" uid="uid://d23aireoo7wp5" path="res://ProdGen/Tilemaps/BluePlanetTileMapLayer.tscn" id="1_hmm56"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c1w7yydt2efmh" path="res://scenes/Bosses/Boss1.tscn" id="6_7cskp"]
 [ext_resource type="PackedScene" uid="uid://dxb8g0cbxxokj" path="res://scenes/player.tscn" id="7_77jog"]
 [ext_resource type="PackedScene" uid="uid://hwhfkhirbpb1" path="res://scenes/UI/dialogue_box.tscn" id="8_5xtgg"]
-[ext_resource type="PackedScene" uid="uid://bpu4epfhrs3sv" path="res://scenes/Bosses/Xxyla.tscn" id="8_eufke"]
 [ext_resource type="PackedScene" uid="uid://geam7cf606yn" path="res://scenes/power_ups/bubble_shield_power_up.tscn" id="9_06bkd"]
 [ext_resource type="PackedScene" uid="uid://dry0loufbfy7y" path="res://scenes/UI/ui.tscn" id="10_4iw5t"]
 [ext_resource type="PackedScene" uid="uid://cutx0jqrqxem1" path="res://scenes/power_ups/grenade_power_up.tscn" id="10_ggvn5"]
@@ -35,10 +34,6 @@ script = ExtResource("5_f10g3")
 [node name="Boss1" parent="." instance=ExtResource("6_7cskp")]
 position = Vector2(1041, 593)
 scale = Vector2(1.5, 1.5)
-
-[node name="Xxyla" parent="." instance=ExtResource("8_eufke")]
-position = Vector2(965, 575)
-scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("7_77jog")]
 position = Vector2(591, 605)

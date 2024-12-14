@@ -23,7 +23,7 @@ func _ready() -> void:
 	character_speed = 400
 	projectile_spawn = $"../ProjectileSpawn"
 	animation_tree.active = true
-	char_name = "KLEE"
+	char_name = "Alien Leader"
 	sprite_2d.texture = load(textures[Global.planet_number])
 
 

@@ -5,7 +5,7 @@ const _PLAYER_OFFSET = 500.0
 
 @onready var player: Player = $"../Player"
 @onready var boss: Boss1 = $"../Boss1"
-@onready var xxyla: Xxyla = $"../Xxyla"
+#@onready var xxyla: Xxyla = $"../Xxyla"
 @onready var boss_battle_manager: BossBattleManager = $"../BossBattleManager"
 var dialogue_queue:Array[Array] = []
 var executing = false
@@ -15,16 +15,16 @@ var new_dialogue:DurativeDialogueCommand
 func start_cutscene() -> void:
 	super()
 	$"../UI".visible = false
-	xxyla.facing = xxyla.Facing.LEFT
 	
 	# set player position
-	player.global_position.x = xxyla.global_position.x - _PLAYER_OFFSET
-	player.global_position.y = xxyla.global_position.y
+	player.global_position.x = boss.global_position.x - _PLAYER_OFFSET
+	player.global_position.y = boss.global_position.y
 	
+	dialogue_queue.push_back([boss,  "What?"])
+	dialogue_queue.push_back([boss,  "How did you get here?"])
 	dialogue_queue.push_back([player, "I think I’ve found my target."])
-	dialogue_queue.push_back([xxyla, "You won’t stop us. I’ve just finished collecting my data. I’ll leave you with the Commander."])
-	dialogue_queue.push_back([boss,  "I’ll take care of this one."])
-	dialogue_queue.push_back([player,  "You will try."])
+	dialogue_queue.push_back([boss,  "You are too weak stop us. I’ll destory you."])
+	dialogue_queue.push_back([player,  "You can certainly try."])
 	
 	# boss1 actions:
 	boss.enemy_cmd_list.clear()
@@ -33,7 +33,6 @@ func start_cutscene() -> void:
 func end_cutscene() -> void:
 	super()
 	boss_battle_manager.boss_fight = true
-	xxyla.visible = false
 	$"../UI".visible = true
 	
   # NOTE Commented out for merge, was in main before
