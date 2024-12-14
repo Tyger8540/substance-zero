@@ -54,6 +54,8 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 *itch.io Page* - Creating the [itch.io page](https://tyger8540.itch.io/substance-zero) involved building the Godot project and uploading the webgl build to the itch page. I am very familiar with itch.io so this process went very smoothly.
 
+*Other Contributions* - In addition to managing the project with group meetings and the GitHub repository, I helped some of the other group members with parts of their code. Most significantly I helped Jacob with understanding and implementing the level generation into the rest of the game.
+
 ## User Interface and Input (Chase Keighley)
 
 *UI Theme* - A theme was created to easily style multiple UI elements including buttons, panels, etc. Found in Assets folder.
@@ -237,4 +239,5 @@ This document [Google Docs script](https://docs.google.com/document/d/1nLYpXAx5C
 
 ## Power Up System
 
-**Describe the power ups implemented and how the power up system functions.
+**Describe the power ups implemented and how the power up system functions.**
+*Overall System* - The power up system was conceived with the idea of having power ups that can be bought, all of which have different effects.
