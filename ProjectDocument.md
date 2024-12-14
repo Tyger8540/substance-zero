@@ -2,7 +2,6 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
 Our game is a 2D top-down sci-fi roguelike action role-playing game. Play as Special Agent Nova, a highly trained agent of the Republic Solaris’ military sent to investigate a distress signal sent from a human energy research laboratory. You find a Krythan military force taking control of the lab. The Krythan want to use Substance Zero, a powerful energy source being researched by the lab’s scientists, to develop artificial intelligence driven cyborg tech. Fight your way through enemy filled dungeons on multiple planets, using unlockable weapons. Gain credits to spend in the shop on special power ups that will give an edge in combat against the Krythans. Travel between planets in your starship fighter through zero gravity space levels. Will the Krythan Empire conquer the human race using their advanced cyborg technology or will Special Agent Nova succeed in stopping their plot?
 
 ## Project Resources
@@ -20,11 +19,7 @@ The gameplay loop of our game, Substance Zero, is fairly straightforward, at lea
 
 # External Code, Ideas, and Structure #
 
-If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
-
 The "power up shop" menu and "you died" screen use a shader shop_menu.gdshader that uses a small segment of code from a YouTube tutorial on how to make pause menus. The code is authored by YouTube creator "Gwizz" and found [here](https://www.youtube.com/watch?v=JEQR4ALlwVU&t=145s)
-
-If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
 citations for scripts that game logic has worked on:  
 
@@ -90,20 +85,7 @@ all scripts that game logic has worked on also has citations within the scripts
 
 # Main Roles #
 
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
-
 ## Producer (Ty Matson)
-
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
 *Group Meetings* - We met over the development period quite often, at least a couple times per week. I used a Discord group message to house all of our group interactions, which is where I would schedule meetings and update group members on tasks that needed to be completed, like the [initial plan](https://docs.google.com/document/d/1qUwD2NyjP9KsFODDz8VkGxmFNTsvUqGNmpAtfV8uMV0/edit?usp=sharing) and the [progress report](https://docs.google.com/document/d/18yocdgACt19R112gTYJg1H385-jZhN3dEJ7GGehNjJY/edit?usp=sharing). This Discord chat also served as a place for members to let me know when they had made a pull request that had conflicts, as I was in charge of resolving any conflicts. Some of the logs are available on [Google Drive](https://drive.google.com/drive/folders/1--2yjTiwh3NUMc3L4eCcA95Jw-_be_C9?usp=sharing) or here [on GitHub](MediaFiles/DiscordLogs), where I included screenshots of our Discord chats throughout development.
 
@@ -165,10 +147,6 @@ Funnily enough, after implementing this concept and testing it out, myself and o
 *Space level* - This leads me to my last topic of Movement/Physics. Since the coding for the movement followed by the camera logic didn't take the entire time I dedicated some of my focus to polishing the game. We needed someone to implement the space level in general and since I had the most experience with the movement and camera I helped out. After trying different concepts. One of which being the autoscroller with random asteroids that get in your way as you approach the planet to be landed on. We settled on the exploratory idea. To make this feel complete I wanted endless exploration eventually arrived at your destination planet, however coding asteroids that would always be around the player proved to be extremely difficult in the limited time we had left. So as a compromise we made the space level a timed exploration. [Genrating 2,000 asteroids in a 10,000 by 10,000 unit grid around the player](https://github.com/Tyger8540/substance-zero/blob/609ef12bbe517bf51c2023d512202c64b26eb7dd/substance-zero/scripts/space_scene.gd#L20) This ended up being the quickest solution to our problem of a needed space level. Admittedly generating that number of asteroids and [also checking to make sure there wasn't too much of them overlapping](https://github.com/Tyger8540/substance-zero/blob/609ef12bbe517bf51c2023d512202c64b26eb7dd/substance-zero/scripts/space_scene.gd#L36) is a little taxing on the system. If there was more time to implement and with hindsight being 20/20 I would have tried to implement a smaller initial generation, despawning the asteroids as the player got a certain distance away and spawning new ones ahead of the player's path sporadically. Although considering a bit of an overzealous scope is somewhat expected for a first big project I'm happy with our space level. The final details being [A label showing the time of exploration the player had left](https://github.com/Tyger8540/substance-zero/blob/609ef12bbe517bf51c2023d512202c64b26eb7dd/substance-zero/scripts/space_scene.gd#L70). As well as a [changing sprite depending on how many asteroid hits the player took](https://github.com/Tyger8540/substance-zero/blob/609ef12bbe517bf51c2023d512202c64b26eb7dd/substance-zero/scripts/ship.gd#L47).
 
 ## Animation and Visuals (Ruohan Huang)
-
-**List your assets, including their sources and licenses.**
-
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 *Characters Animations:* - For the player’s animation, the sprites sheet that I used only had the animation for sword attacks. Because our game takes place in a sci-fi setting, the group decided that the player would have a gun. So I decided to take the gun from the boss’s sprite sheet and add it to the player to make a gun attacking animation.
 For each of the characters on screen, including the player, the enemies and the bosses, I created an animation tree to manage their animation with their state. When they are not moving, the animation tree state would set idle to True and the idle animation would play. Same with taking damage, walking, and attacking. The animation would set the appropriate state to true and the corresponding animation would play.
@@ -240,8 +218,6 @@ I was also in charge of implementing the cutscene and some of the boss fight. Th
 
 ## Game Logic (Jacob Nguyen)
 
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
-
 I used the command pattern from exercise 1 to implement movement of characters and cutscenes. I added hit boxes from exercise 1
 so that characters can take damage. I implemented the melee weapon, projectile weapon, piercing projectile weapon, 
 and cardinal direction weapon. All of the weapons used hurt boxes from exercise 1 and the factory design pattern from exercise 3. 
@@ -302,8 +278,6 @@ This document [Google Docs script](https://docs.google.com/document/d/1nLYpXAx5C
 ![gameplay test page 1](./MediaFiles/gameplay_testing_page_1.png)
 ![gameplay test page 2](./MediaFiles/gameplay_testing_page_2.png)
 
-**Summarize the key findings from your gameplay tests.**
-
 Half of the gameplay tests were from an early version of our game. Some key points from those tests were that the game would
 be more fun if the enemy movements were randomized. There could be more indication when damage was taken and received. The movement was good and it was fun to dodge bullets. However,
 trying to aim the weapons were difficult since the weapons could not move diagonally unlike the player. Also the melee seemed too weak.
@@ -312,19 +286,11 @@ movements. Additionally, at this point, the levels, powerup system, and UI had b
 tests were that the powerup system was fun. The death animation could be worked on. The transitions between levels were too quick for the
 player. The spaceship section was fun. The game was still too short.  
 
-**Add a link to the full results of your gameplay tests.**
-
-**Summarize the key findings from your gameplay tests.**
-
 ## Narrative Design (Chase Keighley)
 
 *Script* - This 10 page [Google Docs script](https://docs.google.com/document/d/1AzL-Xw95xl-VU2a_c_DNzcz6L4h6DknmAcX1kDs1e6U/edit?usp=sharing) provides a story outline, characters and organizations, character motivations, description of locations, dialogue for 5 planet dungeons, 5 boss battles, and space levels between each planet. The story motivates much of the visual aesthetics in the UI and level/character assets (however many of the assets Ruohan got to reflect different levels and story elements were unable to be used). The story also provides an emotional and direct narrative progression to the gameplay. Unfortunately, much of the dialogue and level locations are not fully realized within the game due to time constraints faced by our team so the narrative is not extremely apparent in the game's current state.
 
 ## Press Kit and Trailer (Ruohan Huang)
-
-**Include links to your presskit materials and trailer.**
-
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
 [Presskit](https://ruohan8.github.io/Substance_Zero_Website/)
 
@@ -346,5 +312,8 @@ For the screenshots I have the similar idea, I tried to show off all the main fe
 
 ## Power Up System
 
-**Describe the power ups implemented and how the power up system functions.**
-*Overall System* - The power up system was conceived with the idea of having power ups that can be bought, all of which have different effects. Power ups are separated into three different categories, labeled lifespans, which define how they are applied in the game. The different lifespans are permanent, room-limited, and single-use, which were outlined in our [initial plan](). Each power up is also unique in its effect, and the power ups with their own unique scripts are the room-limited [exploding dash](), and the single-use power ups [bubble shield]() and [grenade](). The bubble shield power up has one use when bought from the power up shop, and the grenade power up has three uses when bought from the shop. All three of these unique power ups are scenes that are children of the Player node, so the player *technically* always has the power ups, but they can only use them when the player has [uses]() for the power ups. The bubble shield works by enabling a collision shape in front of the player that takes any damage that would have been applied to the player. The grenade power up works by letting the sprite detach its global_position from the Player object it is a child of, then move in the last direction the player was moving in. Once getting to a [throw_disance]() the grenade will explode, enabling a hurt box that will damage any enemies it touches. Once the explosion is completed, the grenade will move back to the player's global position and be set to invisible.
+*Overall System* - The power up system was conceived with the idea of having power ups that can be bought, all of which have different effects. Power ups are separated into three different categories, labeled lifespans, which define how they are applied in the game. The different lifespans are permanent, room-limited, and single-use, which were outlined in our [initial plan](https://docs.google.com/document/d/1qUwD2NyjP9KsFODDz8VkGxmFNTsvUqGNmpAtfV8uMV0/edit?usp=sharing). Each power up is also unique in its effect, and the power ups with their own unique scripts are the room-limited [exploding dash](substance-zero/scripts/powerups/exploding_dash_power_up.gd), and the single-use power ups [bubble shield](substance-zero/scripts/powerups/bubble_shield_power_up.gd) and [grenade](substance-zero/scripts/powerups/grenade_power_up.gd). The bubble shield power up has one use when bought from the power up shop, and the grenade power up has three uses when bought from the shop. All three of these unique power ups are scenes that are children of the Player node, so the player *technically* always has the power ups, but they can only use them when the player has [uses](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/power_up.gd#L7) for the power ups. The bubble shield works by enabling a collision shape in front of the player that takes any damage that would have been applied to the player. The grenade power up works by letting the sprite detach its global_position from the Player object it is a child of, then move in the last direction the player was moving in. Once getting to a [throw_disance](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/grenade_power_up.gd#L34) the grenade will explode, enabling a hurt box that will damage any enemies it touches. Once the explosion is completed, the grenade will move back to the player's global position and be set to invisible.
+
+*Connecting to UI* - I worked closely with Chase to get the power ups hooked up to the different UI systems that interact with or display power ups.I had to make sure to decrement the uses of each single-use power up [in the player's stored power_up array](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/grenade_power_up.gd#L48) in order for the UI to update correctly, as well as decrementing the uses [of the power up node itself](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/single_use_power_up.gd#L17) so that it would only have a limited number of uses that were consistent with the stored values. We also communicated to determine how the power ups and their categorizing variables, [like lifespan and type](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/power_up.gd#L4), were going to be stored so that Chase could access these values to create the power up shop. This was a key factor in the development of power ups because you do not pick them up off the ground, so without the power up shop there would be no visible or usable power ups.
+
+*Implementation in Relation to the Course* - I believe the way I implemented the power up system most closely relates to the command pattern exercise, exercise 1. Although not extremely similar, the way I created the [power_up](substance-zero/scripts/powerups/power_up.gd), [room_limited_power_up](substance-zero/scripts/powerups/room_limited_power_up.gd), and [single_use_power_up](substance-zero/scripts/powerups/single_use_power_up.gd) scripts was based on the logic of exercise 1. I specifically thought about how each different character's script extended the character script. The power up system follows the same layout, where I store all of the variables that are not unique to different kinds of power ups, like type and lifespan, in the base power up class, and then I have more unique variables and functions in the classes down the hierarchy. For instance, the single-use script contains a function called [use_power_up](https://github.com/Tyger8540/substance-zero/blob/aecf30b65b2250e772da55b540a9eb06d98d1d4a/substance-zero/scripts/powerups/single_use_power_up.gd#L16), which is used by its children, but those children also [extend the functionality](https://github.com/Tyger8540/substance-zero/blob/aecf30b65b2250e772da55b540a9eb06d98d1d4a/substance-zero/scripts/powerups/grenade_power_up.gd#L46) of the use_power_up function, as each single-use power up is going to need to do something different when it is used. This can also connect to the command pattern itself, as the base command class had an execute function that all of its child classes inherited and used in their own ways.
