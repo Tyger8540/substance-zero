@@ -1,4 +1,4 @@
-# from excise 1
+# from exercise 1
 
 class_name DurativeDialogueCommand
 extends DurativeAnimationCommand

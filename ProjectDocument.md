@@ -27,6 +27,68 @@ The "power up shop" menu and "you died" screen use a shader shop_menu.gdshader t
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
+citations for scripts that game logic has worked on:  
+
+[command.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/commands/command.gd#L1) was taken from command.gd from exercise 1  
+
+all scripts in scripts/commands/cardinal_directions and scripts/commands/diagonal_directions are modified from move_left_command.gd from exercise 1  
+
+[idle_command.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/commands/idle_command.gd#L1) was modified from idle.gd from exercise 1  
+
+[hurtbox.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/hurt_box.gd#L1) was modified from command.gd from exercise 1  
+
+[attack.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/commands/attack.gd#L1) was modified from attack_command.gd from exercise 1  
+
+[durative_move_left.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/durative_commands/cardinal_directions/durative_move_left.gd#L1) is from durative_move_left_command.gd from exercise 1  
+
+[durative_move_right.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/durative_commands/cardinal_directions/durative_move_right.gd#L1) is from durative_move_right_command.gd from exercise 1  
+
+[durative_move_up.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/durative_commands/cardinal_directions/durative_move_up.gd#L1) and durative_move_down.gd are modified from durative_move_left_command.gd from exercise 1  
+
+all scripts in scripts/durative_commands/diagonal_directions are modified from durative_move_left_command.gd from exercise 1  
+
+[durative_animation_command.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/durative_commands/durative_animation_command.gd#L1) is from durative_animation_command.gd from exercise 1  
+
+[durative_idle.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/durative_commands/durative_idle.gd#L1) is from durative_idle_command.gd from exercise 1  
+
+all scripts in scripts/specs and scripts/factories used the factory design pattern from exercise 3  
+
+all scripts in scripts/weapons have segments of code from exercise 1 and 3. If labeled "from exercise 1", 
+the code for starting a timer is from durative_animation_command.gd which is found [here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/melee.gd#L14), [here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/piercing_projectile.gd#L25), 
+and [here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/projectile.gd#L25), and bind_commands() is modified from bind_player_input_commands() 
+from player.gd which is found [here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/piercing_projectile.gd#L17) and 
+[here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/projectile.gd#L17). If labeled "from exercise 3", 
+the code for checking if a timer is not null and has stopped is from shield.gd from exercise 3 which is found [here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/melee.gd#L22), 
+[here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/piercing_projectile.gd#L44), and 
+[here](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/weapons/projectile.gd#L46).
+
+character.gd have segments of code from exercise 1 and 3. The enum Facing is modified from exercise 1 which is found [here](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L12). The variable facing is from 
+the variable facing from character.gd from exercise 1 which is found [here](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L118). 
+Both are also found in hurt_box.gd [here](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/hurt_box.gd#L5) and [here](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/hurt_box.gd#L12). 
+[take_damage()](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L128) is modified from take_damage() from player.gd from exercise 1. 
+[attack_with_melee()](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L175), [fire_laser_gun()](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L208), [fire_piercing_gun()](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L235), and [fire_all_directions_gun()](https://github.com/Tyger8540/substance-zero/blob/6fe870fbd1e4a031b5962be8717d6f1098d7ee62/substance-zero/scripts/character.gd#L262) all make specs and factories, and then build 
+a new hurtbox which used the factory design pattern from exercise 3  
+
+the node CutsceneManager is from the node CutsceneManager from exercise 1  
+
+[cutscene_manager.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/cutscene_manager.gd#L1) is from cutscene_manager.gd from exercise 1  
+
+[cutscene_trigger.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/cutscene_trigger.gd#L1) is from boss_encounter_trigger.gd from exercise 1  
+
+[enemy_manager.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/enemy_manager.gd#L1) and [hazard_manager.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/hazard_manager.gd#L1) are modified from cutscene_manager.gd from exercise 1  
+
+[hit_box.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/hit_box.gd#L1) is modified from hit_box.gd from exercise 1
+
+[hurt_box.gd](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/hurt_box.gd#L1) is modified from hurt_box.gd from exercise 1  
+
+in player.gd, [bind_player_input_commands()](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/player.gd#L21) and [unbind_player_input_commands()](https://github.com/Tyger8540/substance-zero/blob/3ce533b002565111f88e493699996eeb397f27e1/substance-zero/scripts/player.gd#L44) are from player.gd from exercise 1  
+
+the node ProjectileSpawn is from the node ProjectileSpawn in weapon.tscn from exercise 3  
+
+the node EnemySpawn is modified from the node ProjectileSpawn in weapon.tscn from exercise 3  
+
+all scripts that game logic has worked on also has citations within the scripts  
+
 # Main Roles #
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
@@ -163,9 +225,16 @@ Instead of using the animation player to control the hurtbox for the character, 
     - Sprite made by: RGS_Dev
 
 
-## Game Logic
+## Game Logic (Jacob Nguyen)
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
+
+I used the command pattern from exercise 1 to implement movement of characters and cutscenes. I added hit boxes from exercise 1
+so that characters can take damage. I implemented the melee weapon, projectile weapon, piercing projectile weapon, 
+and cardinal direction weapon. All of the weapons used hurt boxes from exercise 1 and the factory design pattern from exercise 3. 
+They make their respective specs and then call a build function in their respective factories. I made it so the melee was added 
+to the player when the player attacked and removed it once the duration of the melee was over. I did this to make switching between weapons much easier and to make the behavior of all hurt boxes more consistent with one another. For projectiles, I added them to a 
+projectile spawn similar to exercise 3 and would delete them after they hit an enemy or when its duration was over. For piercing projectiles, they were only deleted when its duration was over. I handled the facing of characters which I followed exercise 1 for. I handled the facing and rotation of hurt boxes. A hurt box would travel in the direction that a character was facing and change its rotation accordingly. I made an enemy manager to spawn enemies throughout the level. I randomized their commands, weapons, and positions. I made a hazard manager which does the same thing as enemy manager except that hazards are just enemies that do not move and cannot be damaged by characters. When the level generation was integrated into the project, I made sure that the player would always spawn in the first room and that the enemies and hazards would spawn in bounds and in random rooms. I made sure that once the player defeated all of the enemies in a level, the player would teleport to the next room with enemies. I made sure that the transition between the level and the boss arena was consistent. I worked on the transition between the boss and the space section. I implemented the transition from the space section to the next level to be based on a timer.
 
 ## Level Generation (Aryan Saneinejad)
 
@@ -215,7 +284,20 @@ This document [Google Docs script](https://docs.google.com/document/d/1nLYpXAx5C
     - License: Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
     - Sprite made by: Envato
 
-## Gameplay Testing
+## Gameplay Testing (Jacob Nguyen)
+
+![gameplay test page 1](./MediaFiles/gameplay_testing_page_1.png)
+![gameplay test page 2](./MediaFiles/gameplay_testing_page_2.png)
+
+**Summarize the key findings from your gameplay tests.**
+
+Half of the gameplay tests were from an early version of our game. Some key points from those tests were that the game would
+be more fun if the enemy movements were randomized. There could be more indication when damage was taken and received. The movement was good and it was fun to dodge bullets. However,
+trying to aim the weapons were difficult since the weapons could not move diagonally unlike the player. Also the melee seemed too weak.
+The other half of the gameplay tests were from a nearly completed version of the game. I took some of the feedback and randomized weapon
+movements. Additionally, at this point, the levels, powerup system, and UI had been integrated into our game. Some key points from those 
+tests were that the powerup system was fun. The death animation could be worked on. The transitions between levels were too quick for the
+player. The spaceship section was fun. The game was still too short.  
 
 **Add a link to the full results of your gameplay tests.**
 

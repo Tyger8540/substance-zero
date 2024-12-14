@@ -1,4 +1,3 @@
-# modified from exercise 1
 class_name Projectile
 extends HurtBox
 
