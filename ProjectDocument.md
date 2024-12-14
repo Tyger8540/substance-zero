@@ -14,10 +14,9 @@ Our game is a 2D top-down sci-fi roguelike action role-playing game. Play as Spe
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
+The gameplay loop of our game, Substance Zero, is fairly straightforward, at least for us video game enthusiasts. The top-down movement and combat can be controlled with the typical keyboard (and optionally mouse). The controls can be seen here: ![Options Menu](./MediaFiles/options.png) These controls are accessible from the game's main menu screen. To play the game, the main objective is to kill all of the enemies using your melee and ranged weapons, as well as any power ups you may choose to purchase. The main objective for the space section is to not get hit by asteroids, as that will damage your ship. In simpler terms, the best way to play the game is to kill (or dodge) the enemies before they can kill you.
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
 # External Code, Ideas, and Structure #
 
