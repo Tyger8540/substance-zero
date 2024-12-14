@@ -1,6 +1,7 @@
 class_name Asteroid
-extends StaticBody2D
+extends HurtBox
 
+const name_of_hurtbox:String = "Asteroid"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
