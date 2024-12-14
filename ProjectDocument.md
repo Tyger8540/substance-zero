@@ -8,8 +8,8 @@ Our game is a 2D top-down sci-fi roguelike action role-playing game. Play as Spe
 ## Project Resources
 
 [Web-playable version of our game.](https://tyger8540.itch.io/substance-zero)  
-[Trailer](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
+[Trailer](https://youtu.be/fXkR6jIqcSI)  
+[Press Kit](https://ruohan8.github.io/Substance_Zero_Website/)  
 [Proposal](https://docs.google.com/document/d/1qUwD2NyjP9KsFODDz8VkGxmFNTsvUqGNmpAtfV8uMV0/edit)
 
 ## Gameplay Explanation ##
@@ -162,6 +162,7 @@ Instead of using the animation player to control the hurtbox for the character, 
     - License: CC0/Public Domain
     - Sprite made by: RGS_Dev
 
+I was also in charge of implementing the cutscene and some of the boss fight. The cutscene takes away player input and execute a list of durative commands. Because our cutscene is just dialogues and we wanted to add the ability to skip past dialogue lines, I implemented a dialogue queue which have the dialogue line in order and modified the durative dialogue command so that when "C" is pressed, the command stops. 
 
 ## Game Logic
 
@@ -230,6 +231,20 @@ This document [Google Docs script](https://docs.google.com/document/d/1nLYpXAx5C
 **Include links to your presskit materials and trailer.**
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+
+[Presskit](https://ruohan8.github.io/Substance_Zero_Website/)
+
+[Trailer](https://youtu.be/fXkR6jIqcSI)
+
+For the trailer, I really wanted to capture the each aspect of our game including the attacking mechanics, the boss battles, the different planets and the powerups. I dedicated one section of the trailer to showing off each of these features. 
+- Because our game is a roguelike, I feel like showing off the attacking mechanics and the boss battles is very important as it is a main part of the game
+- I think the powerups are what make our game stand out from other games within the same genre.
+- I choose showing off the different planets to show off the different level of the game and to show off the levels generation. It also gives the player an idea of the level progression in the game.
+
+[Music used in trailer](https://freesound.org/people/Ncone/sounds/730222/)
+- License: Creative Commons 0
+
+For the screenshots I have the similar idea, I tried to show off all the main features of the game that we implemented. I had screenshots of the player using different powerups such as the bubble shield or the grenade. And I have screenshots of the player in different levels. There is also a screen of the main menu because it was something that wasn't present in the trailer. 
 
 ## Game Feel and Polish
 
