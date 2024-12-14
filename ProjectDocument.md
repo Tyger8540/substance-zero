@@ -116,6 +116,8 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 *itch.io Page* - Creating the [itch.io page](https://tyger8540.itch.io/substance-zero) involved building the Godot project and uploading the webgl build to the itch page. I am very familiar with itch.io so this process went very smoothly.
 
+*Other Contributions* - In addition to managing the project with group meetings and the GitHub repository, I helped some of the other group members with parts of their code. Most significantly I helped Jacob with understanding and implementing the level generation into the rest of the game.
+
 ## User Interface and Input (Chase Keighley)
 
 *UI Theme* - A theme was created to easily style multiple UI elements including buttons, panels, etc. Found in Assets folder.
@@ -319,4 +321,5 @@ player. The spaceship section was fun. The game was still too short.
 
 ## Power Up System
 
-**Describe the power ups implemented and how the power up system functions.
+**Describe the power ups implemented and how the power up system functions.**
+*Overall System* - The power up system was conceived with the idea of having power ups that can be bought, all of which have different effects. Power ups are separated into three different categories, labeled lifespans, which define how they are applied in the game. The different lifespans are permanent, room-limited, and single-use, which were outlined in our [initial plan](). Each power up is also unique in its effect, and the power ups with their own unique scripts are the room-limited [exploding dash](), and the single-use power ups [bubble shield]() and [grenade](). The bubble shield power up has one use when bought from the power up shop, and the grenade power up has three uses when bought from the shop. All three of these unique power ups are scenes that are children of the Player node, so the player *technically* always has the power ups, but they can only use them when the player has [uses]() for the power ups. The bubble shield works by enabling a collision shape in front of the player that takes any damage that would have been applied to the player. The grenade power up works by letting the sprite detach its global_position from the Player object it is a child of, then move in the last direction the player was moving in. Once getting to a [throw_disance]() the grenade will explode, enabling a hurt box that will damage any enemies it touches. Once the explosion is completed, the grenade will move back to the player's global position and be set to invisible.
