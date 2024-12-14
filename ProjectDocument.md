@@ -131,7 +131,7 @@ all scripts that game logic has worked on also has citations within the scripts
 
 *Input Configuration* - There are two input configurations for two types of gameplay within our game: a top-down 2D design for on-ground dungeon combat levels, and a top down 2D in-space. The inputs configuration for the dungeon combat levels is a fairly basic W,A,S,D scheme, using left click or SHIFT to attack, SPACE to dash, and some other buttons to activate power ups and menus (described in the options menu). I developed the input configuration idea for the space levels, while I also coordinated input configuration with the rest of the team, specifically when implementing the power up inputs. The input supports computer platforms. The menus rely on mouse direction, while combat can optionally use a mouse/mousepad and keyboard or keyboard only.
 
-## Movement/Physics
+## Movement/Physics (Alex Bott)
 
 There were two different player movement options:
 
@@ -246,12 +246,6 @@ projectile spawn similar to exercise 3 and would delete them after they hit an e
 
 ## Audio (Aryan Saneinejad)
 
-**List your assets, including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-**Document the sound style.**
-
 The audio system for the game is designed to enhance immersion and player feedback. 
 It incorporates various sound effects and music elements tailored to the sci-fi roguelike theme. 
 Each sound has been carefully chosen to align with the game's futuristic and intense atmosphere. The only problem I encountered was the file extensions which Godot gave me errors. 
@@ -306,11 +300,11 @@ For the trailer, I really wanted to capture the each aspect of our game includin
 
 For the screenshots I have the similar idea, I tried to show off all the main features of the game that we implemented. I had screenshots of the player using different powerups such as the bubble shield or the grenade. And I have screenshots of the player in different levels. There is also a screen of the main menu because it was something that wasn't present in the trailer. 
 
-## Game Feel and Polish
+## Game Feel and Polish (Alex Bott)
 
 *Overall Contribution* - For game feel my work kind of went hand in hand with my programming of the movement and physics. Most appropriately being the values of the [player speed, ship acceleration, dash speed and time, etc.](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/character.gd#L28) These were all implemented in the base "character.gd" class as to improve and maintain coding style and readability. This allowed me to tweak and polish the exact values of all these different movement options extremely easily. While simultaneously allowing my group members to also know where these values are located and alter or add anything themselves with ease if needed. One aspect of game feel I remember specifically is making sure the diagonal movement felt correct. The orignal implementation of the diagonal movement was the player's x and y velocity would be set to the player's base speed respectively. This made the player cover much more ground moving diagonally because there would be more distance to cover. This fix was just simply [multiplying the base speed by the square root of 2 divided by 2](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/commands/diagonal_directions/move_down_right_command.gd#L7) Using geometry to make the speed consistent during all directions of movement. As the game progressed and we created new mechanics, the dash, Ty's powerup implementation, Jacob's various weapons, and Chase's shop menu. I was tasked with the assignment of the button layout. Making sure the buttons felt intuitive and weren't too much of a stretch to press. Changing the shop button from 'p' to 'b' for example or, changing attack from space to left click and setting dash to that newly freed space key bind. Finally, I do admit I wish I was able to implement more game polish in terms of tacktileness. I think the game scope we originally had came back to bite us again in this sense. As I am currently writing this now, parked in a starbucks parking lot halfway on my way home for the holidays. I didn't have quite enough time to make taking damage flash the screen red, or adding screen shake when the player dashed to add to the impactfulness. With those two things implemented I would have felt more completed in my task of this subrole. 
 
-## Power Up System
+## Power Up System (Ty Matson)
 
 *Overall System* - The power up system was conceived with the idea of having power ups that can be bought, all of which have different effects. Power ups are separated into three different categories, labeled lifespans, which define how they are applied in the game. The different lifespans are permanent, room-limited, and single-use, which were outlined in our [initial plan](https://docs.google.com/document/d/1qUwD2NyjP9KsFODDz8VkGxmFNTsvUqGNmpAtfV8uMV0/edit?usp=sharing). Each power up is also unique in its effect, and the power ups with their own unique scripts are the room-limited [exploding dash](substance-zero/scripts/powerups/exploding_dash_power_up.gd), and the single-use power ups [bubble shield](substance-zero/scripts/powerups/bubble_shield_power_up.gd) and [grenade](substance-zero/scripts/powerups/grenade_power_up.gd). The bubble shield power up has one use when bought from the power up shop, and the grenade power up has three uses when bought from the shop. All three of these unique power ups are scenes that are children of the Player node, so the player *technically* always has the power ups, but they can only use them when the player has [uses](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/power_up.gd#L7) for the power ups. The bubble shield works by enabling a collision shape in front of the player that takes any damage that would have been applied to the player. The grenade power up works by letting the sprite detach its global_position from the Player object it is a child of, then move in the last direction the player was moving in. Once getting to a [throw_disance](https://github.com/Tyger8540/substance-zero/blob/c81dbffbdc093dd800728356afbbe789adfc9468/substance-zero/scripts/powerups/grenade_power_up.gd#L34) the grenade will explode, enabling a hurt box that will damage any enemies it touches. Once the explosion is completed, the grenade will move back to the player's global position and be set to invisible.
 
